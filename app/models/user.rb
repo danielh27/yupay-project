@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   def assign_warehouse
     warehouse = Warehouse.new(name: "default", user: self)
-    self.warehouses << warehouse
+    warehouse.save
   end
 end
