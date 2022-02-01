@@ -1,0 +1,10 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category, collection: Product::CATEGORY %>
+  <%= f.input :size, collection: Product::SIZE %>
+  <%= f.input :price %>
+  <%= f.input :cost %>
+  <%= f.input :stock %>
+  <%= f.input :minimum_required %>
+  <%= f.submit %>
+<% end %>
