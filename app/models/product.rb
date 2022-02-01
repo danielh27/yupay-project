@@ -1,7 +1,9 @@
 class Product < ApplicationRecord
   belongs_to :warehouse
-  has_many :orders
-  has_many :purchases
+  has_many :list_orders
+  has_many :list_purchases
+  has_many :orders, through: :list_orders
+  has_many :purchases, through: :list_purchases 
   CATEGORY = %w[Polos Jeans Shorts Camisas Chompas Vestidos Faldas Blusas Casacas Abrigos Trajes Bufandas Pijamas Bodies Fajas]
   SIZE = %w[XS S M L XL]
 
