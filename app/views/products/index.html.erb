@@ -1,1 +1,33 @@
-<h1>products...</h1>
+<h1>Products</h1>
+<div class="container">
+<table class="table">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Category</th>
+    <th scope="col">Size</th>
+    <th scope="col">Bar Code</th>
+    <th scope="col">Cost</th>
+    <th scope="col">Price</th>
+    <th scope="col">Stock</th>
+  </tr>
+  <% @products.each do |p| %>
+  <tr>
+    <td scope="row"> <%= p.name %> </td>
+    <td scope="row"> <%= p.category %> </td>
+    <td scope="row"> <%= p.size %> </td>
+    <td scope="row"> <%= p.bar_code %> </td>
+    <td scope="row"> <%= p.cost %> </td>
+    <td scope="row"> <%= p.price %> </td>
+    <td scope="row"> <%= p.stock %> </td>
+  </tr>
+  <% end %>
+  
+</table>
+
+
+  
+    <ul>
+     
+    </ul>
+  
+</div>
