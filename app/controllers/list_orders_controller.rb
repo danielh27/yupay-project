@@ -4,13 +4,13 @@ class ListOrdersController < ApplicationController
   end
 
   def create
-    # @product = Product.find(params[:product_id])
-    # @order = Order.find(params[:order_id])
-    # @list_order = List_order.new(lis_order_params)
-    # @list_order.product = @product
-    # @list_order.order = @order
+    order = Order.new
+    order.customer = Customer.first
+    @list_order = ListOrder.new(list_order_params)
+    @list_order.order = order
+    @list_order.save!
     # if @list_order.save
-    #   redirect_to orders_new_products_path
+    #    redirect_to list_orders_path
     # else
     #   render :new
     # end
@@ -19,6 +19,6 @@ class ListOrdersController < ApplicationController
   private
 
   def list_order_params
-    params.require(:list_order).permit(:quantity)
+    params.require(:list_order).permit(:quantity, :product_id)
   end
 end
