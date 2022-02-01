@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_193356) do
     t.float "price"
     t.integer "stock"
     t.string "bar_code"
-    t.integer "minimun_required"
+    t.integer "minimum_required"
     t.float "cost"
     t.boolean "visible", default: true
     t.bigint "warehouse_id", null: false
