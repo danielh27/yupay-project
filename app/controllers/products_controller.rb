@@ -38,8 +38,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-
+    # @product.destroy no se va a destruir el producto, solo se va a ocultar con la funcion visible
+    @product.visible = false
+    @product.save
     redirect_to products_path
   end
 
