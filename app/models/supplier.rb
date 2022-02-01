@@ -1,5 +1,4 @@
 class Supplier < ApplicationRecord
-  has_many :purchases
 
-  validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :name, presence: true, length: { minimum: 6 }, uniqueness: true
 end

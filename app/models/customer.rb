@@ -1,5 +1,3 @@
 class Customer < ApplicationRecord
-  has_many :orders
-
-  validates :name, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :name, presence: true, length: { minimum: 6 }, uniqueness: true
 end
