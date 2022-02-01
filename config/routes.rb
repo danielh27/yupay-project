@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :orders
   resources :purchases
+  resources :list_purchases
   resources :basket
   get '/kpis', to: 'pages#kpis'
-  
+
 end

@@ -32,4 +32,5 @@ final = ["costuras", "malla", "cuello scoop bajo", "talle alto", "escote", "esta
 
   new_product = Product.new(product_attr)
   new_product.warehouse = User.first.warehouses.first
+  new_product.save
 end
