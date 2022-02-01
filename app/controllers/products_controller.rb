@@ -1,11 +1,6 @@
 class ProductsController < ApplicationController
-<<<<<<< HEAD
- def index
-   @product = Product.all
- end
-=======
   skip_before_action :authenticate_user!
-  before_action :set_product, only: %i[details edit update destroy]
+  before_action :set_product, only: %i[edit update destroy show]
 
   def dashboard
   end
@@ -14,7 +9,7 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def details
+  def show
   end
 
   def new
@@ -23,7 +18,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.warehouse = current_user.warehouse
+    @product.warehouse = current_user.warehouses.first
     if @product.save
       redirect_to product_path(@product)
     else
@@ -57,5 +52,4 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :category, :size, :price, :stock, :minimum_required, :cost, :visible)
   end
->>>>>>> master
 end
