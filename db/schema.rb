@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_193356) do
+ActiveRecord::Schema.define(version: 2022_02_01_170434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,32 @@ ActiveRecord::Schema.define(version: 2022_01_31_193356) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "orders", force: :cascade do |t|
+  create_table "list_orders", force: :cascade do |t|
     t.integer "quantity"
     t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_list_orders_on_order_id"
+    t.index ["product_id"], name: "index_list_orders_on_product_id"
+  end
+
+  create_table "list_purchases", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "product_id", null: false
+    t.bigint "purchase_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_list_purchases_on_product_id"
+    t.index ["purchase_id"], name: "index_list_purchases_on_purchase_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.boolean "status"
     t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -48,12 +66,10 @@ ActiveRecord::Schema.define(version: 2022_01_31_193356) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer "stock_received"
-    t.bigint "product_id", null: false
+    t.boolean "status"
     t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_purchases_on_product_id"
     t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
   end
 
@@ -86,10 +102,12 @@ ActiveRecord::Schema.define(version: 2022_01_31_193356) do
     t.index ["user_id"], name: "index_warehouses_on_user_id"
   end
 
+  add_foreign_key "list_orders", "orders"
+  add_foreign_key "list_orders", "products"
+  add_foreign_key "list_purchases", "products"
+  add_foreign_key "list_purchases", "purchases"
   add_foreign_key "orders", "customers"
-  add_foreign_key "orders", "products"
   add_foreign_key "products", "warehouses"
-  add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "suppliers"
   add_foreign_key "warehouses", "users"
 end
