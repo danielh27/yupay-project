@@ -1,3 +1,4 @@
+
 <div class="container">
   <p> <%= @product.name %> </p>
   <p> Categoria: <%= @product.category %> </p>
@@ -6,4 +7,12 @@
   <p> <%= @product.cost %> </p>
   <p> Stock: <%= @product.stock %> </p>
   <p> <%= @product.minimum_required %> </p>
+  <%# boton update %>
+  <p> <%= link_to "Editar", edit_product_path(@product)  %> </p>
+  <%# boton borrar %>
+  <p> <%= link_to "Borrar producto", product_path(@product), method: "delete", data: { confirm: 'Are you sure you want to delete?' }  %> </p>
+   
+
+<%# link_to "Delete Book", @book, method: "delete", { confirm: "Are you sure?", disable_with: "Processing..." } %>
+
 </div>

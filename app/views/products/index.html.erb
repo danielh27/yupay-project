@@ -9,17 +9,26 @@
     <th scope="col">Cost</th>
     <th scope="col">Price</th>
     <th scope="col">Stock</th>
+    <th scope="col">visible</th>
+    <th scope="col">Link</th>
   </tr>
-  <% @products.each do |p| %>
-  <tr>
-    <td scope="row"> <%= p.name %> </td>
-    <td scope="row"> <%= p.category %> </td>
-    <td scope="row"> <%= p.size %> </td>
-    <td scope="row"> <%= p.bar_code %> </td>
-    <td scope="row"> <%= p.cost %> </td>
-    <td scope="row"> <%= p.price %> </td>
-    <td scope="row"> <%= p.stock %> </td>
-  </tr>
+  <% @products.each do |product| %>
+    <% if product.visible == true %>
+      <tr>
+      <td scope="row"> <%= product.name %> </td>
+      <td scope="row"> <%= product.category %> </td>
+      <td scope="row"> <%= product.size %> </td>
+      <td scope="row"> <%= product.bar_code %> </td>
+      <td scope="row"> <%= product.cost %> </td>
+      <td scope="row"> <%= product.price %> </td>
+      <td scope="row"> <%= product.stock %> </td>
+      <td scope="row"> <%= product.visible %> </td>
+      <td scope="row"> <%= link_to "ver", product_path(product)%> </td>
+      
+    </tr>
+    <% end %>
+    
+
   <% end %>
   
 </table>
