@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :products
   resources :warehouses
   resources :customers
-  resources :orders 
+  resources :orders
   resources :purchases
+  resources :basket
+  get '/kpis', to: 'pages#kpis'
   
 end
