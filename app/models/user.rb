@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def assign_warehouse
-    warehouse = Warehouse.new(user: current_user)
-    warehouse.save
+    warehouse = Warehouse.new(name: "default", user: self)
+    self.warehouses << warehouse
   end
 end
