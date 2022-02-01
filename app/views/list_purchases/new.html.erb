@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Ingresar mercaderia</h1>
+  <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
+  <h2>Carrito??</h2>
+  <% if @list_purchases.present? %>
+    <ul>
+      <% @list_purchases.each do |purchase| %>
+        <li><%= purchase.product.name %> | Cantidad: <%= purchase.quantity %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

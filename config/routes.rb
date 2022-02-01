@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :warehouses
   resources :customers
   resources :orders
-  resources :purchases
-  resources :list_purchases
-  resources :basket
+  resources :purchases, only: %i[new create show] do
+    resources :list_purchases, only: %i[new create]
+  end
+  # resources :list_purchases, only: %i[create]
   get '/kpis', to: 'pages#kpis'
 
 end
