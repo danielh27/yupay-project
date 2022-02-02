@@ -2,26 +2,17 @@
   <div class="row">
     <%= render "shared/sidebar" %>
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-      <%= link_to "Ingresar mercaderia", purchases_path, method: "post", class: "btn btn-primary m-3" %>
-      <%= link_to "Crear producto", new_product_path, class: "btn btn-primary m-3" %>
-      <div>
-        <% if @pending_purchases.present? %>
-          <h2>Ingresos pendientes por confirmar</h2>
-          <% @pending_purchases.each do  |pending_purchase| %>
-            <div class="card m-3 p-3">
-              <ul>
-                <% pending_purchase.list_purchases.each do |list_info| %>
-                  <li><%= list_info.product.name %> | Cantidad: <%= list_info.quantity %></li>
-                <% end %>
-              </ul>
-              <div class = "d-flex">
-                <%= link_to "Continuar",  new_purchase_list_purchase_path(pending_purchase), class: "btn btn-success" %>
-                <%= link_to "Cancelar", purchase_path(pending_purchase), method: "delete", class: "btn btn-danger ml-3" %>
-              </div>
-            </div>
+      <div class="card p-3 m-3 w-25">
+        <h2 class="card-title">Ingreso de mercaderia</h2>
+        <div class="card-body">
+          <%= simple_form_for(@purchase) do |f| %>
+            <%= f.association :supplier, prompt: "Seleccione un proveedor" %>
+            <%= f.submit value: "Nueva entrada", class: "btn btn-primary" %>
           <% end %>
-        <% end %>
+        </div>
       </div>
+      <%= link_to "Crear producto", new_product_path, class: "btn btn-primary m-3" %>
+      <%= render "shared/pending_purchases" %>
     </main>
   </div>
 </div>
