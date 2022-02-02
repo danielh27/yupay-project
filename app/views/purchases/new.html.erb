@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="row">
+    <%= render "shared/sidebar" %>
+    <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
+      <%= link_to "Ingresar mercaderia", purchases_path, method: "post", class: "btn btn-primary m-3" %>
+      <%= link_to "Crear producto", new_product_path, class: "btn btn-primary m-3" %>
+    </main>
+  </div>
+</div>

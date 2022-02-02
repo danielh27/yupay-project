@@ -37,5 +37,14 @@
           <td scope="row">100/500</td>
           <td scope="row">X</td>
       </tr>
+    </table>
+    <div class="container">
+      <%# boton update %>
+      <h4> <%= link_to "Editar", edit_product_path(@product)  %> </h4>
+      <br>
+      <%# boton borrar %>
+      <h4> <%= link_to "Borrar producto", product_path(@product), method: "delete", data: { confirm: 'Are you sure you want to delete?' }  %> </h4>
+    </div>  
+
   </div>
 </div>

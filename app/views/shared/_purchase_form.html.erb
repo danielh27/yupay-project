@@ -1,0 +1,5 @@
+<%= simple_form_for(list_purchase, url: purchase_list_purchases_path) do |f| %>
+  <%= f.association :product, label: "Selecciona un producto", prompt: "Producto....." %>
+  <%= f.input :quantity, label: "Cantidad" %>
+  <%= f.submit %>
+<% end %>

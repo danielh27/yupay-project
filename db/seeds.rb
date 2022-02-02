@@ -1,7 +1,6 @@
 require 'faker'
 
 puts "Cleaning database..."
-Product.destroy_all
 
 categories = %w[Polos Jeans Shorts Camisas Chompas Vestidos Faldas Blusas Casacas Abrigos Trajes Bufandas Pijamas Bodies Fajas]
 colors = %w[amarillo verde azul rojo negro blanco gris rosado morado carmesi magenta champagne indigo coral turquesa salmon beige lila]
@@ -36,7 +35,7 @@ final = ["costuras", "malla", "cuello scoop bajo", "talle alto", "escote", "esta
   new_product = Product.new(product_attr)
   new_product.warehouse = User.first.warehouses.first
   new_product.save!
-  
+
 end
 
 puts "completed!"
