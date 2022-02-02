@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.home-header {
+  background-image: url("https://www.imarc.com/writable/images/thought-hero-images/pexels-photo-238118_copy1.jpeg");
+  height: 100vh;
+  width: 100%;
+  // object-fit: fill;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#image-home-2 {
+ background-image: url('https://image.freepik.com/free-photo/african-american-business-woman-working-computer-bar_1303-10865.jpg');
+ height: 100vh;
+ width: 100%;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
+.membership {
+ .col {
+  background-color: lightgray;
+ }
+}
+
+ 
