@@ -1,6 +1,8 @@
 <div class="container">
   <h1>Retirar mercaderia</h1>
     <%= render 'shared/order_form', list_order: @list_order %>
+    <%= @list_order %>
+    <%= @list_purchase %>
   <h2>Carrito??</h2>
   <% if @list_order.present? %>
     <ul>

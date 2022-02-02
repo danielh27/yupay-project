@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
   resources :products
-  # resources :orders
   resources :warehouses
   resources :customers
-  resources :orders
   resources :purchases, only: %i[new create show] do
     resources :list_purchases, only: %i[new create]
   end
