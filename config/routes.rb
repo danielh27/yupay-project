@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   resources :products
   resources :warehouses
   resources :customers
-  resources :orders
   resources :purchases, only: %i[new create show] do
     resources :list_purchases, only: %i[new create]
   end
   # resources :list_purchases, only: %i[create]
+  resources :orders, only: %i[new create show] do
+    resources :list_orders, only: %i[new create]
+  end
   get '/kpis', to: 'pages#kpis'
-
 end
