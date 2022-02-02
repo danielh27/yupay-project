@@ -1,9 +1,15 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Be Vietnam:400,800');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+//  $body-font: "Work Sans", "Helvetica", "sans-serif";
+//  $headers-font: "Nunito", "Helvetica", "sans-serif";
+
+ $body-font: 'Be Vietnam', 'sans-serif';
+ $headers-font: 'Be Vietnam', 'sans-serif';
+
+// font-family: 'Be Vietnam Pro', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

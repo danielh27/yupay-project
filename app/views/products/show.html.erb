@@ -1,51 +1,50 @@
-<div class="container my-5">
-  <div class="row">
-    <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-    <h1>Product</h1>
-    <br>
-    <table class="table">
-      <tr>
-        <th>Name</th>
-        <td><%= @product.name %></td>
+<div class="container-all">
+  <div class="container-card">
+    <div class="card-product">
+      <div class="image-product">
+        <%= image_tag "https://images.unsplash.com/photo-1618225747659-433d5a5c6af7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" %>
+      </div>
+      <div class="info-product">
+        <% string = @product.name.split(" ") %>
+        <h1><%= string.first %></h1>
+        <h3 class="mb-3"><%= string.last %> </h3>
+        <p class="stock"> Stock:<%= @product.stock%></p>
+        <p class="size"><%= @product.size %> </p>
+        <p class="category"> Categoria: <%= @product.category %> </p>
+        <h2> S/. <%= @product.price %> </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-table">
+    <h4>Movimientos</h4>
+    <table class="table table-borderless">
+        <tr>
+          <th scope="col">PRODUCTO</th>
+          <th scope="col">HORA REGISTRADA</th>
+          <th scope="col">HORA DE SALIDA</th>
+          <th scope="col">PRECIO</th>
+          <th scope="col">STOCK</th>
+          <th scope="col">TOTAL VENDIDOS</th>
+          <th scope="col">TALLA</th>
+        </tr>
+        <tr>
+          <td scope="row">Consectetur adipiscing elit</td>
+          <td scope="row">Mar 20, 2019 23:14</td>
+          <td scope="row">Mar 20, 2019 23:14</td>
+          <td scope="row">S/ 10.00</td>
+          <td scope="row">100/500</td>
+          <td scope="row">100/500</td>
+          <td scope="row">X</td>
       </tr>
-      <tr>
-        <th> Categoria:</th>
-        <td><%= @product.category %> </p></td>
-      </tr>
-      <tr>
-        <th>Talla:</th>
-        <td> <%= @product.size %></td>
-      </tr>
-      <tr>
-        <th>Precio:</th>
-        <td> S/. <%= @product.price %></td>
-      </tr>
-      <tr>
-        <th>Cost:</td>
-        <td>S/. <%= @product.cost %></td>
-      </tr>
-      <tr>
-      <th>Stock:</th>
-      <td> <%= @product.stock %></td>
-      </tr>
-      <tr>
-        <th>Stock Minimum:</th>
-        <td> <%= @product.minimum_required %> </td>
-      </tr>
-      
     </table>
-    <br>
-    <br>
     <div class="container">
       <%# boton update %>
       <h4> <%= link_to "Editar", edit_product_path(@product)  %> </h4>
       <br>
       <%# boton borrar %>
       <h4> <%= link_to "Borrar producto", product_path(@product), method: "delete", data: { confirm: 'Are you sure you want to delete?' }  %> </h4>
-    
     </div>  
-      
-    </main>
+
   </div>
 </div>
