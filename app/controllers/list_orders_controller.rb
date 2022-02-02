@@ -1,8 +1,7 @@
 class ListOrdersController < ApplicationController
   def new
     @list_order = ListOrder.new
-    @list_order = ListOrder.where(order: params[:order_id])
-    @list_purchase = ListPurchase.new
+    @list_orders = ListOrder.where(order: params[:order_id])
   end
 
   def create
