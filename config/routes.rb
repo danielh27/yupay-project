@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     member do
       post 'confirm'
     end
-    resources :list_purchases, only: %i[new create]
+    resources :list_purchases, only: %i[index new create]
   end
   resources :list_purchases, only: %i[destroy]
   resources :orders, only: %i[new create show] do

@@ -7,7 +7,7 @@ class PurchasesController < ApplicationController
   def create
     purchase = Purchase.new(supplier: Supplier.first, user: current_user, status: false)
     if purchase.save
-      redirect_to new_purchase_list_purchase_path(purchase)
+      redirect_to purchase_list_purchases_path(purchase)
     end
   end
 
