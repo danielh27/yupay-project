@@ -6,10 +6,13 @@ Rails.application.routes.draw do
   resources :products
   resources :warehouses
   resources :customers
-  resources :purchases, only: %i[new create show] do
+  resources :purchases, only: %i[new create show destroy] do
+    member do
+      post 'confirm'
+    end
     resources :list_purchases, only: %i[new create]
   end
-  # resources :list_purchases, only: %i[create]
+  resources :list_purchases, only: %i[destroy]
   resources :orders, only: %i[new create show] do
     resources :list_orders, only: %i[new create]
   end
