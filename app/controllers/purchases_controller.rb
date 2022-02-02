@@ -13,6 +13,7 @@ class PurchasesController < ApplicationController
 
   def confirm
     purchase = Purchase.find(params[:id])
+    increase_stock(purchase)
     purchase.status = true
     purchase.save
     redirect_to purchase_path(purchase)
@@ -26,5 +27,16 @@ class PurchasesController < ApplicationController
     purchase = Purchase.find(params[:id])
     purchase.destroy
     redirect_to new_purchase_path
+  end
+
+  private
+
+  def increase_stock(purchase)
+    purchase.list_purchases.each do |item|
+      p item.product.stock
+      item.product.stock += item.quantity
+      item.product.save!
+      p item.product.stock
+    end
   end
 end
