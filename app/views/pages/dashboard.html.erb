@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-6">
-            <%= line_chart User.group_by_day(:created_at).count %>
+            <%= line_chart Product.group_by_day(:created_at).count %>
           </div>
           <div class="col-6">
             <%= pie_chart Product.group(:category).count %>
@@ -66,6 +66,6 @@
           </tr>
         </tbody>
       </table>
-    </main>
+    <main>
   </div>
 </div>
