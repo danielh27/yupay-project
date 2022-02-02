@@ -1,10 +1,16 @@
-th {
-  font-size: 16px;
-  color: rgb(141, 141, 141);
+.container-table {
+  width: 85%;
+  margin: 90px auto;
+  border-radius: 10px ;
+  height: 460px;
+  width: 900px;
+  th {
+    font-size: 16px;
+    color: rgb(141, 141, 141);
+  }
+  
+  td {
+    font-size: 14px;
+  }
 }
 
-td {
-  font-size: 14px;
-
-
-}

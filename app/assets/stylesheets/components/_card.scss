@@ -1,10 +1,16 @@
-.container-card {
+.container-all {
   border: 1px solid black;
+  margin: 100px 60px 20px 150px;
+
+}
+
+.container-card {
   width: 85%;
   margin: 90px auto;
   border-radius: 10px ;
   height: 460px;
   width: 900px;
+  background-color: white;
 }
 
 .card-product {
