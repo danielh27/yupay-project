@@ -1,18 +1,51 @@
-<div class="container-fluid">
+<div class="container my-5">
   <div class="row">
     <%= render "shared/sidebar" %>
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-      <p> <%= @product.name %> </p>
-      <p> Categoria: <%= @product.category %> </p>
-      <p> Talla: <%= @product.size %> </p>
-      <h2> S/. <%= @product.price %> </h2>
-      <p> <%= @product.cost %> </p>
-      <p> Stock: <%= @product.stock %> </p>
-      <p> <%= @product.minimum_required %> </p>
+    <h1>Product</h1>
+    <br>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <td><%= @product.name %></td>
+      </tr>
+      <tr>
+        <th> Categoria:</th>
+        <td><%= @product.category %> </p></td>
+      </tr>
+      <tr>
+        <th>Talla:</th>
+        <td> <%= @product.size %></td>
+      </tr>
+      <tr>
+        <th>Precio:</th>
+        <td> S/. <%= @product.price %></td>
+      </tr>
+      <tr>
+        <th>Cost:</td>
+        <td>S/. <%= @product.cost %></td>
+      </tr>
+      <tr>
+      <th>Stock:</th>
+      <td> <%= @product.stock %></td>
+      </tr>
+      <tr>
+        <th>Stock Minimum:</th>
+        <td> <%= @product.minimum_required %> </td>
+      </tr>
+      
+    </table>
+    <br>
+    <br>
+    <div class="container">
       <%# boton update %>
-      <p> <%= link_to "Editar", edit_product_path(@product)  %> </p>
+      <h4> <%= link_to "Editar", edit_product_path(@product)  %> </h4>
+      <br>
       <%# boton borrar %>
-      <p> <%= link_to "Borrar producto", product_path(@product), method: "delete", data: { confirm: 'Are you sure you want to delete?' }  %> </p>
+      <h4> <%= link_to "Borrar producto", product_path(@product), method: "delete", data: { confirm: 'Are you sure you want to delete?' }  %> </h4>
+    
+    </div>  
+      
     </main>
   </div>
 </div>
