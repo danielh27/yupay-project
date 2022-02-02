@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_170434) do
+ActiveRecord::Schema.define(version: 2022_02_02_175632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 2022_02_01_170434) do
     t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -70,7 +72,9 @@ ActiveRecord::Schema.define(version: 2022_02_01_170434) do
     t.bigint "supplier_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["supplier_id"], name: "index_purchases_on_supplier_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -107,7 +111,9 @@ ActiveRecord::Schema.define(version: 2022_02_01_170434) do
   add_foreign_key "list_purchases", "products"
   add_foreign_key "list_purchases", "purchases"
   add_foreign_key "orders", "customers"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "warehouses"
   add_foreign_key "purchases", "suppliers"
+  add_foreign_key "purchases", "users"
   add_foreign_key "warehouses", "users"
 end

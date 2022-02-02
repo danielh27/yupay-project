@@ -4,8 +4,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    purchase = Purchase.new
-    purchase.supplier = Supplier.first
+    purchase = Purchase.new(supplier: Supplier.first, user: current_user)
     if purchase.save!
       redirect_to new_purchase_list_purchase_path(purchase)
     end
