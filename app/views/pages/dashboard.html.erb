@@ -3,6 +3,69 @@
     <%= render "shared/sidebar" %>
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
       <h1>DASHBOARD</h1>
-    </main>
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <%= line_chart Product.group_by_day(:created_at).count %>
+          </div>
+          <div class="col-6">
+            <%= pie_chart Product.group(:category).count %>
+          </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col"></th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Total vendidos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>1</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>2</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>3</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>4</td>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>5</td>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    <main>
   </div>
 </div>
