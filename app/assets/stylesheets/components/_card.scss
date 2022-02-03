@@ -27,6 +27,7 @@
   }
 }
 
+
 .info-product {
   // display: flex;
   flex-grow: 1;
@@ -72,5 +73,57 @@
   }
   .category {
     font-weight: bold;
+  }
+}
+
+
+
+
+
+// Containers from forms
+
+.container-form {
+  width: 85%;
+  margin: 90px auto;
+  border-radius: 10px ;
+  height: 460px;
+  width: 900px;
+  background-color: #f8f7f7;
+}
+
+
+.image-form {
+  width: 40%;
+  img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px 0px 0px 10px;
+    height: 460px;
+  }
+}
+
+.info-form {
+  // display: flex;
+  flex-grow: 1;
+  // align-items: center;
+  // justify-content: center;
+  // width: 70%;
+  text-align: left;
+  padding: 55px 70px;
+  h1 {
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 0px;
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
   }
 }
