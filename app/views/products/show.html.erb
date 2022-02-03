@@ -29,7 +29,7 @@
             <th scope="col">TOTAL VENDIDOS</th>
             <th scope="col">TALLA</th>
           </tr>
-          <tr>
+          <tr class="table-infos">
           <% @list.each do |col| %>
             <td scope="row"> <%= col.product.name %></td>
             <td scope="row"> <%= col.created_at %></td>
