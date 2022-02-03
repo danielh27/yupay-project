@@ -3,6 +3,7 @@ class PurchasesController < ApplicationController
   def new
     @purchase = Purchase.new
     @pending_purchases = Purchase.where(status: false)
+    @supplier = Supplier.new
   end
 
   def create

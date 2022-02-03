@@ -5,13 +5,18 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'pages#dashboard'
   resources :products
   resources :customers
+
+  resources :suppliers, only: %i[create]
+
   resources :purchases, only: %i[new create show destroy] do
     member do
       post 'confirm'
     end
     resources :list_purchases, only: %i[index new create]
   end
+
   resources :list_purchases, only: %i[destroy]
+
   resources :orders, only: %i[new create show] do
     resources :list_orders, only: %i[new create]
   end
