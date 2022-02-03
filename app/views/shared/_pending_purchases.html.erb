@@ -9,7 +9,7 @@
           <% end %>
         </ul>
         <div class = "d-flex">
-          <%= link_to "Continuar",  new_purchase_list_purchase_path(pending_purchase), class: "btn btn-success" %>
+          <%= link_to "Continuar", purchase_list_purchases_path(pending_purchase), class: "btn btn-success" %>
           <%= link_to "Cancelar", purchase_path(pending_purchase), method: "delete", class: "btn btn-danger ml-3" %>
         </div>
       </div>
