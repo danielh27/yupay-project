@@ -12,7 +12,7 @@ class PagesController < ApplicationController
       elsif params[:query] == '3'
         @products = Product.all.order(stock: :desc).take(5)
       else
-        @products = Product.all.sort_by{ |product| -product.list_orders.sum(:quantity) }.take(5)
+        @products = Product.all.sort_by { |product| -product.list_orders.sum(:quantity) }.take(5)
       end
     else
       @products = Product.all
