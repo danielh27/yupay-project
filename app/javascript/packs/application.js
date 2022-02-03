@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "chartkick/chart.js"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -18,7 +19,8 @@ ActiveStorage.start()
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
 // External imports
 import "bootstrap";
 
