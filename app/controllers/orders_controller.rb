@@ -12,7 +12,15 @@ class OrdersController < ApplicationController
     end
   end
 
+  def confirm
+    order = Order.find(params[:id])
+    order.status = true
+    order.save
+    redirect_to order_path(order)
+  end
+
   def show
+    @order = Order.find(params[:id])
   end
 
   def destroy

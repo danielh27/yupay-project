@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :list_purchases, only: %i[destroy]
 
   resources :orders, only: %i[new create show destroy] do
+    member do
+      post 'confirm'
+    end
     resources :list_orders, only: %i[index new create]
   end
   get '/kpis', to: 'pages#kpis'

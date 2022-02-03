@@ -2,6 +2,7 @@ class ListOrdersController < ApplicationController
   def index
     @list_order = ListOrder.new
     @list_orders = ListOrder.where(order: params[:order_id])
+    @order = Order.find(params[:order_id])
   end
 
   def create

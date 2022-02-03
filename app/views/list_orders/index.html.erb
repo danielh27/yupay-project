@@ -12,6 +12,10 @@
           <% end %>
         </ul>
       <% end %>
+      <div>
+        <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+        <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+      </div>
     </main>
   </div>
 </div>
