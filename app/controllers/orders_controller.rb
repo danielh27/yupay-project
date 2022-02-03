@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
 
   def confirm
     order = Order.find(params[:id])
+    descrease_stock(order)
     order.status = true
     order.save
     redirect_to order_path(order)
@@ -27,5 +28,14 @@ class OrdersController < ApplicationController
     order = Order.find(params[:id])
     order.destroy
     redirect_to new_order_path
+  end
+
+  private
+
+  def decrease_stock(order)
+    order.list_orders.each do |item|
+      item.product.stock -= item.quantity
+      item.product.save
+    end
   end
 end
