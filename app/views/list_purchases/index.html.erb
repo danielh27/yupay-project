@@ -3,6 +3,7 @@
     <%= render "shared/sidebar" %>
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
       <h1>Ingresar mercaderia</h1>
+      <h2>Proveedor: <%= @purchase.supplier.name %></h2>
       <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
       <h2 class="mt-5">Productos agregados</h2>
       <% if @list_purchases.present? %>
@@ -13,8 +14,8 @@
         </ul>
       <% end %>
       <div>
-        <%= link_to "Cancelar", purchase_path(@purchase_id), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-        <%= link_to "Confirmar", confirm_purchase_path(@purchase_id), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+        <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+        <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
       </div>
     </main>
   </div>

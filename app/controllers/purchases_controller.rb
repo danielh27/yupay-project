@@ -7,7 +7,9 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    purchase = Purchase.new(supplier: Supplier.first, user: current_user, status: false)
+    purchase = Purchase.new(purchase_params)
+    purchase.user = current_user
+    purchase.status = false
     if purchase.save
       redirect_to purchase_list_purchases_path(purchase)
     end
@@ -32,6 +34,10 @@ class PurchasesController < ApplicationController
   end
 
   private
+
+  def purchase_params
+    params.require(:purchase).permit(:supplier_id)
+  end
 
   def increase_stock(purchase)
     purchase.list_purchases.each do |item|
