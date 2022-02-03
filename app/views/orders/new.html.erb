@@ -3,6 +3,7 @@
     <%= render "shared/sidebar" %>
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
       <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
+      <%= render "shared/unconfirmed_orders" %>
     </main>
   </div>
 </div>
