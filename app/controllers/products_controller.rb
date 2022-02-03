@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @list = ListPurchase.where(product_id:(params[:id]))
   end
 
   def new
