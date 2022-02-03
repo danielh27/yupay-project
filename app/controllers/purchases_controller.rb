@@ -2,11 +2,7 @@ class PurchasesController < ApplicationController
 
   def new
     @purchase = Purchase.new
-<<<<<<< HEAD
-    @pending_purchases = Purchase.where(status: false) # para el movement -osyv
-=======
     @unconfirmed_purchases = Purchase.where(status: false)
->>>>>>> master
     @supplier = Supplier.new
   end
 
