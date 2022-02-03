@@ -14,4 +14,10 @@ class OrdersController < ApplicationController
 
   def show
   end
+
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    redirect_to new_order_path
+  end
 end
