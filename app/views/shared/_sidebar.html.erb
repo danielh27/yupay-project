@@ -4,32 +4,32 @@
     <ul class="nav flex-column h-100">
       <li class="nav-item">
         <%= link_to dashboard_path, class: "nav-link" do %>
-          <i class="fas fa-tachometer-alt"></i>
-          Dashboard
-        <% end %>
+          <%= image_tag "Dashboard.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Dashboard </p>
+          <% end %>
       </li>
       <li class="nav-item">
         <%= link_to products_path, class: "nav-link" do  %>
-          <i class="far fa-sticky-note"></i>
-          Productos
+          <%= image_tag "Actividad.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Productos </p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to  new_purchase_path, class: "nav-link" do  %>
-          <i class="fas fa-dolly"></i>
-          Entradas
+          <%= image_tag "Registro.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Entradas </p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to new_order_path, class: "nav-link" do %>
           <i class="fas fa-file-invoice-dollar"></i>
-          Ventas
+          <p class="name-sidebar"> Ventas </p>
         <% end %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
           <i class="fas fa-exchange-alt"></i>
-          Movimientos
+          <p class="name-sidebar"> Movimientos </p>
         </a>
       </li>
     </ul>

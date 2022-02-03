@@ -6,6 +6,7 @@
   z-index: 100; /* Behind the navbar */
   padding: 48px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  width: 90px;
 }
 
 @media (max-width: 767.98px) {
@@ -53,3 +54,13 @@
   font-size: .75rem;
   text-transform: uppercase;
 }
+
+.dashboard {
+  filter: invert(16%) sepia(31%) saturate(2582%) hue-rotate(158deg) brightness(88%) contrast(99%);
+}
+.name-sidebar {
+  font-size: 12px;
+  font-weight: medium;
+}
+
+// https://codepen.io/sosuke/pen/Pjoqqp => para generador de filter que es utilizado para cambio de color en svg
