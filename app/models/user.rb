@@ -8,6 +8,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  private
+
   def assign_warehouse
     warehouse = Warehouse.new(name: "default", user: self)
     warehouse.save

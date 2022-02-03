@@ -15,6 +15,9 @@ class Product < ApplicationRecord
   validates :cost, presence: true, numericality: { greather_than: 0 }
   validates :stock, presence: true, numericality: { only_integer: true, greather_than_or_equal_to: 0 }
   validates :minimum_required, presence: true, numericality: { only_integer: true, greather_than_or_equal_to: 0 }
+
+  private
+
   def set_bar_code
     self.bar_code = generate_bar_code
   end
