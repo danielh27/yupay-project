@@ -2,3 +2,9 @@ th, td {
   padding: 15px 45px;
   text-align: center;
 }
+.container-flex{
+  display: flex;
+}
+.table{
+  flex-grow: 1;
+}
