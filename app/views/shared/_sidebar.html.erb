@@ -14,9 +14,10 @@
           <% end %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <%= link_to movements_path, class: "nav-link" do %>
            <%= image_tag "Actividad.svg", class: "dashboard" %>
           <p class="name-sidebar"> Actividad </p>
+        <% end %>
         </a>
       </li>
       <li class="nav-item">
