@@ -1,0 +1,41 @@
+<%= render "shared/sidebar" %>
+<div class="container">
+  <h1>Movimientos Globales</h1>
+  <br>
+ <%# purchases confirmadas en el page-controller %>
+ <% @confirmed_purchases.each do |cp| %>  
+   
+   <div class="card m-3 p-2">
+     <h4 class="card-title">Purchase: <%= cp.id %>  </h4>
+     <table class="table">
+       <% cp.list_purchases.each do |lp| %>
+          <tr>        
+            <td class="text-left">Producto: <%= lp.product.name %></td>        
+            <td >Cantidad: <%= lp.quantity %></td>        
+          </tr>
+        <% end %>
+     </table>
+
+  <%# EN FORMATO DE LISTA %>
+  <%# <table class="table">
+   <tr><th>Producto</th><th>Cantidad</th><th>Fecha actualizacion</th><th>Purchase</th></tr>
+   <% @confirmed_lists.each do |cl| >
+   <tr>
+   
+    <td><%= cl.product.name > </td>
+    <td><%= cl.quantity ></td>
+    <td><%= cl.updated_at ></td>
+    <td><%= cl.purchase.id %></td>
+    <%# columna para borrar, solo para pruebas >
+    <td><%= cl.purchase.status ></td> 
+   </tr>    
+  <% end >
+  </table> %>
+
+
+     
+     
+     
+   </div>
+ <% end %>
+</div>
