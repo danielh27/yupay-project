@@ -30,13 +30,15 @@
             <th scope="col">TALLA</th>
           </tr>
           <tr>
-            <td scope="row">Consectetur adipiscing elit</td>
+          <% @list.each do |col| %>
+            <td scope="row"> <%= col.product.name %></td>
+            <td scope="row"> <%= col.created_at %></td>
             <td scope="row">Mar 20, 2019 23:14</td>
-            <td scope="row">Mar 20, 2019 23:14</td>
-            <td scope="row">S/ 10.00</td>
+            <td scope="row"> <%= col.product.price %></td>
             <td scope="row">100/500</td>
-            <td scope="row">100/500</td>
-            <td scope="row">X</td>
+            <td scope="row"> <%= col.quantity %>/100</td>
+            <td scope="row"> <%= col.product.size %></td>
+          <% end %>
         </tr>
       </table>
     </div>

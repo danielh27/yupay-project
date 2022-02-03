@@ -9,6 +9,12 @@
           <% end %>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#">
+           <%= image_tag "Actividad.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Actividad </p>
+        </a>
+      </li>
+      <li class="nav-item">
         <%= link_to products_path, class: "nav-link" do  %>
           <%= image_tag "Actividad.svg", class: "dashboard" %>
           <p class="name-sidebar"> Productos </p>
@@ -26,12 +32,17 @@
           <p class="name-sidebar"> Ventas </p>
         <% end %>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-exchange-alt"></i>
-          <p class="name-sidebar"> Movimientos </p>
-        </a>
+        <%= image_tag "Dudas.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Dudas </p>
       </li>
+
+      <li class="nav-item">
+        <%= image_tag "Ajustes.svg", class: "dashboard" %>
+          <p class="name-sidebar"> Ajustes </p>
+      </li>
+
     </ul>
 
     <%# <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
