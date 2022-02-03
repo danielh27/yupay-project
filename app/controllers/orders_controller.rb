@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def confirm
     order = Order.find(params[:id])
-    descrease_stock(order)
+    decrease_stock(order)
     order.status = true
     order.save
     redirect_to order_path(order)

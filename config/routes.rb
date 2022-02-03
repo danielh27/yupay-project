@@ -23,5 +23,7 @@ Rails.application.routes.draw do
     end
     resources :list_orders, only: %i[index new create]
   end
+
+  resources :list_orders, only: %i[destroy]
   get '/kpis', to: 'pages#kpis'
 end

@@ -17,6 +17,12 @@ class ListOrdersController < ApplicationController
     end
   end
 
+  def destroy
+    order_item = ListOrder.find(params[:id])
+    order_item.destroy
+    redirect_to order_list_orders_path(order_item.order)
+  end
+
   private
 
   def list_order_params
