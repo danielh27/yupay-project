@@ -15,7 +15,6 @@
       <div class="container-flex">
         <table class="table">
           <thead>
-
             <tr>
               <th scope="col">Producto</th>
               <th scope="col"></th>
@@ -24,18 +23,17 @@
               <th scope="col">Stock</th>
               <th scope="col">Total vendidos</th>
             </tr>
-
           </thead>
           <tbody>
             <% @products.each do |product| %>
-            <tr>
-              <th scope="row"></th>
-              <td><%= product.name %></td>
-              <td><%= product.category %></td>
-              <td><%= product.price %></td>
-              <td><%= product.stock %></td>
-              <td><%=  %></td>
-            </tr>
+              <tr>
+                <th scope="row"></th>
+                <td><%= product.name %></td>
+                <td><%= product.category %></td>
+                <td><%= product.price %></td>
+                <td><%= product.stock %></td>
+                <td><%= product.list_orders.sum(:quantity) %></td>
+              </tr>
             <% end %>
           </tbody>
         </table>
