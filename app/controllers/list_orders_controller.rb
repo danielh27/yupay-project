@@ -1,5 +1,5 @@
 class ListOrdersController < ApplicationController
-  def new
+  def index
     @list_order = ListOrder.new
     @list_orders = ListOrder.where(order: params[:order_id])
   end
@@ -7,11 +7,12 @@ class ListOrdersController < ApplicationController
   def create
     order = Order.find(params[:order_id])
     @list_order = ListOrder.new(list_order_params)
+    @list_orders = ListOrder.where(order: params[:order_id])
     @list_order.order = order
-    if @list_order.save!
-      redirect_to new_order_list_order_path(order)
+    if @list_order.save
+      redirect_to order_list_orders_path(order)
     else
-      render :new
+      render :index
     end
   end
 

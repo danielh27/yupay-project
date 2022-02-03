@@ -15,7 +15,7 @@ class ListPurchasesController < ApplicationController
     @list_purchases = ListPurchase.where(purchase: params[:purchase_id])
     @list_purchase.purchase = @purchase
     if @list_purchase.save
-      redirect_to purchase_list_purchases_path(purchase)
+      redirect_to purchase_list_purchases_path(@purchase)
     else
       render :index
     end

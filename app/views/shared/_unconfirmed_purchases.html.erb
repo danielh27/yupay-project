@@ -1,0 +1,18 @@
+<div>
+  <% if @unconfirmed_purchases.present? %>
+    <h2>Ingresos pendientes por confirmar</h2>
+    <% @unconfirmed_purchases.each do  |unconfirmed_purchase| %>
+      <div class="card m-3 p-3">
+        <ul>
+          <% unconfirmed_purchase.list_purchases.each do |item| %>
+            <li><%= item.product.name %> | Cantidad: <%= item.quantity %></li>
+          <% end %>
+        </ul>
+        <div class = "d-flex">
+          <%= link_to "Continuar", purchase_list_purchases_path(unconfirmed_purchase), class: "btn btn-success" %>
+          <%= link_to "Cancelar", purchase_path(unconfirmed_purchase), method: "delete", class: "btn btn-danger ml-3" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
