@@ -10,10 +10,11 @@ class ListPurchasesController < ApplicationController
   end
 
   def create
-    purchase = Purchase.find(params[:purchase_id])
-    list_purchase = ListPurchase.new(list_purchase_params)
-    list_purchase.purchase = purchase
-    if list_purchase.save
+    @purchase = Purchase.find(params[:purchase_id])
+    @list_purchase = ListPurchase.new(list_purchase_params)
+    @list_purchases = ListPurchase.where(purchase: params[:purchase_id])
+    @list_purchase.purchase = @purchase
+    if @list_purchase.save
       redirect_to purchase_list_purchases_path(purchase)
     else
       render :index
