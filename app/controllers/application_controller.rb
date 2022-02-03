@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user! # para autenticar - quitar luego el comment
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
+  protected
 
   def after_sign_in_path_for(_resource)
     dashboard_path
