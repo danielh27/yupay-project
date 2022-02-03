@@ -21,4 +21,5 @@ Rails.application.routes.draw do
     resources :list_orders, only: %i[new create]
   end
   get '/kpis', to: 'pages#kpis'
+  get '/movements', to: 'pages#movements'
 end
