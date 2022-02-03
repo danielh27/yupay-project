@@ -1,12 +1,28 @@
 // Specific CSS for your home-page
 .home-header {
-  background-image: url("https://www.imarc.com/writable/images/thought-hero-images/pexels-photo-238118_copy1.jpeg");
+  // background-image: url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"); 
   height: 100vh;
   width: 100%;
   // object-fit: fill;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  h1{
+    font-weight: bold;
+    font-size: 4rem;
+    color: white;
+  }
+  p{
+    color: white;
+  }
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #F20F38;
+  border-radius: 5px;
+  font-size: 20px;
 }
 
 #image-home-2 {
@@ -22,6 +38,13 @@
  .col {
   background-color: lightgray;
  }
+}
+
+.card-small {
+  height: 410px;
+  width: 320px;
+  // background-color: rgb(250, 250, 250);  
+  background: radial-gradient(rgba(1,62,64,0.4) 4%, rgba(1,62,64,0) 50%);
 }
 
  
