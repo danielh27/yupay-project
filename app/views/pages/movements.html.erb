@@ -4,8 +4,9 @@
   <br>
  <%# purchases confirmadas en el page-controller %>
  <% @confirmed_purchases.each do |conf_purchase| %>  
-    <div class="card m-3 p-2">
-      <h4 class="card-title">Purchase: <%= conf_purchase.id %>  </h4>
+    <div class="card m-3 p-2 purchase-card">
+      <h6 class="card-title">Purchase id: <%= conf_purchase.id %>  </h6>
+      <p class="fs-6">Fecha: <%= conf_purchase.updated_at %></p>
       <table class="table">
         <% conf_purchase.list_purchases.each do |item| %>
             <tr>        
@@ -21,8 +22,9 @@
   <br>
   <%# ORDENES %>
   <% @confirmed_orders.each do |conf_order| %>
-    <div class="card m-3 p-2">
-     <h4 class="card-title">Order: <%= conf_order.id %>  </h4>
+    <div class="card m-3 p-2 order-card">
+     <h6 class="card-title">Order id: <%= conf_order.id %>  </h6>
+     <p class="fs-6">Fecha: <%= conf_order.updated_at %></p>
      <table class="table">
        <% conf_order.list_orders.each do |order_item| %>
           <tr>        
