@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/dashboard', to: 'pages#dashboard'
   resources :products
-  resources :warehouses
   resources :customers
   resources :purchases, only: %i[new create show destroy] do
     member do

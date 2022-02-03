@@ -4,17 +4,17 @@
     <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
       <h1>Ingresar mercaderia</h1>
       <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
-      <h2>Carrito??</h2>
+      <h2 class="mt-5">Productos agregados</h2>
       <% if @list_purchases.present? %>
         <ul>
           <% @list_purchases.each do |item| %>
-            <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
+            <li><%= item.product.name %> | Talla: <%= item.product.size %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
           <% end %>
         </ul>
       <% end %>
       <div>
         <%= link_to "Cancelar", purchase_path(@purchase_id), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-        <%= link_to "Confirmar", confirm_purchase_path(@purchase_id), method: "post", class: "btn btn-primary", data: { confirm: "Confirmar compra?" } %>
+        <%= link_to "Confirmar", confirm_purchase_path(@purchase_id), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
       </div>
     </main>
   </div>

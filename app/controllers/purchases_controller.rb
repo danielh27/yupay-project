@@ -34,10 +34,8 @@ class PurchasesController < ApplicationController
 
   def increase_stock(purchase)
     purchase.list_purchases.each do |item|
-      p item.product.stock
       item.product.stock += item.quantity
-      item.product.save!
-      p item.product.stock
+      item.product.save
     end
   end
 end
