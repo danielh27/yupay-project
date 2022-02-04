@@ -78,8 +78,6 @@
 
 
 
-
-
 // Containers from forms
 
 .container-form {
@@ -100,6 +98,36 @@
     border-radius: 10px 0px 0px 10px;
     height: 460px;
   }
+}
+
+.form-control {
+  border: 0px solid #ced4da !important;
+  &:focus {
+    border: 0px solid #dddddd !important;
+    box-shadow: 0 0 0 0.2rem rgba(230, 230, 230, 0.25);
+  }
+}
+.form-input {
+  label {
+    font-weight: bold;
+    color: #013440;
+  }
+
+}
+
+.form-check {
+  display: flex;
+  align-items: stretch;
+
+  label {
+   font-weight: normal;
+   margin-bottom: 1px;
+   font-size: 14px;
+ }
+}
+
+.user_password {
+  margin: 1px;
 }
 
 .info-form {

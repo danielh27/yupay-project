@@ -1,24 +1,22 @@
-.container-table {
-  width: 85%;
-  margin: 90px auto;
-  border-radius: 10px ;
-  height: 460px;
-  width: 900px;
-  th {
-    font-size: 16px;
-    color: rgb(141, 141, 141);
-  }
-  
+.products-table {
+  min-width: 1050px;
+  width: 90%;
+
   td {
-    font-size: 14px;
-    align-items: center;
-    padding: 7px;
-    vertical-align: center;
+    padding: 16px 12px;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid #c3c3c3;
+  }
+
+  .name-column {
+    color: #4e4e4e;
+  }
+
+  .column-info {
+    min-width: 120px;
+    text-align: center;
+    vertical-align: middle;
   }
 }
-
-.table-infos {
-  align-items: center;
-}
-
-
