@@ -48,9 +48,32 @@
 
 .purchase-card {
   background-color: rgba(194, 187, 187, 0.377);
+  border-radius: 15px;
+
+  p {
+    font-size: smaller;
+  } 
+  
 }
 
 .order-card {
   background-color: rgba(159, 241, 159, 0.37);
+  border-radius: 15px;
+
+  p {
+    font-size: smaller;
+  } 
 }
 
+.container-wo-sidebar {
+  margin-left: 15%;
+  width: 80%;
+  float: left;
+  min-height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.table-mov {
+  margin-bottom: 0rem
+}
