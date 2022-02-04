@@ -1,19 +1,22 @@
 .products-table {
   min-width: 1050px;
-  width: 40%;
-  // margin: 90px auto;
-  // border-radius: 10px ;
-  // height: 460px;
+  width: 90%;
+
   td {
     padding: 16px 12px;
   }
 
+  tbody tr {
+    border-bottom: 1px solid #c3c3c3;
+  }
+
+  .name-column {
+    color: #4e4e4e;
+  }
+
   .column-info {
-    // min-height: 80px;
+    min-width: 120px;
     text-align: center;
     vertical-align: middle;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
   }
 }

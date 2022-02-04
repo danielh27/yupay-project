@@ -21,17 +21,24 @@
   }
 }
 
-.low-stock {
-
-}
-
-.normal-stock {
+.low-stock, .normal-stock {
+  display: inline-block;
+  margin: 0;
   font-size: 0.875rem;
   border-radius: 6px;
   font-weight: bold;
+  width: 90px;
+  padding: 6px 16px;
+}
+
+.normal-stock {
   color: #013440;
   border: 2px solid #013440;
-  padding: 8px 14px;
+}
+
+.low-stock {
+  color: white;
+  background-color: #F4555A;
 }
 
 // #F4555A boton stock rojo

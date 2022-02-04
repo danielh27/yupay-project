@@ -1,30 +1,33 @@
 <%= render "shared/sidebar" %>
   <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
     <div class="table-responsive-xl">
-      <table class="table table-borderless products-table">
+      <table class="table table-borderless products-table ml-auto mr-auto mt-5">
         <thead>
           <tr>
-            <th scope="col" class="text-left">Producto</th>
-            <th scope="col">Precio de venta</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Talla</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" class="text-left text-muted">Producto</th>
+            <th scope="col" class="text-muted">Precio de venta</th>
+            <th scope="col" class="text-muted">Categoria</th>
+            <th scope="col" class="text-muted">Stock</th>
+            <th scope="col" class="text-muted">Talla</th>
+            <th scope="col" class="text-muted">Estado</th>
+            <th scope="col" class="text-muted">Acciones</th>
           </tr>
         </thead>
         <tbody>
           <% @products.each do |product| %>
             <% if product.visible == true %>
-              <tr class="table-infos border-bottom ">
-                <td scope="row name-column">
+              <tr class="table-infos">
+                <td scope="row" class="w-25">
                   <div class = "d-flex">
-                    <%= image_tag "https://images.unsplash.com/photo-1604272804518-4496d93d3652?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=856&q=80", class: "img-product-info" %>
+                    <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
                     <ul class="list-unstyled m-0 text-left ml-3">
-                      <li><strong><%= product.name %></strong></li>
-                      <li class="text-muted">Codigo: <%= product.bar_code %></td></li>
+                      <li><strong class="name-column"><%= product.name %></strong></li>
+                      <li class="text-muted">Codigo: <%= product.bar_code %></li>
                     </ul>
                   </div>
+                </td>
                 <td scope="row" class="column-info">S/ <%= product.price %></td>
+                <td scope="row" class="column-info"><%= product.category %></td>
                 <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
                 <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
                 <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
