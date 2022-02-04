@@ -140,13 +140,6 @@
       margin-bottom: 25px;
     }
 
-    .d-flex {
-      gap: 15px;
-      .check {
-        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
-      }
-      // https://codepen.io/sosuke/pen/Pjoqqp
-    }
     h3 {
       color: #013440;
       font-size: 22px;
@@ -159,8 +152,15 @@
       font-weight: normal;
       font-size: 14px;
     }
- }
-
+    .d-flex {
+      gap: 15px;
+      .check {
+        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
+      }
+      // https://codepen.io/sosuke/pen/Pjoqqp
+    }
+  }
+  
   .col:hover {
     background-color: #013440;
     border-radius: 10px;
