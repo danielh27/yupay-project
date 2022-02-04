@@ -12,60 +12,46 @@
             <%= pie_chart Product.group(:category).count %>
           </div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Producto</th>
-            <th scope="col"></th>
-            <th scope="col">Categoría</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Total vendidos</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"></th>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>2</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>3</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>4</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>5</td>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="container-flex">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col"></th>
+              <th scope="col">Categoría</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Stock</th>
+              <th scope="col">Total vendidos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <th scope="row"></th>
+                <td><%= product.name %></td>
+                <td><%= product.category %></td>
+                <td><%= product.price %></td>
+                <td><%= product.stock %></td>
+                <td><%= product.list_orders.sum(:quantity) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= form_tag dashboard_path, method: :get do %>
+        <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
+            Categorías
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">Más vendidos</button>
+            <button class="dropdown-item" type="button">Productos con alto stock</button>
+            <button class="dropdown-item" type="button">Productos con bajo stock</button>
+          </div>
+        </div>
+      </div>
     <main>
   </div>
-</div>
+  </div>

@@ -1,0 +1,61 @@
+<%= render "shared/sidebar" %>
+<div class="container">
+  <h1>Movimientos Globales</h1>
+  <br>
+ <%# purchases confirmadas en el page-controller %>
+ <% @confirmed_purchases.each do |conf_purchase| %>  
+    <div class="card m-3 p-2 purchase-card">
+      <h6 class="card-title">Purchase id: <%= conf_purchase.id %>  </h6>
+      <p class="fs-6">Fecha: <%= conf_purchase.updated_at %></p>
+      <table class="table">
+        <% conf_purchase.list_purchases.each do |item| %>
+            <tr>        
+              <td class="text-left">Producto: <%= item.product.name %></td>        
+              <td >Cantidad: <%= item.quantity %></td>        
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  <% end %>
+
+  <br>
+  <br>
+  <%# ORDENES %>
+  <% @confirmed_orders.each do |conf_order| %>
+    <div class="card m-3 p-2 order-card">
+     <h6 class="card-title">Order id: <%= conf_order.id %>  </h6>
+     <p class="fs-6">Fecha: <%= conf_order.updated_at %></p>
+     <table class="table">
+       <% conf_order.list_orders.each do |order_item| %>
+          <tr>        
+            <td class="text-left">Producto: <%= order_item.product.name %></td>        
+            <td >Cantidad: <%= order_item.quantity %></td>        
+          </tr>
+        <% end %>
+     </table>
+    </div>
+  <% end %>
+
+  <%# EN FORMATO DE LISTA %>
+  <%# <table class="table">
+   <tr><th>Producto</th><th>Cantidad</th><th>Fecha actualizacion</th><th>Purchase</th></tr>
+   <% @confirmed_lists.each do |cl| >
+   <tr>
+   
+    <td><%= cl.product.name > </td>
+    <td><%= cl.quantity ></td>
+    <td><%= cl.updated_at ></td>
+    <td><%= cl.purchase.id %></td>
+    <%# columna para borrar, solo para pruebas >
+    <td><%= cl.purchase.status ></td> 
+   </tr>    
+  <% end >
+  </table> %>
+
+
+     
+     
+     
+  
+
+</div>

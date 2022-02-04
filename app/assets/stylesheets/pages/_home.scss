@@ -1,7 +1,6 @@
 // Specific CSS for your home-page
 .home-header {
-  // background-image: url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
-  background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"); 
+  background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
   width: 100%;
   // object-fit: fill;
@@ -43,8 +42,15 @@
 .card-small {
   height: 410px;
   width: 320px;
-  // background-color: rgb(250, 250, 250);  
+  // background-color: rgb(250, 250, 250);
   background: radial-gradient(rgba(1,62,64,0.4) 4%, rgba(1,62,64,0) 50%);
 }
 
- 
+.purchase-card {
+  background-color: rgba(194, 187, 187, 0.377);
+}
+
+.order-card {
+  background-color: rgba(159, 241, 159, 0.37);
+}
+
