@@ -28,8 +28,14 @@
                 <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
                 <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
                 <td scope="row" class="column-info"> <%=  %> </td>
-                <td scope="row" class="column-info"> <%= link_to "Detalles", product_path(product)%> |
-                <%= link_to "Editar", edit_product_path(product) %></td>
+                <td scope="row" class="column-info">
+                <%= link_to(product_path(product), class: "btn-actions text-decoration-none") do %>
+                  <i class="fas fa-list"></i> Detalles
+                <% end %>
+                <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none") do %>
+                  <i class="far fa-edit"></i> Editar
+                <% end %>
+                </td>
               </tr>
             <% end %>
           <% end %>
