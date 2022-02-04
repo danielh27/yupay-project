@@ -40,7 +40,7 @@
 }
 
 .card-small {
-  height: 210px;
+  height: 280px;
   width: 320px;
   // background: radial-gradient(rgba(1,62,64,0.1) 4%, rgba(1,62,64,0) 30%);
   display: flex;
@@ -62,15 +62,14 @@
 .text-center{
   h2{
   font-weight: bold;
-    font-size: 45px;
+  font-size: 45px;
   }
 }
 .icon-home{
   font-size: 50px;
   color: rgb(1, 52, 64);
-  margin-bottom: 50px;
+  margin-bottom: 16px;
   margin-top: 16px;
-  padding-top: 50px;
 }
 
 .purchase-card {
