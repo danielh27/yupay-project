@@ -1,53 +1,56 @@
-<div class="container-fluid">
-  <div class="row">
-    <%= render "shared/sidebar" %>
-    <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-      <div>
-        <div class="row">
-          <div class="col-6">
-            <%= line_chart Product.group_by_day(:created_at).count %>
-          </div>
-          <div class="col-6">
-            <%= pie_chart Product.group(:category).count %>
-          </div>
+<%= render "shared/sidebar" %>
+<div class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
+  <div>
+    <div class="row bg-white charts-container">
+      <div class="col-6 line-chart">
+        <%= line_chart Product.group_by_day(:created_at).count, height: "80%" %>
       </div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Producto</th>
-              <th scope="col"></th>
-              <th scope="col">Categoría</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Stock</th>
-              <th scope="col">Total vendidos</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @products.each do |product| %>
-              <tr>
-                <th scope="row"></th>
-                <td><%= product.name %></td>
-                <td><%= product.category %></td>
-                <td><%= product.price %></td>
-                <td><%= product.stock %></td>
-                <td><%= product.list_orders.sum(:quantity) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= form_tag dashboard_path, method: :get do %>
-        <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <div class="col-6 pie-chart">
+        <%= pie_chart Product.group(:category).count, height: "80%" %>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-table-container mt-4">
+    <table class="table table-borderless dashboard-table ml-auto mr-auto">
+      <thead>
+        <tr>
+          <th scope="col">PRODUCTO</th>
+          <th scope="col" class="text-center">CATEGORIA</th>
+          <th scope="col" class="text-center">PRECIO</th>
+          <th scope="col" class="text-center">STOCK</th>
+          <th scope="col" class="text-center">TOTAL VENDIDOS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td class="w-25 bg-white">
+              <div class = "d-flex">
+                <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
+                <ul class="list-unstyled m-0 text-left ml-3">
+                  <li><strong class="name-column"><%= product.name %></strong></li>
+                  <li class="text-muted">Codigo: <%= product.bar_code %></li>
+                </ul>
+              </div>
+            </td>
+            <td class="column-info bg-white"><%= product.category %></td>
+            <td class="column-info bg-white">S/ <%= product.price %></td>
+            <td class="column-info bg-white"><%= product.stock %></td>
+            <td class="column-info bg-white"><%= product.list_orders.sum(:quantity) %></td>
+          </tr>
         <% end %>
-        <div class="dropdown">
-          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button">Más vendidos</button>
-            <button class="dropdown-item" type="button">Productos con alto stock</button>
-            <button class="dropdown-item" type="button">Productos con bajo stock</button>
-          </div>
-        </div>
+      </tbody>
+    </table>
+    <%= form_tag dashboard_path, method: :get do %>
+    <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <div class="dropdown">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button">Más vendidos</button>
+        <button class="dropdown-item" type="button">Productos con alto stock</button>
+        <button class="dropdown-item" type="button">Productos con bajo stock</button>
       </div>
-    <div>
+    </div>
   </div>
-  </div>
+</div>
