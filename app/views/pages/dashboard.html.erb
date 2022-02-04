@@ -1,9 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-      <h1>DASHBOARD</h1>
-      <div class="container">
+    <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
+      <div>
         <div class="row">
           <div class="col-6">
             <%= line_chart Product.group_by_day(:created_at).count %>
@@ -12,7 +11,7 @@
             <%= pie_chart Product.group(:category).count %>
           </div>
       </div>
-      <div class="container-flex">
+      <div>
         <table>
           <thead>
             <tr>
@@ -42,9 +41,6 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="false">
-            Categorías
-          </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button">Más vendidos</button>
             <button class="dropdown-item" type="button">Productos con alto stock</button>
@@ -52,6 +48,6 @@
           </div>
         </div>
       </div>
-    <main>
+    <div>
   </div>
   </div>
