@@ -4,3 +4,46 @@
   border-radius: 4px;
   color: white;
 }
+
+
+.btn-actions {
+  font-size: 0.875rem;
+  background-color: #fccfd7;
+  font-weight: bold;
+  color: #F20F38;
+  border-radius: 6px;
+  padding: 8px 14px;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background-color: #fda5b5;
+    color: #F20F38;
+  }
+}
+
+.low-stock, .normal-stock {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 90px;
+  padding: 6px 16px;
+}
+
+.normal-stock {
+  color: #013440;
+  border: 2px solid #013440;
+}
+
+.low-stock {
+  color: white;
+  background-color: #F4555A;
+}
+
+// #F4555A boton stock rojo
+// #013440 boton stock normal
+.btn {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
