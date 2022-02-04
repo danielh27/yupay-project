@@ -1,4 +1,6 @@
 // Specific CSS for your home-page
+
+
 .home-header {
   background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
@@ -27,23 +29,44 @@
 #image-home-2 {
  background-image: url('https://image.freepik.com/free-photo/african-american-business-woman-working-computer-bar_1303-10865.jpg');
  height: 100vh;
- width: 100%;
+ width: 700px;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
 }
 
-.membership {
- .col {
-  background-color: lightgray;
- }
-}
 
 .card-small {
-  height: 410px;
+  height: 280px;
   width: 320px;
-  // background-color: rgb(250, 250, 250);
-  background: radial-gradient(rgba(1,62,64,0.4) 4%, rgba(1,62,64,0) 50%);
+  // background: radial-gradient(rgba(1,62,64,0.1) 4%, rgba(1,62,64,0) 30%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F8F8;
+  border: 0.1px solid rgb(1, 52, 64);
+  border-radius: 15px;
+  h3{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(1, 52, 64);
+  }
+  p{
+    font-size: 14px;
+  }
+}
+.text-center{
+  h2{
+  font-weight: bold;
+  font-size: 45px;
+  }
+}
+.icon-home{
+  font-size: 50px;
+  color: rgb(1, 52, 64);
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .purchase-card {
@@ -64,16 +87,116 @@
     font-size: smaller;
   }
 }
-
-.container-wo-sidebar {
-  margin-left: 15%;
-  width: 80%;
-  float: left;
-  min-height: 100%;
-  position: relative;
-  z-index: 2;
+.row-flex{
+  display: flex;
 }
+.justify-content-center{
+  flex-grow: 1;
 
-.table-mov {
-  margin-bottom: 0rem
+
+
+// Estilos para membership
+
+.membership {
+  padding: 70px 100px;
+  // width: 80%;
+  // margin: 0 auto;
+  .membership-card {
+    max-width: 350px;
+  }
+
+  .row {
+    padding-bottom: 15PX;
+    text-align: center;
+    justify-content: center;
+  }
+  .display-4 {
+    font-size: 45px;
+    font-weight: bold;
+    margin: 0px;
+    color: #013440;
+  }
+
+  .col {
+    border: 1px solid  #241e1f;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 60px 70px;
+    .price {
+      font-size: 42px;
+      font-weight: bold;
+      color: #013440;
+      margin-bottom: 8px;
+    }
+    .btn-m {
+      border-radius: 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border-color:  #F20F38;
+      color: #013440;
+      height: 50px;
+      width: 180px;
+      // border: none;
+      margin-bottom: 25px;
+    }
+
+    .d-flex {
+      gap: 15px;
+      .check {
+        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
+      }
+      // https://codepen.io/sosuke/pen/Pjoqqp
+    }
+    h3 {
+      color: #013440;
+      font-size: 22px;
+      font-weight: medium;
+      margin-bottom: 5px;
+    }
+    p {
+      color: #013440;
+      // margin-bottom: 10px;
+      font-weight: normal;
+      font-size: 14px;
+    }
+ }
+
+  .col:hover {
+    background-color: #013440;
+    border-radius: 10px;
+    padding: 60px 70px;
+    .price {
+      font-size: 42px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .btn-m {
+      border-radius: 28px;
+      font-weight: bold;
+      background-color: #F20F38;
+      color: white;
+      height: 50px;
+      width: 180px;
+      border: none;
+      margin-bottom: 25px;
+    }
+    p {
+      color: white;
+      // margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    h3 {
+      color: white;
+      font-size: 22px;
+      font-weight: medium;
+      margin-bottom: 5px;
+    }
+
+    .check {
+      filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(25deg) brightness(111%) contrast(101%);
+    }
+  }
+}
 }
