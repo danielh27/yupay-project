@@ -1,15 +1,17 @@
 <!-- Sidebar -->
-<nav id="sidebarMenu" class="col-md-1 col-lg-1 d-md-block bg-light sidebar collapse ">
-  <div class="sidebar-sticky pt-3">
-    <ul class="nav flex-column h-100">
+<div>
+
+    <ul class="sidebarMenu">
       <li class="nav-item">
-        <%= image_tag "Menu.svg", class: "dashboard" %>
-          <p class="name-sidebar"> Ajustes </p>
+        <a class="nav-link" href="#">
+          <%= image_tag "Menu.svg", class: "btn-sidebar" %>
+            <p class="name-sidebar"> </p>
+          </a>
       </li>
 
       <li class="nav-item">
         <%= link_to dashboard_path, class: "nav-link" do %>
-          <%= image_tag "Dashboard.svg", class: "dashboard" %>
+          <%= image_tag "Dashboard.svg", class: "btn-sidebar" %>
           <p class="name-sidebar"> Dashboard </p>
           <% end %>
       </li>
@@ -22,31 +24,35 @@
       </li>
       <li class="nav-item">
         <%= link_to products_path, class: "nav-link" do  %>
-          <%= image_tag "Product.svg", class: "dashboard" %>
+          <%= image_tag "Product.svg", class: "btn-sidebar" %>
           <p class="name-sidebar"> Productos </p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to  new_purchase_path, class: "nav-link" do  %>
-          <%= image_tag "Registro.svg", class: "dashboard" %>
+          <%= image_tag "Registro.svg", class: "btn-sidebar" %>
           <p class="name-sidebar"> Entradas </p>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to new_order_path, class: "nav-link" do %>
-          <i class="fas fa-file-invoice-dollar"></i>
+          <%= image_tag "Salida.svg", class: "btn-sidebar" %>
           <p class="name-sidebar"> Ventas </p>
         <% end %>
       </li>
 
       <li class="nav-item">
-        <%= image_tag "Dudas.svg", class: "dashboard" %>
-          <p class="name-sidebar"> Dudas </p>
+        <a class="nav-link" href="#">
+          <%= image_tag "Dudas.svg", class: "btn-sidebar" %>
+            <p class="name-sidebar"> Dudas </p>
+          </a>
       </li>
 
       <li class="nav-item">
-        <%= image_tag "Ajustes.svg", class: "dashboard" %>
-          <p class="name-sidebar"> Ajustes </p>
+        <a class="nav-link" href="#">
+          <%= image_tag "Ajustes.svg", class: "btn-sidebar" %>
+            <p class="name-sidebar"> Ajustes </p>
+        </a>
       </li>
 
     </ul>
@@ -83,6 +89,5 @@
         </a>
       </li>
     </ul> %>
-  </div>
-</nav>
+</div>
 <!-- Sidebar -->
