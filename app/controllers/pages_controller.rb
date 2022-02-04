@@ -16,6 +16,7 @@ class PagesController < ApplicationController
     @confirmed_purchases = Purchase.where(status: true)
     # ordenes
     @confirmed_orders = Order.where(status: true)
-
+    @total = @confirmed_orders + @confirmed_purchases
+    @total.sort_by { |p| p.updated_at}
   end
 end
