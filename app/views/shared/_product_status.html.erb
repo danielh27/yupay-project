@@ -1,0 +1,9 @@
+<% if product.minimum_required > product.stock %>
+  <p class="low-stock">
+    Bajo
+  </p>
+<% else %>
+  <p class="normal-stock">
+    Normal
+  </p>
+<% end %>
