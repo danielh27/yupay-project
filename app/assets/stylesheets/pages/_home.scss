@@ -40,10 +40,36 @@
 
 
 .card-small {
-  height: 410px;
+  height: 280px;
   width: 320px;
-  // background-color: rgb(250, 250, 250);
-  background: radial-gradient(rgba(1,62,64,0.4) 4%, rgba(1,62,64,0) 50%);
+  // background: radial-gradient(rgba(1,62,64,0.1) 4%, rgba(1,62,64,0) 30%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F8F8;
+  border: 0.1px solid rgb(1, 52, 64);
+  border-radius: 15px;
+  h3{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(1, 52, 64);
+  }
+  p{
+    font-size: 14px;
+  }
+}
+.text-center{
+  h2{
+  font-weight: bold;
+  font-size: 45px;
+  }
+}
+.icon-home{
+  font-size: 50px;
+  color: rgb(1, 52, 64);
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .purchase-card {
@@ -52,8 +78,8 @@
 
   p {
     font-size: smaller;
-  } 
-  
+  }
+
 }
 
 .order-card {
@@ -62,8 +88,13 @@
 
   p {
     font-size: smaller;
-  } 
+  }
 }
+.row-flex{
+  display: flex;
+}
+.justify-content-center{
+  flex-grow: 1;
 
 
 
@@ -76,7 +107,7 @@
   .membership-card {
     max-width: 350px;
   }
-  
+
   .row {
     padding-bottom: 15PX;
     text-align: center;
@@ -88,7 +119,7 @@
     margin: 0px;
     color: #013440;
   }
-  
+
   .col {
     border: 1px solid  #241e1f;
     background-color: #F5F5F5;
@@ -170,4 +201,5 @@
       filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(25deg) brightness(111%) contrast(101%);
     }
   }
+}
 }
