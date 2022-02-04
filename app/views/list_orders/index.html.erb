@@ -5,13 +5,13 @@
       <div class="container">
       <br>
       <br>
-        <div class="row">
-          <div class="col-12 col-lg-5">
+        <div class="row w-100">
+          <div class="col-12 col-lg-4">
               <h1>Nueva venta</h1>
               <%= render 'shared/order_form_items', list_order: @list_order %>
           </div>
 
-          <div class="col-12 col-lg-7">
+          <div class="col-12 col-lg-8">
             <h2>Carrito</h2>
             <% if @list_orders.present? %>
               <ul>
