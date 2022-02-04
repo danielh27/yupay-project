@@ -1,24 +1,19 @@
-.container-table {
-  width: 85%;
-  margin: 90px auto;
-  border-radius: 10px ;
-  height: 460px;
-  width: 900px;
-  th {
-    font-size: 16px;
-    color: rgb(141, 141, 141);
-  }
-  
+.products-table {
+  min-width: 1050px;
+  width: 40%;
+  // margin: 90px auto;
+  // border-radius: 10px ;
+  // height: 460px;
   td {
-    font-size: 14px;
-    align-items: center;
-    padding: 7px;
-    vertical-align: center;
+    padding: 16px 12px;
+  }
+
+  .column-info {
+    // min-height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
   }
 }
-
-.table-infos {
-  align-items: center;
-}
-
-
