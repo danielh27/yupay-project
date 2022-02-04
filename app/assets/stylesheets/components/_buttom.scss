@@ -10,13 +10,29 @@
   font-size: 0.875rem;
   background-color: #fccfd7;
   font-weight: bold;
-  color: rgb(255, 0, 0);
+  color: #F20F38;
   border-radius: 6px;
   padding: 8px 14px;
   transition: background-color 0.4s;
 
   &:hover {
     background-color: #fda5b5;
-    color: rgb(255, 0, 0);
+    color: #F20F38;
   }
 }
+
+.low-stock {
+
+}
+
+.normal-stock {
+  font-size: 0.875rem;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #013440;
+  border: 2px solid #013440;
+  padding: 8px 14px;
+}
+
+// #F4555A boton stock rojo
+// #013440 boton stock normal
