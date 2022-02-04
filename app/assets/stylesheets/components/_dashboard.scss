@@ -1,0 +1,33 @@
+.charts-container {
+  // margin-top: 11rem;
+  min-height: 450px;
+
+  .line-chart, .pie-chart {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.dashboard-table {
+  width: 80%;
+
+  td {
+    padding: 16px 12px;
+  }
+
+  tbody tr {
+    max-height: 90px;
+    // border-bottom: 1px solid #c3c3c3;
+    // background-color: white;
+  }
+
+  .name-column {
+    color: #4e4e4e;
+  }
+
+  .column-info {
+    min-width: 120px;
+    text-align: center;
+    vertical-align: middle;
+  }
+}

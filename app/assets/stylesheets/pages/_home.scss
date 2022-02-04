@@ -45,10 +45,21 @@
 
 .purchase-card {
   background-color: rgba(194, 187, 187, 0.377);
+  border-radius: 15px;
+
+  p {
+    font-size: smaller;
+  } 
+  
 }
 
 .order-card {
   background-color: rgba(159, 241, 159, 0.37);
+  border-radius: 15px;
+
+  p {
+    font-size: smaller;
+  } 
 }
 
 
