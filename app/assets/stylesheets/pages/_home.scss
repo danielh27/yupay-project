@@ -1,10 +1,14 @@
 // Specific CSS for your home-page
 
 
+
+
 .home-header {
   background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
+  min-height: 900px;
   width: 100%;
+  position: relative;
   // object-fit: fill;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +32,7 @@
 
 #image-home-2 {
  background-image: url('https://image.freepik.com/free-photo/african-american-business-woman-working-computer-bar_1303-10865.jpg');
- height: 100vh;
+ height: 100%;
  width: 100%;
  background-position: center;
  background-repeat: no-repeat;
