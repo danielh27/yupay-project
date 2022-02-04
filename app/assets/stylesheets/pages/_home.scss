@@ -40,10 +40,29 @@
 }
 
 .card-small {
-  height: 410px;
+  height: 210px;
   width: 320px;
-  // background-color: rgb(250, 250, 250);
-  background: radial-gradient(rgba(1,62,64,0.4) 4%, rgba(1,62,64,0) 50%);
+  background: radial-gradient(rgba(1,62,64,0.1) 4%, rgba(1,62,64,0) 30%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h3{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(1, 52, 64);
+  }
+  p{
+    font-size: 14px;
+  }
+}
+h2{
+  // font-weight: bold;
+  font-size: 45px;
+}
+.icon-home{
+  font-size: 45px;
+  color: rgb(1, 52, 64);
 }
 
 .purchase-card {
@@ -53,4 +72,3 @@
 .order-card {
   background-color: rgba(159, 241, 159, 0.37);
 }
-
