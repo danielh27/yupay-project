@@ -14,7 +14,10 @@ class PagesController < ApplicationController
         @products = Product.all.sort_by { |product| -product.list_orders.sum(:quantity) }.take(5)
       end
     else
-      @products = Product.all.limit(5)
+      @products = ListOrder.joins(:order)
+                           .includes(:product, order: [:customer])
+                           .order(updated_at: :desc)
+                           .limit(5).where(order: { status: true })
     end
   end
 

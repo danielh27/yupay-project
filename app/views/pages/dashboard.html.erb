@@ -1,198 +1,209 @@
 <%= render "shared/navbar" %>
 <%= render "shared/sidebar" %>
 <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4 mt-5">
+  <!-- Content Row -->
+  <div class="row">
 
-    <!-- Content Row -->
-    <div class="row">
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Ganancias (Mensual)</div>
-                            <div class="h5 mb-0 text-gray-800">$40,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
+    <!-- Earnings (Monthly) Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                Ganancias (Mensual)
+              </div>
+              <div class="h5 mb-0 text-gray-800">
+                $40,000
+              </div>
             </div>
-        </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                Ganancias (Anual)</div>
-                            <div class="h5 mb-0 text-gray-800">$215,000</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-auto">
+              <i class="fas fa-calendar fa-2x text-gray-300"></i>
             </div>
+          </div>
         </div>
-
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                Compras/Ventas pendientes por confirmar</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= Order.where(status: false).count + Purchase.where(status: false).count %></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                Productos con bajo stock</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%= Product.where("stock < minimum_required").count %></div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <div class="row">
-
-      <!-- Area Chart -->
-      <div class="col-xl-8 col-lg-7">
-          <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div
-                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Resumen de ganancias</h6>
-                  <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                          aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                  </div>
+    <!-- Earnings (Annual) Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                Ganancias (Anual)
               </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                  <div class="chart-area">
-                      <%= line_chart Product.group_by_day(:created_at).count%>
-                      <%# <canvas id="myAreaChart"></canvas> %>
-                  </div>
+              <div class="h5 mb-0 text-gray-800">
+                $215,000
               </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+            </div>
           </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Pie Chart -->
-      <div class="col-xl-4 col-lg-5">
-          <div class="card shadow mb-4">
-              <!-- Card Header - Dropdown -->
-              <div
-                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                          aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Dropdown Header:</div>
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                      </div>
-                  </div>
+      <!-- Pending Orders/Purchases Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                Compras/Ventas pendientes por
               </div>
-              <!-- Card Body -->
-              <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                      <%= pie_chart Product.group(:category).count, legend: false, donut: true, height: "90%"%>
-                      <%# <canvas id="myPieChart"></canvas> %>
-                  </div>
-                  <div class="mt-4 text-center small">
-                      <span class="mr-2">
-                          <i class="fas fa-circle text-primary"></i> Direct
-                      </span>
-                      <span class="mr-2">
-                          <i class="fas fa-circle text-success"></i> Social
-                      </span>
-                      <span class="mr-2">
-                          <i class="fas fa-circle text-info"></i> Referral
-                      </span>
-                  </div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <%= Order.includes(:purchases).where(status: false).count %>
               </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
           </div>
+        </div>
       </div>
-
     </div>
 
 
-  <div class="dashboard-table-container mt-4">
-    <%# <%= form_tag dashboard_path, method: :get, class:"filter-products" do  %>
-      <%# <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
-      <%# <%= submit_tag "Search", class: "btn btn-primary" %>
-    <%# <% end %>
-    <table class="table table-borderless dashboard-table ml-auto mr-auto">
-      <thead>
-        <tr>
-          <th scope="col" class="text-muted pl-0">PRODUCTO</th>
-          <th scope="col" class="text-center text-muted">CATEGORIA</th>
-          <th scope="col" class="text-center text-muted">PRECIO</th>
-          <th scope="col" class="text-center text-muted">STOCK</th>
-          <th scope="col" class="text-center text-muted">TOTAL VENDIDOS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |product| %>
-          <tr>
-            <td class="w-25 bg-white">
-              <div class = "d-flex">
-                <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
-                <ul class="list-unstyled m-0 text-left ml-3">
-                  <li class="mt-1"><strong class="name-column"><%= product.name %></strong></li>
-                  <li class="text-muted">Codigo: <%= product.bar_code %></li>
-                </ul>
+    <!-- Low stock Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-danger shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                  Productos con bajo stock</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">
+                <%= Product.where("stock < minimum_required").count %>
               </div>
-            </td>
-            <td class="column-info bg-white"><strong style="color: #013440;"><%= product.category %></strong></td>
-            <td class="column-info bg-white font-weight-bold">S/ <%= product.price %></td>
-            <td class="column-info bg-white font-weight-bold <%= "stock-alert" if product.stock < product.minimum_required %>"><%= product.stock %></td>
-            <td class="column-info bg-white font-weight-bold"><%= product.list_orders.sum(:quantity) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Resumen de ventas</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-area">
+            <%= area_chart Product.group_by_hour(:created_at).count%>
+            <%# <canvas id="myAreaChart"></canvas> %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="chart-pie pt-4 pb-2">
+            <%= pie_chart Product.group(:category).count, legend: false, donut: true, height: "90%"%>
+            <%# <canvas id="myPieChart"></canvas> %>
+          </div>
+          <div class="mt-4 text-center small">
+            <span class="mr-2">
+              <i class="fas fa-circle text-primary"></i> Direct
+            </span>
+            <span class="mr-2">
+              <i class="fas fa-circle text-success"></i> Social
+            </span>
+            <span class="mr-2">
+              <i class="fas fa-circle text-info"></i> Referral
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <!-- Content Column -->
+    <div class="col-lg-12 mb-4">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Ultimos productos vendidos</h6>
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+              aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-header">Dropdown Header:</div>
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-borderless dashboard-table mx-auto">
+            <thead>
+              <tr>
+                <th scope="col" class="text-muted pl-0">PRODUCTO</th>
+                <th scope="col" class="text-center text-muted">CATEGORIA</th>
+                <th scope="col" class="text-center text-muted">PRECIO</th>
+                <th scope="col" class="text-center text-muted">STOCK</th>
+                <th scope="col" class="text-center text-muted">TALLA</th>
+                <th scope="col" class="text-center text-muted">CANTIDAD</th>
+                <th scope="col" class="text-center text-muted">CLIENTE</th>
+                <th scope="col" class="text-center text-muted">FECHA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products.each do |item| %>
+                <tr>
+                  <td class="w-25 bg-white">
+                    <div class = "d-flex">
+                      <%= image_tag "https://source.unsplash.com/random/?#{item.product.category}", class: "img-product-info" %>
+                      <ul class="list-unstyled m-0 text-left ml-3">
+                        <li class="mt-1"><strong class="name-column"><%= item.product.name %></strong></li>
+                        <li class="text-muted">Codigo: <%= item.product.bar_code %></li>
+                      </ul>
+                    </div>
+                  </td>
+                  <td class="column-info bg-white"><strong style="color: #013440;"><%= item.product.category %></strong></td>
+                  <td class="column-info bg-white font-weight-bold">S/ <%= item.product.price %></td>
+                  <td class="column-info bg-white font-weight-bold <%= "stock-alert" if item.product.stock < item.product.minimum_required %>"><%= item.product.stock %></td>
+                  <td scope="row" class="column-info font-weight-bold"> <%= item.product.size %> </td>
+                  <td class="column-info bg-white font-weight-bold"><%= item.quantity %></td>
+                  <td class="column-info bg-white font-weight-bold"><%= item.order.customer.name %></td>
+                  <td class="column-info bg-white font-weight-bold"><%= item.created_at&.strftime("%d/%m/%Y")  %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+              <%# <%= form_tag dashboard_path, method: :get, class:"filter-products" do  %>
+                <%# <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
+                <%# <%= submit_tag "Search", class: "btn btn-primary" %>
+              <%# <% end %>
