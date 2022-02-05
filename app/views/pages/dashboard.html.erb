@@ -152,16 +152,15 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
               aria-labelledby="dropdownMenuLink">
-              <div class="dropdown-header">Dropdown Header:</div>
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-header">Acciones:</div>
+              <%= link_to "Productos mas vendidos", "/dashboard?query=1#dashboard-table", class: "dropdown-item" %>
+              <%= link_to "Ultimos productos vendidos", "/dashboard?query=2#dashboard-table", class: "dropdown-item" %>
+              <%= link_to "Ultimos productos ingresados", "/dashboard?query=3#dashboard-table", class: "dropdown-item" %>
             </div>
           </div>
         </div>
         <div class="card-body p-0">
-          <table class="table table-borderless dashboard-table mx-auto">
+          <table class="table table-borderless dashboard-table mx-auto" id="dashboard-table">
             <thead>
               <tr>
                 <th scope="col" class="text-muted pl-0">PRODUCTO</th>
