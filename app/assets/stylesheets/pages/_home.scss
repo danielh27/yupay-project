@@ -1,10 +1,17 @@
 // Specific CSS for your home-page
 
+.banner-c {
+  justify-content: center;
+  margin: auto;
+}
+
 
 .home-header {
   background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
+  min-height: 800px;
   width: 100%;
+  position: relative;
   // object-fit: fill;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,17 +26,19 @@
   }
 }
 
-.btn {
+.btn-lg {
   color: #ffffff;
   background-color: #F20F38;
   border-radius: 5px;
   font-size: 20px;
+  width: 190px;
+  height: 45px;
+  font-weight: bold !important;
 }
 
 #image-home-2 {
  background-image: url('https://image.freepik.com/free-photo/african-american-business-woman-working-computer-bar_1303-10865.jpg');
- height: 100vh;
- width: 700px;
+ width: 60%;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
@@ -93,6 +102,10 @@
 .justify-content-center{
   flex-grow: 1;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
 
 // Estilos para membership
@@ -140,13 +153,6 @@
       margin-bottom: 25px;
     }
 
-    .d-flex {
-      gap: 15px;
-      .check {
-        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
-      }
-      // https://codepen.io/sosuke/pen/Pjoqqp
-    }
     h3 {
       color: #013440;
       font-size: 22px;
@@ -159,8 +165,15 @@
       font-weight: normal;
       font-size: 14px;
     }
- }
-
+    .d-flex {
+      gap: 15px;
+      .check {
+        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
+      }
+      // https://codepen.io/sosuke/pen/Pjoqqp
+    }
+  }
+  
   .col:hover {
     background-color: #013440;
     border-radius: 10px;
@@ -199,3 +212,7 @@
     }
   }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
