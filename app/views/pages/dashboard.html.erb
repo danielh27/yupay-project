@@ -1,15 +1,21 @@
 <%= render "shared/sidebar" %>
 <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
   <div>
+
     <div class="row bg-white charts-container">
+
       <div class="col-6 line-chart">
         <%= line_chart Product.group_by_day(:created_at).count, height: "80%" %>
       </div>
+
       <div class="col-6 pie-chart">
         <%= pie_chart Product.group(:category).count, height: "80%" %>
       </div>
+
     </div>
   </div>
+
+
   <div class="dashboard-table-container mt-4">
     <%= form_tag dashboard_path, method: :get, class:"filter-products" do %>
       <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
