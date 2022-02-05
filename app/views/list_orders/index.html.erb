@@ -1,21 +1,35 @@
 <div class="container-fluid">
   <div class="row">
     <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-md-4">
-      <h1>Nueva venta</h1>
-        <%= render 'shared/order_form_items', list_order: @list_order %>
-      <h2>Carrito</h2>
-      <% if @list_orders.present? %>
-        <ul>
-          <% @list_orders.each do |item| %>
-            <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete"  %></li>
-          <% end %>
-        </ul>
-      <% end %>
-      <div>
-        <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-        <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
-      </div>
+    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+      <div class="container-fluid">
+      <br>
+      <br>
+        <div class="row">
+          <div class="col-12 col-lg-4 px-5">
+              <h1>Nueva venta</h1>
+              <%= render 'shared/order_form_items', list_order: @list_order %>
+          </div>
+
+          <div class="col-12 col-lg-8 px-5">
+            <h2>Carrito:</h2>
+            <br>
+            <% if @list_orders.present? %>
+              <h4>Ordenes Pendientes:</h4>
+              <ul>
+                <% @list_orders.each do |item| %>
+                  <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete"  %></li>
+                <% end %>
+              </ul>
+            <% end %>
+            <div>
+              <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+              <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+            </div>
+          </div>
+        </div>          
+      </div>   
+      
     </main>
   </div>
 </div>
