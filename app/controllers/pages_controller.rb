@@ -7,13 +7,17 @@ class PagesController < ApplicationController
   def dashboard
     if params[:query].present?
       if params[:query] == "1"
+        @table_info = { table_title: "Productos mas vendidos" }
         most_selled_products
       elsif params[:query] == "2"
+        @table_info = { table_title: "Ultimos productos vendidos" }
         latest_products_sold
       elsif params[:query] == "3"
+        @table_info = { table_title: "Ultimos productos agregados" }
         latest_products_purchased
       end
     else
+      @table_info = { table_title: "Ultimos productos vendidos" }
       latest_products_sold
     end
   end
@@ -35,6 +39,7 @@ class PagesController < ApplicationController
                          .group(:product)
                          .where(order: { status: true})
                          .order("sum_quantity DESC")
+                         .limit(5)
                          .sum(:quantity)
   end
 
