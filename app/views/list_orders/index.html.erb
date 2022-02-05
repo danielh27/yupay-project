@@ -17,7 +17,7 @@
           <h4>Ordenes Pendientes:</h4>
           <ul>
             <% @list_orders.each do |item| %>
-              <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete"  %></li>
+              <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete", remote: true  %></li>
             <% end %>
           </ul>
         <% end %>
