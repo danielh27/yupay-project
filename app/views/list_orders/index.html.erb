@@ -12,18 +12,14 @@
 
     <div class="col-6">
       <div class="card">
-        <h2>Carrito:</h2>
-        <div class="list-items">
-          <% if @list_orders.present? %>
-            <h4>Items:</h4>
-            <ul>
+        <h2>Items:</h2>
+          <ul data-insert-in-list-target="items">
+            <% if @list_orders.present? %>
               <% @list_orders.each do |item| %>
                 <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete" %></li>
               <% end %>
-              <div data-insert-in-list-target="items"></div>
-            </ul>
-          <% end %>
-        </div>
+            <% end %>
+          </ul>
         <div>
           <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
           <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>

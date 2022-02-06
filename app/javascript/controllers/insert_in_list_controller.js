@@ -22,7 +22,9 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item);
+          let li_element = document.createElement("li");
+          li_element.innerHTML = data.inserted_item;
+          this.itemsTarget.appendChild(li_element);
         }
         this.formTarget.outerHTML = data.form;
       });
@@ -37,7 +39,6 @@ export default class extends Controller {
     fetch(`/products/${this.dropdownProductTarget.value}`, { method: 'GET', headers: { 'Accept': "application/json" }})
       .then(response => response.json())
       .then(data => {
-        // console.log(data.product_stock)
         for (let number = 1; number <= data.product_stock; number++) {
           let option = document.createElement("option");
           option.textContent = number;
