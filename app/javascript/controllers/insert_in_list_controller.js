@@ -2,14 +2,14 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["items", "form", "dropdown"];
+  static targets = ["items", "form", "dropdownProduct", "dropdownQuantity"];
 
-  connect() {
-    console.log(this.element);
-    console.log(this.itemsTarget);
-    console.log(this.formTarget);
-    console.log(this.dropdownTarget)
-  }
+  // connect() {
+  //   console.log(this.element);
+  //   console.log(this.itemsTarget);
+  //   console.log(this.formTarget);
+  //   console.log(this.dropdownProductTarget)
+  // }
 
   send(event) {
     event.preventDefault();
@@ -29,7 +29,21 @@ export default class extends Controller {
   }
 
   update_select_options(event) {
-    console.log(event);
-    console.log(this.dropdownTarget);
+
+    while (this.dropdownQuantityTarget.length > 0) {
+      this.dropdownQuantityTarget.remove(0);
+    }
+
+    fetch(`/products/${this.dropdownProductTarget.value}`, { method: 'GET', headers: { 'Accept': "application/json" }})
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data.product_stock)
+        for (let number = 1; number <= data.product_stock; number++) {
+          let option = document.createElement("option");
+          option.textContent = number;
+          option.value = number;
+          this.dropdownQuantityTarget.add(option);
+        }
+      });
   }
 }
