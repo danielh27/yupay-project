@@ -1,5 +1,0 @@
-<%= simple_form_for(list_order, url: order_list_orders_path, remote: true) do |f| %>
-  <%= f.association :product, label: "Selecciona un producto", prompt: "Producto....." %>
-  <%= f.input :quantity, label: "Cantidad" %>
-  <%= f.submit "Añadir Item", class: "btn-primary" %>
-<% end %>

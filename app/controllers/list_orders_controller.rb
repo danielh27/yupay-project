@@ -10,10 +10,14 @@ class ListOrdersController < ApplicationController
     @list_order = ListOrder.new(list_order_params)
     @list_orders = ListOrder.where(order: params[:order_id])
     @list_order.order = @order
-    if @list_order.save
-      redirect_to order_list_orders_path(@order)
-    else
-      render :index
+
+    respond_to do |format|
+      if @list_order.save
+        format.html { redirect_to order_list_orders_path(@order) }
+      else
+        format.html { render :index }
+      end
+      format.json
     end
   end
 

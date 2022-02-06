@@ -1,26 +1,29 @@
 <%= render "shared/sidebar" %>
 <div class="col-md-11 ml-sm-auto col-lg-11 px-md-4 mt-5">
 
-  <div class="row">
+  <div class="row"  data-controller="insert-in-list">
 
     <div class="col-6">
       <div class="card">
         <h1>Nueva venta</h1>
-        <%= render 'shared/order_form_items', list_order: @list_order %>
+        <%= render 'order_form_items', list_order: @list_order %>
       </div>
     </div>
 
     <div class="col-6">
       <div class="card">
         <h2>Carrito:</h2>
-        <% if @list_orders.present? %>
-          <h4>Ordenes Pendientes:</h4>
-          <ul>
-            <% @list_orders.each do |item| %>
-              <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete", remote: true  %></li>
-            <% end %>
-          </ul>
-        <% end %>
+        <div class="list-items">
+          <% if @list_orders.present? %>
+            <h4>Items:</h4>
+            <ul>
+              <% @list_orders.each do |item| %>
+                <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete" %></li>
+              <% end %>
+              <div data-insert-in-list-target="items"></div>
+            </ul>
+          <% end %>
+        </div>
         <div>
           <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
           <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
