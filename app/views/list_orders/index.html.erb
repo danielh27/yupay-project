@@ -4,9 +4,26 @@
   <div class="row"  data-controller="insert-in-list">
 
     <div class="col-6">
-      <div class="card">
-        <h1>Nueva venta</h1>
-        <%= render 'order_form_items', list_order: @list_order %>
+
+      <div class="card" data-controller="refresh-products-list">
+
+        <div class="search_area">
+          <h2>Nueva venta</h2>
+          <%# <%= render 'order_form_items', list_order: @list_order %>
+          <%= form_with url: order_list_orders_path(params[:order_id]), method: :get, html: { class: 'mb-5', data: { refresh_products_list_target: 'form' } } do |f| %>
+            <%= f.text_field :query,
+                            class: "form-control bg-light",
+                            placeholder: 'Escribe el nombre o codigo del producto',
+                            value: params[:query],
+                            data: {
+                              refresh_products_list_target: 'searchInput',
+                              action: "keyup->refresh-products-list#update"
+                            } %>
+          <% end %>
+        </div>
+
+        <%= render "results" %>
+
       </div>
     </div>
 
