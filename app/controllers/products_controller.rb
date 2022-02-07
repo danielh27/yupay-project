@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @list = ListPurchase.where(product_id:(params[:id]))
+    @list_purchase = ListPurchase.where(product_id: params[:id])
+    @list_order = ListOrder.where(product_id: params[:id])
 
     respond_to do |format|
       format.html
