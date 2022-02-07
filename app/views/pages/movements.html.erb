@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="d-flex general">
   <%= render "shared/sidebar" %>
     <div class="content">
@@ -36,49 +35,6 @@
               <% end %>
                     
           <% end %>
-=======
-<div class="main-container">
-
-    <div class= "sidebar-space">
-      <%= render "shared/sidebar" %>
-    </div>
-
-    <div class="container-wo-sidebar">
-      <br>
-      <h1>Movimientos</h1>
-      <br>
-      <% @total.each do |item| %>
-        <% if defined?(item.customer_id)%>
-          <div class="card m-3 p-2 order-card">
-            <h6 class="card-title">Order id: <%= item.id %>  </h6>
-            <p class="fs-6">Fecha: <%= item.updated_at.localtime.strftime("%d/%m/%Y %I:%M %p") %></p>
-            <table class="table table-mov">
-              <% item.list_orders.each do |order_item| %>
-                  <tr>
-                    <td class="text-left">Producto: <%= order_item.product.name %></td>
-                    <td >Cantidad: <%= order_item.quantity %></td>
-                  </tr>
-                <% end %>
-            </table>
-          </div>
-          <% else %>
-            <div class="card m-3 p-2 purchase-card" >
-              <h6 class="card-title">Purchase id:<%= item.id %>  </h6>
-              <p class="fs-6">Fecha: <%= item.updated_at.localtime.strftime("%d/%m/%Y %I:%M %p") %></p>
-              <table class="table table-mov">
-                <% item.list_purchases.each do |item| %>
-                    <tr>
-                      <td class="text-left">Producto: <%= item.product.name %></td>
-                      <td >Cantidad: <%= item.quantity %></td>
-                    </tr>
-                <% end %>
-              </table>
-            </div>
-          <% end %>
-
-      <% end %>
-
->>>>>>> master
 
 
        
