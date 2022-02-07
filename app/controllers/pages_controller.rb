@@ -32,6 +32,19 @@ class PagesController < ApplicationController
     @total.reverse!
   end
 
+  def kpis
+    @confirmed_orders = Order.where(status: true)
+    @confirmed_purchases = Purchase.where(status: true)
+    @sales = 0
+    @costs = 0 
+    @confirmed_orders.each do |order|    
+      order.list_orders.each do |order_item| 
+        @sales += order_item.product.price 
+        @costs += order_item.product.cost 
+      end 
+    end 
+  end
+
   private
 
   def most_selled_products

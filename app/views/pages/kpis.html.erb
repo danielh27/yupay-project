@@ -1,0 +1,30 @@
+<br>
+<div class="container">
+  <br>
+  <h1>Indicadores de Gestion</h1>
+  <br>
+  <div class="card p-2">
+    <div class="card-title">
+      <h2>Indicadores Financieros</h2>
+    </div>
+    <br>
+    <h3>Ventas:    S/. <%= @sales.round(2) %> </h3>
+    <h3>Costos:    S/. <%= @costs.round(2) %></h3>
+    <h3>Ganancias: S/. <%= (@sales - @costs).round(2) %></h3>
+  </div>
+
+  <div class="card mt-5">
+    <div class="card-title">
+      <h2>Indicadores Financieros</h2>
+    </div>
+    <br>
+  </div>
+  
+
+  <div class="card mt-5">
+    <div class="card-title">
+      <h2>Indicadores Ventas</h2>
+    </div>
+    <br>
+  </div>
+</div>
