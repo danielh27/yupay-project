@@ -1,7 +1,19 @@
-<div class="d-flex general">
-  <%= render "shared/sidebar" %>
-    <div class="content">
-      <%= render "shared/navbar_dashboard" %>
+<%= render "shared/sidebar" %>
+  <div class="container-all">
+    <div class="container-card">
+      <div class="card-product">
+        <div class="image-product">
+          <%= image_tag "https://images.unsplash.com/photo-1618225747659-433d5a5c6af7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" %>
+        </div>
+        <div class="info-product">
+          <h1><%= @product.name %></h1>
+          <p class="stock"> Stock:<%= @product.stock%></p>
+          <p class="size"><%= @product.size %> </p>
+          <p class="category"> Categoria: <%= @product.category %> </p>
+          <h2> S/. <%= @product.price %> </h2>
+        </div>
+      </div>
+    </div>
 
         <div class="container-all">
           <div class="container-card">
