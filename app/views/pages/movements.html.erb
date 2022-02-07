@@ -8,38 +8,91 @@
       <br>
       <h1>Movimientos</h1>
       <br>
-      <% @total.each do |item| %>   
-        <% if defined?(item.customer_id)%>
-          <div class="card m-3 p-2 order-card">          
-            <h6 class="card-title">Order id: <%= item.id %>  </h6>
-            <p class="fs-6">Fecha: <%= item.updated_at %></p>
-            <table class="table table-mov">
-              <% item.list_orders.each do |order_item| %>
-                  <tr>        
-                    <td class="text-left">Producto: <%= order_item.product.name %></td>        
-                    <td >Cantidad: <%= order_item.quantity %></td>        
-                  </tr>
-                <% end %>
-            </table>
-          </div>
+      <%# botones desplegables %>
+      <div class="" id="accordionExample">
+        <% @total.each do |item| %>   
+          <% if defined?(item.customer_id)%>            
+              <div class="card my-2 order-card">
+                <div class="card-header" id=<%= "heading-order#{item.id}"  %>>
+                  <h2 class="mb-0">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target= <%= "#order#{item.id}"  %> aria-expanded="true" aria-controls= <%= "order#{item.id}"  %> >
+                      <div class="d-flex justify-content-between row">
+                        <div class="d-flex justify-content-left">
+                          <h5>Venta &nbsp;&nbsp;Nro.<%= item.id %></h5>
+                          <h5 style="padding-left:30px">Se registro ventas de <%= item.list_orders.count %> productos </h5>
+                        </div>
+                        
+                        <p>Fecha: <%= item.updated_at %></p>  
+                      </div>
+                      
+                    </button>
+                  </h2>
+                </div>
+                <%=  %>
+                <div id= <%= "order#{item.id}"  %>  class="collapse" aria-labelledby=<%= "heading-order#{item.id}"  %> data-parent="#accordionExample">
+                  <div class="card-body">
+                    <table class="table table-mov">
+                        <tr>
+                          <th>Cantidad</th>
+                          <th>Producto</th>
+                          <th class="text-right">Precio de Venta Un</th>
+                        </tr>
+                      <% item.list_orders.each do |order_item| %>
+                        <tr>
+                          <td ><%= order_item.quantity %> un</td>  
+                          <td class="text-left"> <%= order_item.product.name %></td>
+                          <td class="text-right"><%= order_item.product.price %></td>                                        
+                        </tr>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            
           <% else %>
-            <div class="card m-3 p-2 purchase-card" >
-              <h6 class="card-title">Purchase id:<%= item.id %>  </h6>
-              <p class="fs-6">Fecha: <%= item.updated_at %></p>
-              <table class="table table-mov">
-                <% item.list_purchases.each do |item| %>
-                    <tr>        
-                      <td class="text-left">Producto: <%= item.product.name %></td>        
-                      <td >Cantidad: <%= item.quantity %></td>        
-                    </tr>
-                <% end %>
-              </table>
-            </div>
+            
+              <div class="card my-2 purchase-card">
+                <div class="card-header" id= <%= "heading-purchase#{item.id}"  %>>
+                  <h2 class="mb-0">
+                    <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target=<%= "#purchase#{item.id}"  %> aria-expanded="true" aria-controls= <%= "purchase#{item.id}"  %> >
+                      <div class="d-flex justify-content-between row">
+                      <div class="d-flex">
+                        <h5>Compra Nro.<%= item.id %></h5>
+                        <h5 style="padding-left:30px">Se registro compras de <%= item.list_purchases.count %> productos </h5>
+                      </div>
+                      
+                        <p>Fecha: <%= item.updated_at %></p>  
+                      </div>                      
+                    </button>
+                  </h2>
+                </div>
+
+                <div id=<%= "purchase#{item.id}"  %> class="collapse" aria-labelledby= <%= "heading-purchase#{item.id}"  %> data-parent="#accordionExample">
+                  <div class="card-body">
+                    <table class="table table-mov">
+                        <tr>
+                          <th>Cantidad</th>
+                          <th>Producto</th>
+                          <th class="text-right">Costo Unitario</th>
+                        </tr>
+                      <% item.list_purchases.each do |order_item| %>
+                        <tr>
+                          <td ><%= order_item.quantity %> un</td>  
+                          <td class="text-left"> <%= order_item.product.name %></td>
+                          <td class="text-right"><%= order_item.product.price %></td>                                        
+                        </tr>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+              </div>           
+
           <% end %>
-                
-      <% end %>
+        <% end %>
+      </div>
+      
 
-
+      <%# fin desplegables %>
     </div>
 
 </div>
