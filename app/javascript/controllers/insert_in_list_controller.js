@@ -2,17 +2,17 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["items", "dropdownProduct", "dropdownQuantity"];
+  static targets = ["items", "dropdownProduct", "dropdownQuantity", "total_price"];
 
   // connect() {
   //   console.log(this.element);
   //   console.log(this.itemsTarget);
-  //   console.log(this.formTarget);
-  //   console.log(this.dropdownProductTarget)
+  //   console.log(this.total_priceTarget);
   // }
 
   send(event) {
     event.preventDefault();
+    let currentForm = event.currentTarget;
 
     fetch(event.currentTarget.action, {
       method: 'POST',
@@ -22,11 +22,12 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          let li_element = document.createElement("li");
-          li_element.innerHTML = data.inserted_item;
-          this.itemsTarget.appendChild(li_element);
+          let table_row = document.createElement("tr");
+          table_row.innerHTML = data.inserted_item;
+          this.itemsTarget.appendChild(table_row);
+          this.total_priceTarge.innerText = ""
         }
-        event.currentTarget.outerHTML = data.form;
+        currentForm.outerHTML = data.form;
       });
   }
 

@@ -1,1 +1,7 @@
-<%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete" %>
+<tr class="border-bottom">
+  <td><%= item.product.name %></td>
+  <td><%= item.product.size %></td>
+  <td><%= item.quantity %></td>
+  <td>S/ <%= item.product.price %></td>
+  <td><%= link_to "Retirar", list_order_path(item), method: "delete" %></td>
+</tr>

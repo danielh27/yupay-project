@@ -20,19 +20,53 @@
 
     <%# Items section %>
     <div class="col-6">
-      <div class="card">
-        <h2>Items:</h2>
-        <ul data-insert-in-list-target="items">
-          <% if @list_orders.present? %>
-            <% @list_orders.each do |item| %>
-              <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item.id), method: "delete" %></li>
-            <% end %>
-          <% end %>
-        </ul>
-        <div>
-          <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-          <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+      <div class="card bg-transparent border-0 pt-3 pl-4 items-section">
+        <h2 class="text-muted font-weight-bold">Productos</h2>
+        <h4 class="text-muted font-weight-bold mb-5 mt-3">Cliente: <%= @order.customer.name %></h4>
+        <div class="items-table-container table-responsive-xl">
+          <table class="table table-borderless items-table" >
+            <thead>
+              <tr>
+                <th scope="col" class="text-muted pl-0">NOMBRE</th>
+                <th scope="col" class="text-muted">TALLA</th>
+                <th scope="col" class="text-muted">CANTIDAD</th>
+                <th scope="col" class="text-muted">PRECIO</th>
+                <th scope="col" class="text-muted">ACCION</th>
+              </tr>
+            </thead>
+            <tbody data-insert-in-list-target="items">
+              <% if @list_orders.present? %>
+                <% @list_orders.each do |item| %>
+
+                  <tr class="border-bottom">
+                    <td><%= item.product.name %></td>
+                    <td><%= item.product.size %></td>
+                    <td><%= item.quantity %></td>
+                    <td>S/ <%= item.product.price %></td>
+                    <td><%= link_to "Retirar", list_order_path(item), method: "delete" %></td>
+                  </tr>
+
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
         </div>
+
+      </div>
+      <div class="confirm-cancel-btns pl-4 border-top">
+        <table class="table table-borderless items-table mb-5">
+          <tfoot>
+            <tr>
+              <th scope="col" class="text-danger pl-0">TOTAL</th>
+              <td></td>
+              <td></td>
+              <td class="text-center text-danger font-weight-bold total-price" data-insert-in-list-target="total_price">S/ 0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+        <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+        <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
       </div>
     </div>
 

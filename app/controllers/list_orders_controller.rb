@@ -20,6 +20,7 @@ class ListOrdersController < ApplicationController
     @list_order = ListOrder.new(list_order_params)
     @list_orders = ListOrder.where(order: params[:order_id])
     @list_order.order = @order
+    @product = @list_order.product
 
     respond_to do |format|
       if @list_order.save

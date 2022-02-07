@@ -3,9 +3,22 @@
   max-height: 90vh;
 }
 
-.search_results {
+.items-section {
+  min-height: 685px;
+  max-height: 70vh;
+}
+
+.search_results, .items-table-container {
   overflow-y: auto;
   max-height: 70vh;
+}
+
+
+
+.items-table-container {
+
+  // display: flex;
+  // flex-grow: 1;
 }
 
 .card-product {
@@ -53,4 +66,41 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+
+
+.items-table {
+
+  tbody {
+    overflow-y: auto;
+  }
+
+  tr td:first-child {
+    padding-left: 0;
+  }
+
+  td, tr {
+    max-height: 55px;
+  }
+
+  tr th:not(:first-child), tr td:not(:first-child) {
+    text-align: center;
+    width: 110px;
+    max-width: 120px;
+  }
+
+  tbody tr td:first-child, tfoot tr th {
+    width: 340px;
+    max-width: 350px;
+  }
+
+  tfoot tr td, tfoot tr th {
+    font-size: 1.2rem;
+  }
+
+}
+
+.confirm-cancel-btns {
+  margin-top: auto;
 }
