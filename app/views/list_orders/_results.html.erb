@@ -1,8 +1,8 @@
 <div class="products pr-3 search_results"  data-refresh-products-list-target="results">
   <% @products.each do |product| %>
-    <div class="card-product">
+    <div class="search-card">
       <%= image_tag "https://source.unsplash.com/random/?#{product.category}" %>
-      <div class="card-product-infos">
+      <div class="search-card-infos">
         <h2><%= product.name %></h2>
         <p><strong>Precio: S/ <%= product.price %></strong></p>
         <p>Codigo: <%= product.bar_code %></p>
