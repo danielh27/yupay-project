@@ -20,6 +20,7 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import JQuery from 'jquery';
+import "controllers"
 window.$ = window.JQuery = JQuery;
 // External imports
 import "bootstrap";
