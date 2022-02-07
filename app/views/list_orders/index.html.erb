@@ -3,40 +3,32 @@
 
   <div class="row"  data-controller="insert-in-list">
 
+    <%# Search section %>
     <div class="col-6">
-
-      <div class="card" data-controller="refresh-products-list">
-
-        <div class="search_area">
-          <h2>Nueva venta</h2>
-          <%# <%= render 'order_form_items', list_order: @list_order %>
-          <%= form_with url: order_list_orders_path(params[:order_id]), method: :get, html: { class: 'mb-5', data: { refresh_products_list_target: 'form' } } do |f| %>
-            <%= f.text_field :query,
-                            class: "form-control bg-light",
-                            placeholder: 'Escribe el nombre o codigo del producto',
-                            value: params[:query],
-                            data: {
-                              refresh_products_list_target: 'searchInput',
-                              action: "keyup->refresh-products-list#update"
-                            } %>
-          <% end %>
-        </div>
-
+      <div class="card bg-transparent border-0 search-products-section py-3 pl-3" data-controller="refresh-products-list">
+        <h2 class="text-muted font-weight-bold">Nueva venta</h2>
+        <%= form_with url: order_list_orders_path(params[:order_id]), method: :get, html: { class: 'mb-5 pr-3', data: { refresh_products_list_target: 'form' } } do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control mt-3",
+                          placeholder: 'Escribe el nombre o codigo del producto',
+                          value: params[:query],
+                          data: { refresh_products_list_target: 'searchInput', action: "keyup->refresh-products-list#update" } %>
+        <% end %>
         <%= render "results" %>
-
       </div>
     </div>
 
+    <%# Items section %>
     <div class="col-6">
       <div class="card">
         <h2>Items:</h2>
-          <ul data-insert-in-list-target="items">
-            <% if @list_orders.present? %>
-              <% @list_orders.each do |item| %>
-                <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item), method: "delete" %></li>
-              <% end %>
+        <ul data-insert-in-list-target="items">
+          <% if @list_orders.present? %>
+            <% @list_orders.each do |item| %>
+              <li><%= item.product.name %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_order_path(item.id), method: "delete" %></li>
             <% end %>
-          </ul>
+          <% end %>
+        </ul>
         <div>
           <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
           <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>

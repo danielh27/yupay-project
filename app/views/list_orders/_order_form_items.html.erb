@@ -1,8 +1,0 @@
-<%= simple_form_for(list_order, url: order_list_orders_path,
-                    data: { insert_in_list_target: 'form',
-                    action: 'submit->insert-in-list#send' }) do |f| %>
-
-  <%= f.association :product, label: "Selecciona un producto", input_html: { data: { insert_in_list_target: "dropdownProduct", action: "change->insert-in-list#update_select_options" } }, prompt: "Producto....." %>
-  <%= f.input :quantity, collection: [], label: "Cantidad", prompt: "Stock disponible", input_html: { data: { insert_in_list_target: "dropdownQuantity" }}%>
-  <%= f.submit "Añadir Item", class: "btn-primary" %>
-<% end %>
