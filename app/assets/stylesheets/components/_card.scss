@@ -154,3 +154,47 @@
 }
 
 // Container for index Product
+
+// cards movimientos
+
+  .card-mov {    
+
+    .card-header{
+      background-color: transparent;
+      border-bottom: 0;
+    }
+
+    .table td {
+      border-top: 0;
+    }
+  
+  }
+  
+  .purchase-card {
+    background-color: #fccfd725;
+    border-radius: 15px;
+    border-color: #F893A5;
+    .card-header {
+      .btn {
+       color: #F20F38;       
+      }
+    }
+    
+    
+  
+    p {
+      font-size: smaller;
+    }
+  
+  }
+  .order-card {
+    background-color: hsla(191, 97, 13, 0.11);
+    border-radius: 15px;
+    color: black;
+    border-color: #013440;
+    p {
+      font-size: smaller;
+    }
+  }
+
+
