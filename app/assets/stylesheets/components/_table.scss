@@ -1,9 +1,10 @@
 .products-table {
   min-width: 1050px;
-  width: 90%;
+  width: 100%;
+  font-size: 15px;
 
   td {
-    padding: 16px 12px;
+    padding: 10px 0px;
   }
 
   tbody tr {
@@ -18,5 +19,9 @@
     min-width: 120px;
     text-align: center;
     vertical-align: middle;
+    font-size: 14px;
+  }
+  .table-infos {
+    font-size: 14px;
   }
 }

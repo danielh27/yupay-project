@@ -36,6 +36,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'chartkick', '~> 4.1', '>= 4.1.3'
 gem 'groupdate', '~> 6.0', '>= 6.0.1'
+gem 'turbolinks_render'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
@@ -67,4 +68,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-

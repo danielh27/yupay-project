@@ -1,19 +1,38 @@
 class ListOrdersController < ApplicationController
   def index
     @list_order = ListOrder.new
-    @list_orders = ListOrder.where(order: params[:order_id])
+    @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
     @order = Order.find(params[:order_id])
+    @products = Product.order(price: :desc)
+    @total_sum = @list_orders.select(:price, :quantity).sum("price * quantity").round(2)
+
+    if params[:query].present?
+      @products = Product.where('name ILIKE :query OR bar_code ILIKE :query', query: "%#{params[:query]}%")
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "results.html" }
+    end
   end
 
   def create
     @order = Order.find(params[:order_id])
     @list_order = ListOrder.new(list_order_params)
-    @list_orders = ListOrder.where(order: params[:order_id])
+    @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
     @list_order.order = @order
-    if @list_order.save
-      redirect_to order_list_orders_path(@order)
-    else
-      render :index
+    @product = @list_order.product
+
+    total_sum = @list_orders.select(:price, :quantity).sum("price * quantity") +  (@product.price * @list_order.quantity)
+    @total_sum = sprintf('%.2f', total_sum)
+
+    respond_to do |format|
+      if @list_order.save
+        format.html { redirect_to order_list_orders_path(@order) }
+      else
+        format.html { render :index }
+      end
+      format.json
     end
   end
 

@@ -2,15 +2,17 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_product, only: %i[edit update destroy show]
 
-  def dashboard
-  end
-
   def index
     @products = Product.all
   end
 
   def show
     @list = ListPurchase.where(product_id:(params[:id]))
+
+    respond_to do |format|
+      format.html
+      format.json { @product }
+    end
   end
 
   def new

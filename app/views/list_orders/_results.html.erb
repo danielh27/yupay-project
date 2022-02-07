@@ -1,0 +1,24 @@
+<div class="products pr-3 search_results"  data-refresh-products-list-target="results">
+  <% @products.each do |product| %>
+    <div class="search-card">
+      <%= image_tag "https://source.unsplash.com/random/?#{product.category}" %>
+      <div class="search-card-infos">
+        <h2><%= product.name %></h2>
+        <p><strong>Precio: S/ <%= product.price %></strong></p>
+        <p>Codigo: <%= product.bar_code %></p>
+      </div>
+
+      <div class="product-quantity">
+        <%= simple_form_for(@list_order, url: order_list_orders_path,
+                  data: { action: 'submit->insert-in-list#send' }, html: { class: "" }) do |f| %>
+
+          <%= f.hidden_field :product_id, value: product.id.to_i %>
+          <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad"%>
+          <%= f.submit "Añadir", class: "btn btn-primary ml-2" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  <% end %>
+</div>
