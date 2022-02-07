@@ -8,16 +8,16 @@
       <br>
       <h1>Movimientos</h1>
       <br>
-      <% @total.each do |item| %>   
+      <% @total.each do |item| %>
         <% if defined?(item.customer_id)%>
-          <div class="card m-3 p-2 order-card">          
+          <div class="card m-3 p-2 order-card">
             <h6 class="card-title">Order id: <%= item.id %>  </h6>
-            <p class="fs-6">Fecha: <%= item.updated_at %></p>
+            <p class="fs-6">Fecha: <%= item.updated_at.localtime.strftime("%d/%m/%Y %I:%M %p") %></p>
             <table class="table table-mov">
               <% item.list_orders.each do |order_item| %>
-                  <tr>        
-                    <td class="text-left">Producto: <%= order_item.product.name %></td>        
-                    <td >Cantidad: <%= order_item.quantity %></td>        
+                  <tr>
+                    <td class="text-left">Producto: <%= order_item.product.name %></td>
+                    <td >Cantidad: <%= order_item.quantity %></td>
                   </tr>
                 <% end %>
             </table>
@@ -25,23 +25,21 @@
           <% else %>
             <div class="card m-3 p-2 purchase-card" >
               <h6 class="card-title">Purchase id:<%= item.id %>  </h6>
-              <p class="fs-6">Fecha: <%= item.updated_at %></p>
+              <p class="fs-6">Fecha: <%= item.updated_at.localtime.strftime("%d/%m/%Y %I:%M %p") %></p>
               <table class="table table-mov">
                 <% item.list_purchases.each do |item| %>
-                    <tr>        
-                      <td class="text-left">Producto: <%= item.product.name %></td>        
-                      <td >Cantidad: <%= item.quantity %></td>        
+                    <tr>
+                      <td class="text-left">Producto: <%= item.product.name %></td>
+                      <td >Cantidad: <%= item.quantity %></td>
                     </tr>
                 <% end %>
               </table>
             </div>
           <% end %>
-                
+
       <% end %>
 
 
     </div>
 
 </div>
-
-
