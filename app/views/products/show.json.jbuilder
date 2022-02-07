@@ -1,1 +1,1 @@
-json.product_stock(@product.stock)
+# json.product_stock(@product.stock)

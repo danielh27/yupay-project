@@ -4,3 +4,4 @@ if @list_order.persisted?
 else
   json.form json.partial!('list_orders/quantity_form.html.erb', list_order: @list_order, product: @product)
 end
+json.total_sum(@total_sum)

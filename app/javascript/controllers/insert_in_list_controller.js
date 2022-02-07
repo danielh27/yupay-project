@@ -2,12 +2,12 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["items", "dropdownProduct", "dropdownQuantity", "total_price"];
+  static targets = ["items", "dropdownProduct", "dropdownQuantity", "total_sum"];
 
   // connect() {
   //   console.log(this.element);
   //   console.log(this.itemsTarget);
-  //   console.log(this.total_priceTarget);
+  //   console.log(this.total_sumTarget);
   // }
 
   send(event) {
@@ -25,7 +25,7 @@ export default class extends Controller {
           let table_row = document.createElement("tr");
           table_row.innerHTML = data.inserted_item;
           this.itemsTarget.appendChild(table_row);
-          this.total_priceTarge.innerText = ""
+          this.total_sumTarget.innerText = `S/ ${data.total_sum}`
         }
         currentForm.outerHTML = data.form;
       });

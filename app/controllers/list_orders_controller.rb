@@ -1,9 +1,10 @@
 class ListOrdersController < ApplicationController
   def index
     @list_order = ListOrder.new
-    @list_orders = ListOrder.where(order: params[:order_id])
+    @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
     @order = Order.find(params[:order_id])
     @products = Product.order(price: :desc)
+    @total_sum = @list_orders.select(:price, :quantity).sum("price * quantity").round(2)
 
     if params[:query].present?
       @products = Product.where('name ILIKE :query OR bar_code ILIKE :query', query: "%#{params[:query]}%")
@@ -18,9 +19,12 @@ class ListOrdersController < ApplicationController
   def create
     @order = Order.find(params[:order_id])
     @list_order = ListOrder.new(list_order_params)
-    @list_orders = ListOrder.where(order: params[:order_id])
+    @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
     @list_order.order = @order
     @product = @list_order.product
+
+    total_sum = @list_orders.select(:price, :quantity).sum("price * quantity") +  (@product.price * @list_order.quantity)
+    @total_sum = sprintf('%.2f', total_sum)
 
     respond_to do |format|
       if @list_order.save
