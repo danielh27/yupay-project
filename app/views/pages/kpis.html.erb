@@ -3,28 +3,68 @@
   <br>
   <h1>Indicadores de Gestion</h1>
   <br>
-  <div class="card p-2">
+  <div class="card p-2 w-75">
     <div class="card-title">
       <h2>Indicadores Financieros</h2>
     </div>
     <br>
-    <h3>Ventas:    S/. <%= @sales.round(2) %> </h3>
-    <h3>Costos:    S/. <%= @costs.round(2) %></h3>
-    <h3>Ganancias: S/. <%= (@sales - @costs).round(2) %></h3>
+    <table class="table">
+      <tr>
+        <td>Ventas:</td>
+        <td>S/. <%= @sales.round(2) %></td>
+      </tr>
+      <tr>
+        <td>Costos:</td>
+        <td> S/. <%= @costs.round(2) %></td>
+      </tr>
+      <tr>
+        <td>Ganancias: </td>
+        <td>S/. <%= (@sales - @costs).round(2) %></td>
+      </tr>
+      <tr>
+        <td>Margen bruto: </td>
+        <td> <%= ((@sales - @costs)*100/@sales).round(0) %>%</td>
+      </tr>
+      
+      
+      
+    </table>
+
   </div>
 
   <div class="card mt-5">
     <div class="card-title">
-      <h2>Indicadores Financieros</h2>
+      <h2>Indicadores Ventas</h2>
+      <br>     
     </div>
     <br>
+    <h5>Ventas por Categoria</h5> 
+    <div class="row d-flex justify-content-left px-5 py-3">      
+      <table>
+        <tr>
+          <th>Categoria</th>
+          <th>Ventas</th>
+        </tr>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category[0] %></td>
+            <td><%= category[1].round(2) %></td>
+          </tr>
+        <% end %>      
+      </table>        
+      
+    </div>
+      
   </div>
   
 
   <div class="card mt-5">
     <div class="card-title">
-      <h2>Indicadores Ventas</h2>
+      <h2>Indicadores Logisticos</h2>
+
     </div>
     <br>
   </div>
+
+
 </div>
