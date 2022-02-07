@@ -2,14 +2,23 @@
 // .container-fluid {
 //   padding-left: 165px;
 // }
+.content {
+  width: 100%;
+  overflow: auto;
+  height: 100vh;
+}
+.general {
+  overflow: hidden;
+  height: 100vh;
+}
 .sidebarMenu {
-  position: fixed;
-  top: 0;
-  left: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   height: 100vh;
   // width: 9vw;
-  width: 10%;
-  max-width: 140px;
+  width: 145px;
+  // max-width: 140px;
   background: #013440;
   padding: 0px 14px;
   z-index: 1;

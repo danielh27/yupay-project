@@ -1,10 +1,10 @@
-<div class="container-fluid">
-  <div class="row">
-    <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
-      <br>
-      <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
-      <%= render "shared/unconfirmed_orders" %>
-    </main>
-  </div>
+<div class="d-flex general">
+  <%= render "shared/sidebar" %>
+    <div class="content">
+      <%= render "shared/navbar_dashboard" %>
+      <div class="px-5 py-3">
+          <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
+          <%= render "shared/unconfirmed_orders" %>
+      </div>
+    </div>
 </div>
