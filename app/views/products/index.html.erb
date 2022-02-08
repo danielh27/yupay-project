@@ -42,8 +42,8 @@
                       <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
                       <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
                       <td scope="row" class="column-info">
-                      <%= link_to(product_path(product), class: "btn-actions text-decoration-none") do %>
-                        <i class="fas fa-list"></i> Detalles
+                      <%= link_to(product_path(product)) do %>
+                        <%= image_tag "detalles.svg" %>
                       <% end %>
                       <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none") do %>
                         <i class="far fa-edit"></i> Editar
