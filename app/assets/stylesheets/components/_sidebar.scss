@@ -1,143 +1,186 @@
-
-// .container-fluid {
-//   padding-left: 165px;
-// }
-.content {
-  width: 100%;
-  overflow: auto;
-  height: 100vh;
-}
-.general {
-  overflow: hidden;
-  height: 100vh;
-}
 .sidebarMenu {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
   height: 100vh;
-  // width: 9vw;
-  width: 145px;
-  // max-width: 140px;
+  max-width: 140px;
   background: #013440;
-  padding: 0px 14px;
-  z-index: 1;
-  // width: var(--nav-width);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 
   .nav-logo {
     color: white;
-    margin: 0px;
-    text-align: center;
-    justify-content: center;
-    width: 95px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   .nav-link {
-    color: white;
-    margin: 0px;
-    // justify-content: center;
-    text-align: center;
-    justify-content: center;
-    width: 95px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    // d-flex flex-column align-items-center
+    transition: 0.4s;
+    border-radius: 10px;
   }
+
+  .nav-link img, .nav-link p {
+    transition: 0.4s;
+  }
+
   .nav-link:hover {
     background-color: #184650;
-    border-radius: 10px;
-    width: 95px;
-    height: 80px;
   }
+
+  .nav-link:hover img {
+    transform: rotate(10deg);
+  }
+
   .btn-sidebar {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(110deg) brightness(98%) contrast(108%);
     width: auto;
     height: 20px;
   }
+
   p {
-    font-size: 13px;
+    font-size: 0.813rem;
     margin: 0px;
   }
+
 }
-li {
-  list-style: none;
-  margin: auto;
+
+/////////////////////////////////////////TEEEEST//////////////////////////////////////////////////
+
+
+// Sidebar
+.sidebar {
+    width: $sidebar-collapsed-width;
+
+    .nav-item {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 5rem;
+        justify-content: center;
+
+        &:last-child {
+            margin-bottom: 1rem;
+        }
+
+        .nav-link {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.813rem;
+            width: 5.938rem;
+            height: 100%;
+            padding: 0;
+
+        }
+
+        &.active {
+            .nav-link {
+                background-color: #184650;
+                font-weight: 700;
+            }
+        }
+
+    }
+
+    .sidebar-brand {
+        height: $topbar-base-height;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 800;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        z-index: 1;
+
+        .sidebar-brand-icon i {
+            font-size: 2rem;
+        }
+
+        .sidebar-brand-text {
+            display: none;
+        }
+    }
 }
-ul {
-  padding: 0;
+
+@include media-breakpoint-up(md) {
+    .sidebar {
+        width: $sidebar-base-width !important;
+
+        .nav-item {
+
+            .nav-link {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 0.813rem;
+                width: 5.938rem;
+                height: 100%;
+                padding: 0;
+
+            }
+        }
+
+        .sidebar-brand {
+            .sidebar-brand-icon i {
+                font-size: 2rem;
+            }
+        }
+    }
 }
-// .sidebar {
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   z-index: 100; /* Behind the navbar */
-//   padding: 48px 0 0; /* Height of navbar */
-//   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-//   width: 90px;
-// }
 
-// @media (max-width: 767.98px) {
-//   .sidebar {
-//     top: 5rem;
-//   }
-// }
+// Sidebar Color Variants
 
-// .sidebar-sticky {
-//   position: relative;
-//   top: 0;
-//   height: calc(100vh - 48px);
-//   padding-top: .5rem;
-//   overflow-x: hidden;
-//   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-// }
+// Sidebar Light
+.sidebar-light {
+    .sidebar-brand {
+        color: $gray-700;
+    }
 
-// @supports ((position: -webkit-sticky) or (position: sticky)) {
-//   .sidebar-sticky {
-//     position: -webkit-sticky;
-//     position: sticky;
-//   }
-// }
+    .nav-item {
+        .nav-link {
+            color: $gray-600;
 
-// .sidebar .nav-link {
-//   font-weight: 500;
-//   color: #333;
-// }
+            &:active,
+            &:focus,
+            &:hover {
+                color: $gray-700;
 
-// .sidebar .nav-link .feather {
-//   margin-right: 4px;
-//   color: #999;
-// }
+            }
 
-// .sidebar .nav-link.active {
-//   color: #007bff;
-// }
+        }
 
-// .sidebar .nav-link:hover .feather,
-// .sidebar .nav-link.active .feather {
-//   color: inherit;
-// }
+        &.active {
+            .nav-link {
+                color: $gray-700;
+            }
+        }
+    }
+}
 
-// .sidebar-heading {
-//   font-size: .75rem;
-//   text-transform: uppercase;
-// }
+// Sidebar Dark
+.sidebar-dark {
+    .sidebar-brand {
+        color: $white;
+    }
 
-// .dashboard {
-//   filter: invert(16%) sepia(31%) saturate(2582%) hue-rotate(158deg) brightness(88%) contrast(99%);
-// }
-// .name-sidebar {
-//   font-size: 12px;
-//   font-weight: medium;
-// }
+    .nav-item {
+        .nav-link {
+            color: fade-out($white, 0.2);
 
-// https://codepen.io/sosuke/pen/Pjoqqp => para generador de filter que es utilizado para cambio de color en svg
+            &:active,
+            &:focus,
+            &:hover {
+                color: $white;
+            }
+        }
+
+        &.active {
+            .nav-link {
+                color: $white;
+            }
+        }
+    }
+}

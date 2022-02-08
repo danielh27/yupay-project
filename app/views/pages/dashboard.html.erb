@@ -1,90 +1,189 @@
-<div class="d-flex general">
+<%# <%= render "shared/navbar_dashboard" %>
+
+<div id="wrapper">
   <%= render "shared/sidebar" %>
-  <div class="content">
-    <%= render "shared/navbar_dashboard" %>
-    <div class="p-5">
-      <!-- Content Row -->
-      <div class="row">
 
-        <!-- Earnings (Monthly) Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                    Ganancias (Mensual)
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <div class="container-fluid">
+
+        <div class="row">
+
+          <!-- Earnings (Monthly) Card -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Ganancias (Mensual)
+                    </div>
+                    <div class="h5 mb-0 text-gray-800">
+                      $40,000
+                    </div>
                   </div>
-                  <div class="h5 mb-0 text-gray-800">
-                    $40,000
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
                   </div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Earnings (Annual) Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                    Ganancias (Anual)
+          <!-- Earnings (Annual) Card -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Ganancias (Anual)
+                    </div>
+                    <div class="h5 mb-0 text-gray-800">
+                      $215,000
+                    </div>
                   </div>
-                  <div class="h5 mb-0 text-gray-800">
-                    $215,000
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                   </div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-          <!-- Pending Orders/Purchases Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                    Compras/Ventas pendientes por confirmar
+            <!-- Pending Orders/Purchases Card -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                      Compras/Ventas pendientes por confirmar
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <%= Order.includes(:purchases).where(status: false).count %>
+                    </div>
                   </div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <%= Order.includes(:purchases).where(status: false).count %>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                   </div>
-                </div>
-                <div class="col-auto">
-                  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <!-- Low stock Card -->
-        <div class="col-xl-3 col-md-6 mb-4">
-          <div class="card border-left-danger shadow h-100 py-2">
-            <div class="card-body">
-              <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                      Productos con bajo stock</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <%= Product.where("stock < minimum_required").count %>
+          <!-- Low stock Card -->
+          <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        Productos con bajo stock</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      <%= Product.where("stock < minimum_required").count %>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                   </div>
                 </div>
-                <div class="col-auto">
-                  <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <!-- Area Chart -->
+          <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Resumen de ventas</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-area">
+                  <%= area_chart Product.group_by_hour(:created_at).count%>
+                  <%# <canvas id="myAreaChart"></canvas> %>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pie Chart -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                  <%= pie_chart ListOrder.joins(:product).group(:category).sum(:price), legend: false, donut: true, height: "90%"%>
+                  <%# <canvas id="myPieChart"></canvas> %>
+                </div>
+                <div class="mt-4 text-center small">
+                  <span class="mr-2">
+                    <i class="fas fa-circle text-primary"></i> Direct
+                  </span>
+                  <span class="mr-2">
+                    <i class="fas fa-circle text-success"></i> Social
+                  </span>
+                  <span class="mr-2">
+                    <i class="fas fa-circle text-info"></i> Referral
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <!-- Content Column -->
+          <div class="col-lg-12 mb-4">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary"><%= @table_info[:table_title] %></h6>
+                <div class="dropdown no-arrow"><span class="font-weight-bold text-primary">Filtrar por:</span>
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                    aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Acciones:</div>
+                    <%= link_to "Productos mas vendidos", "/dashboard?query=1#dashboard-table", class: "dropdown-item" %>
+                    <%= link_to "Ultimos productos vendidos", "/dashboard?query=2#dashboard-table", class: "dropdown-item" %>
+                    <%= link_to "Ultimos productos ingresados", "/dashboard?query=3#dashboard-table", class: "dropdown-item" %>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-borderless dashboard-table mx-auto" id="dashboard-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="text-muted pl-0">PRODUCTO</th>
+                      <th scope="col" class="text-center text-muted">CATEGORIA</th>
+                      <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "COSTO" : "PRECIO DE VENTA" %></th>
+                      <th scope="col" class="text-center text-muted">STOCK</th>
+                      <th scope="col" class="text-center text-muted">TALLA</th>
+                      <th scope="col" class="text-center text-muted">CANTIDAD</th>
+                      <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "PROVEEDOR" : "CLIENTE" %></th>
+                      <th scope="col" class="text-center text-muted">FECHA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%= render "shared/dashboard_table_content" %>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -92,101 +191,15 @@
 
       </div>
 
-      <div class="row">
-
-        <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
-          <div class="card shadow mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Resumen de ventas</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <div class="chart-area">
-                <%= area_chart Product.group_by_hour(:created_at).count%>
-                <%# <canvas id="myAreaChart"></canvas> %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-    <!-- Pie Chart -->
-    <div class="col-xl-4 col-lg-5">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Fuentes de ingreso</h6>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="chart-pie pt-4 pb-2">
-            <%= pie_chart ListOrder.joins(:product).group(:category).sum(:price), legend: false, donut: true, height: "90%"%>            
-            <%# <canvas id="myPieChart"></canvas> %>
-          </div>
-
-          <div class="mt-4 text-center small">
-            <span class="mr-2">
-              <i class="fas fa-circle text-primary"></i> Direct
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-success"></i> Social
-            </span>
-            <span class="mr-2">
-              <i class="fas fa-circle text-info"></i> Referral
-            </span>
-
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-        <!-- Content Column -->
-        <div class="col-lg-12 mb-4">
-          <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary"><%= @table_info[:table_title] %></h6>
-              <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                  aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Acciones:</div>
-                  <%= link_to "Productos mas vendidos", "/dashboard?query=1#dashboard-table", class: "dropdown-item" %>
-                  <%= link_to "Ultimos productos vendidos", "/dashboard?query=2#dashboard-table", class: "dropdown-item" %>
-                  <%= link_to "Ultimos productos ingresados", "/dashboard?query=3#dashboard-table", class: "dropdown-item" %>
-                </div>
-              </div>
-            </div>
-            <div class="card-body p-0">
-              <table class="table table-borderless dashboard-table mx-auto" id="dashboard-table">
-                <thead>
-                  <tr>
-                    <th scope="col" class="text-muted pl-0">PRODUCTO</th>
-                    <th scope="col" class="text-center text-muted">CATEGORIA</th>
-                    <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "COSTO" : "PRECIO DE VENTA" %></th>
-                    <th scope="col" class="text-center text-muted">STOCK</th>
-                    <th scope="col" class="text-center text-muted">TALLA</th>
-                    <th scope="col" class="text-center text-muted">CANTIDAD</th>
-                    <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "PROVEEDOR" : "CLIENTE" %></th>
-                    <th scope="col" class="text-center text-muted">FECHA</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= render "shared/dashboard_table_content" %>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+
   </div>
+
 </div>
-              <%# <%= form_tag dashboard_path, method: :get, class:"filter-products" do  %>
-                <%# <%= select_tag :query, options_for_select([['Mas vendidos', 1], ['Bajo stock', 2], ['Alto stock', 3]]) %>
-                <%# <%= submit_tag "Search", class: "btn btn-primary" %>
-              <%# <% end %>
+
+
+<%# <div class="col-md-11 col-lg-11 px-md-4 mt-5">
+  <!-- Content Row -->
+
+
+</div> %>
