@@ -6,19 +6,16 @@
     <% else %>
     <%=  render 'shared/navbar_home' %>
     <% end %>
-    <%# NO LLEVA LA CLASE HOME-HEADER EN EL DIV DE ABAJO %>
-    <div class="d-flex"> 
-      <div class="container px-4 py-5 banner-c">
-        <div class="row flex-lg-row-reverse g-5 py-5">
-          <%# PARA QUE SIRVE ESTE DIV??? %>
-          <div class="col-10 col-sm-8 col-lg-6">
-          </div>
-          <div class="col-lg-6">
-            <h1 class="display-3 fw-bold lh-1 mb-3">La herramienta logística más fácil de usar</h1>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-lg px-4 me-md-2">Prueba gratis</button>
-              </div>
-          </div>
+  <div class="home-header d-flex">
+    <div class="container px-4 py-5 banner-c">
+      <div class="row flex-lg-row-reverse g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-3 fw-bold lh-1 mb-3">La herramienta logística más fácil de usar</h1>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <button type="button" class="btn btn-lg px-4 me-md-2">Prueba gratis</button>
+            </div>
         </div>
       </div>
     </div>
@@ -26,8 +23,7 @@
 
 <%# SEGUNDA PARTE DEL HOME %>
   <div class="cards-home">
-    <div id="image-home-2">
-    </div>
+    <div id="image-home-2"></div>
     <div class="cards-info">
       <div>
         <div class=" text-center py-3"><h2 class="display-4">¿Por qué elegirnos?</h2></div>
