@@ -7,14 +7,44 @@
 
       <%= render "shared/topbar" %>
 
-      <div class="container-fluid">
+      <div class="container-fluid" id="container-fluid-new-order" >
 
-        <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
-        <div class="row">
+        <div class="row h-100 justify-content-center align-items-center">
 
-          <%= render "shared/unconfirmed_orders" %>
+          <div class="col-6">
+
+            <div class="main-section-new-order text-center ">
+              <h1>Realiza una...</h1>
+              <%= link_to "Nueva venta", orders_path, class: "mt-4 btn-new-order" %>
+
+              <div id="pending-orders-section mt-5">
+
+                <% @unconfirmed_orders&.each do  |unconfirmed_order| %>
+                  <div class="card m-3 p-3">
+                    <ul>
+                      <% unconfirmed_order.list_orders.each do |item| %>
+                        <li><%= item.product.name %> | Cantidad: <%= item.quantity %></li>
+                      <% end %>
+                    </ul>
+                    <div class = "d-flex">
+                      <%= link_to "Continuar",  order_list_orders_path(unconfirmed_order), class: "btn btn-success" %>
+                      <%= link_to "Cancelar", order_path(unconfirmed_order), method: "delete", class: "btn btn-danger ml-3" %>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+
+          </div>
 
         </div>
+
+        <%# <div class="row"> %>
+
+          <%# <%= render "shared/unconfirmed_orders" %>
+
+        <%# </div> %>
 
       </div>
 
