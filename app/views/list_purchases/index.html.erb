@@ -1,33 +1,39 @@
+
 <div class="container-fluid">
   <div class="row">
     <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
-      <div class="container-fluid">
+    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4 p-5">
+
+
+
+      <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-4 p-5">
-            <h1>Ingresar mercaderia</h1>
-            <h2>Proveedor: <%= @purchase.supplier.name %></h2>
-            <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
+          <div class="col-4">
+            <h3>Proveedor: </h3>
+            <h1 class="font-weight-bolder"> <%= @purchase.supplier.name %> </h1>
           </div>
 
-          <div class="col-12 col-lg-8 p-5">
-            <h2 class="mt-5">Productos agregados</h2>
-            <% if @list_purchases.present? %>
-              <ul>
-                <% @list_purchases.each do |item| %>
-                  <li><%= item.product.name %> | Talla: <%= item.product.size %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
-                <% end %>
-              </ul>
-            <% end %>
-            <div>
-              <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-              <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
-            </div>
+          <div class="col-8">
+            <h3>Ingresar mercaderia</h3>
+            <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-8 p-5">
+          <h2 class="mt-5">Productos agregados</h2>
+          <% if @list_purchases.present? %>
+            <ul>
+              <% @list_purchases.each do |item| %>
+                <li><%= item.product.name %> | Talla: <%= item.product.size %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <div>
+            <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+            <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
           </div>
         </div>
       </div>
-
-
 
     </main>
   </div>
