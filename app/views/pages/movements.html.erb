@@ -25,7 +25,7 @@
                               <h5 style="padding-left:30px">Se registro ventas de <%= item.list_orders.count %> productos </h5>
                             </div>
 
-                            <p>Fecha: <%= item.updated_at %></p>
+                            <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
                           </div>
 
                         </button>
@@ -64,7 +64,7 @@
                             <h5 style="padding-left:30px">Se registro compras de <%= item.list_purchases.count %> productos </h5>
                           </div>
 
-                            <p>Fecha: <%= item.updated_at %></p>
+                            <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
                           </div>
                         </button>
                       </h2>
