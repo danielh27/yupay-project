@@ -126,7 +126,7 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
-                  <%= pie_chart ListOrder.joins(:product).group(:category).sum(:price), legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2,
+                  <%= pie_chart ListOrder.joins(:product).group(:category).sum("price*quantity"), legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2,
                   loading: "Loading...", empty: "No data", refresh: 3600 %>
                   <%# <canvas id="myPieChart"></canvas> %>
                 </div>
