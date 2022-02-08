@@ -1,8 +1,15 @@
-<div class="container-fluid">
-  <div class="row">
-    <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+<div id="wrapper">
+
+  <%= render "shared/sidebar" %>
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
       <div class="container-fluid">
+
         <div class="row">
           <div class="col-12 col-lg-4 p-5">
             <h1>Ingresar mercaderia</h1>
@@ -11,6 +18,7 @@
           </div>
 
           <div class="col-12 col-lg-8 p-5">
+
             <h2 class="mt-5">Productos agregados</h2>
             <% if @list_purchases.present? %>
               <ul>
@@ -19,16 +27,18 @@
                 <% end %>
               </ul>
             <% end %>
+
             <div>
               <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
               <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
             </div>
+
           </div>
         </div>
+
       </div>
 
+    </div>
 
-
-    </main>
   </div>
 </div>

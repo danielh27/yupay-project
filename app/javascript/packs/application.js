@@ -28,8 +28,6 @@ window.$ = window.JQuery = JQuery;
 
 // Internal imports, e.g:
 import { initSweetalert } from '../plugins/init_sweetalert';
-import { sidebar_active_link} from '../components/sidebar_active_link';
-
 
 document.addEventListener('turbolinks:load', () => {
   initSweetalert();

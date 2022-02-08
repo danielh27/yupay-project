@@ -28,14 +28,26 @@
     <% end %>
   </li>
 
-  <li class="nav-item <%= "active" if current_page?(new_purchase_path) %>">
+  <% if params[:purchase_id].present? %>
+    <% purchase_id = params[:purchase_id] %>
+  <% else %>
+    <% purchase_id = 1 %>
+  <% end %>
+
+  <li class="nav-item <%= "active" if current_page?(new_purchase_path) || current_page?(purchase_list_purchases_path(purchase_id)) %>">
     <%= link_to  new_purchase_path, class: "nav-link" do  %>
       <%= image_tag "Registro.svg", class: "btn-sidebar" %>
       <p class="name-sidebar"> Entradas </p>
     <% end %>
   </li>
 
-  <li class="nav-item <%= "active" if current_page?(new_order_path) %>">
+  <% if params[:order_id].present? %>
+    <% order_id = params[:order_id] %>
+  <% else %>
+    <% order_id = 1 %>
+  <% end %>
+
+  <li class="nav-item <%= "active" if current_page?(new_order_path) || current_page?(order_list_orders_path(order_id)) %>">
     <%= link_to new_order_path, class: "nav-link" do %>
       <%= image_tag "Salida.svg", class: "btn-sidebar" %>
       <p class="name-sidebar"> Ventas </p>

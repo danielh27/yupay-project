@@ -7,14 +7,23 @@
 
 }
 
-.navbar {
+#navbar-home-page {
   font-weight: 600;
   font-size: 16px;
   width: 100%;
   justify-self: end;
   z-index: 10;
   position: absolute;
-  top: 0
+  top: 0;
+
+  .navbar-nav  {
+    gap: 40PX;
+  }
+
+  .nav {
+    color: white !important;
+    text-align: center;
+  }
 }
 .home-header {
   background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");

@@ -1,10 +1,25 @@
-<div class="d-flex general">
+<div id="wrapper">
   <%= render "shared/sidebar" %>
-    <div class="content">
-      <%= render "shared/navbar_dashboard" %>
-      <div class="px-5 py-3">
-          <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
+      <div class="container-fluid">
+
+        <%= link_to "Nueva venta", orders_path, method: "post", class: "btn btn-primary m-3" %>
+        <div class="row">
+
           <%= render "shared/unconfirmed_orders" %>
+
+        </div>
+
       </div>
+
     </div>
+
+  </div>
+
 </div>
