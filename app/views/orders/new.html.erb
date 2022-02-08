@@ -23,7 +23,7 @@
                 <% if @unconfirmed_orders.present? %>
                   <div class="card" id="pending-orders-card">
                     <h2>Tienes <%= @unconfirmed_orders.count > 1 ? "#{@unconfirmed_orders.count} ventas" : "1 venta" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-orders-modal" class="btn-continue-order btn-order">continuar</button> o <button class="btn-cancel-order btn-order">cancelar</button></p>
+                    <p>Puedes <button id="pending-orders-modal-button" class="btn-continue-order btn-order">continuar</button> o <button class="btn-cancel-order btn-order">cancelar</button></p>
                   </div>
                 <% end %>
 
@@ -41,18 +41,58 @@
                   </div>
                 <% end %>
 
+                <%# Modal para visualizar ventas pendientes %>
+                <template id="pending-order-template-modal">
+                  <swal-title class="text-muted">
+                    Ventas pendientes
+                  </swal-title>
+                  <swal-icon type="warning"></swal-icon>
+                  <swal-button type="confirm" color="#013440">OK</swal-button>
+                  <swal-html>
+                    <div class="p-4">
+                      <table class="w-100 mt-3">
+                        <thead>
+                          <tr>
+                            <th class="text-left">Cliente</th>
+                            <th>N° de productos</th>
+                            <th colspan="2">Accion</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if @unconfirmed_orders.present? %>
+                            <% @unconfirmed_orders.each do |item| %>
+
+                              <tr>
+                                <td class="text-muted text-left"><%= item.customer.name %></td>
+                                <td class="text-muted"><%= item.list_orders.count %> und</td>
+                                <td>
+                                  <%= link_to order_list_orders_path(item), style: "color: #013440;" do%>
+                                    <i class="far fa-eye"></i>
+                                  <% end %>
+                                </td>
+
+                                <td>
+                                  <%= link_to order_path(item), method: "delete", style: "color: #f20f388f;" do %>
+                                    <i class="fas fa-trash"></i>
+                                  <% end %>
+                                </td>
+                              </tr>
+
+                            <% end %>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </swal-html>
+                </template>
+
+
               </div>
             </div>
 
           </div>
 
         </div>
-
-        <%# <div class="row"> %>
-
-          <%# <%= render "shared/unconfirmed_orders" %>
-
-        <%# </div> %>
 
       </div>
 
