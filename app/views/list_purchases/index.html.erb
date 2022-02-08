@@ -14,7 +14,7 @@
           <div class="col-12 col-lg-4 p-5">
             <h1>Ingresar mercaderia</h1>
             <h2>Proveedor: <%= @purchase.supplier.name %></h2>
-            <%= render 'shared/purchase_form', list_purchase: @list_purchase %>
+            <%= render 'shared/purchase_form', list_purchase: ListPurchase.new, list_products: @list_products %>
           </div>
 
           <div class="col-12 col-lg-8 p-5">

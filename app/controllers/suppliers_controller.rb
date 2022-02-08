@@ -1,6 +1,7 @@
 class SuppliersController < ApplicationController
   def create
-    Supplier.create(supplier_params)
+    supplier = Supplier.create(supplier_params)
+    authorize supplier
   end
 
   private

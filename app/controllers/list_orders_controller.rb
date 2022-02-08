@@ -1,9 +1,10 @@
 class ListOrdersController < ApplicationController
   def index
     @list_order = ListOrder.new
-    @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
+    # @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
+    @list_orders = policy_scope(ListOrder).includes(:product).where(order: params[:order_id])
     @order = Order.find(params[:order_id])
-    @products = Product.order(price: :desc)
+    @products = Product.where(warehouse: current_user).order(price: :desc)
     @total_sum = @list_orders.select(:price, :quantity).sum("price * quantity").round(2)
 
     if params[:query].present?
@@ -38,6 +39,7 @@ class ListOrdersController < ApplicationController
 
   def destroy
     order_item = ListOrder.find(params[:id])
+    authorize order_item
     order_item.destroy
     redirect_to order_list_orders_path(order_item.order)
   end
