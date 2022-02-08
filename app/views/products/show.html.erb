@@ -14,7 +14,12 @@
           <div class="container-card">
             <div class="card-product">
               <div class="image-product">
-                <%= image_tag "https://images.unsplash.com/photo-1618225747659-433d5a5c6af7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" %>
+                <% if @product.photo.key %>
+                  <%= cl_image_tag @product.photo.key, crop: :fill %>                  
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1583151923262-1aadb814995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" %>
+                <% end %>
+                  
               </div>
               <div class="info-product">
                 <% string = @product.name.split(" ") %>
