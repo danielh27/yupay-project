@@ -1,6 +1,6 @@
 <div class="products pr-3 search_results" id="search_results" data-refresh-products-list-target="results" data-controller="scroll-reveal">
   <% @products.each do |product| %>
-    <div data-scroll-reveal-target="item" class="search-card reveal">
+    <div class="search-card">
       <%= image_tag "https://source.unsplash.com/random/?#{product.category}" %>
       <div class="search-card-infos">
         <h2><%= product.name %></h2>

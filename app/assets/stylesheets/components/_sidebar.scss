@@ -14,12 +14,12 @@
   }
 
   .nav-link {
-    transition: 0.4s;
+    transition: background-color 0.4s;
     border-radius: 10px;
   }
 
-  .nav-link img, .nav-link p {
-    transition: 0.4s;
+  .nav-link img {
+    transition: transform 0.4s;
   }
 
   .nav-link:hover {
