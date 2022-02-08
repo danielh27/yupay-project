@@ -9,11 +9,14 @@
 }
 
 .search_results, .items-table-container {
+  position: relative;
   overflow-y: auto;
   max-height: 70vh;
 }
 
-
+.search_results::-webkit-scrollbar {
+  position: absolute;
+}
 
 .items-table-container {
 

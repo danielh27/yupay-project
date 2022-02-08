@@ -1,0 +1,23 @@
+.sales-modal-table {
+  font-size: 0.85rem;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+
+  tr td:first-child {
+    text-align: left;
+    min-width: 65px;
+  }
+
+  tr td:nth-child(2) {
+    text-align: left;
+    width: 280px;
+    max-width: 280px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  tr td:last-child {
+    text-align: end;
+  }
+}

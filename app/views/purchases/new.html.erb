@@ -1,35 +1,51 @@
-<div class="container-fluid">
-  <div class="row">
-    <%= render "shared/sidebar" %>
-    <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-md-4">
+<div id="wrapper">
+
+  <%= render "shared/sidebar" %>
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
       <div class="container-fluid">
+
         <div class="row">
+
           <div class="col-12 col-lg-5 p-5">
+
             <div class="card p-3 m-3">
               <h2 class="card-title">Ingreso de mercaderia</h2>
+
               <div class="card-body">
                 <%= simple_form_for(@purchase) do |f| %>
                   <%= f.association :supplier, prompt: "Seleccione un proveedor" %>
                   <%= f.submit value: "Nueva entrada", class: "btn btn-primary" %>
                 <% end %>
               </div>
+
             </div>
+
             <%= link_to "Crear producto", new_product_path, class: "btn btn-primary m-3" %>
+
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               Nuevo proveedor
             </button>
+
             <%= render "shared/new_supplier_modal" %>
+
           </div>
 
-          <div class="col-12 col-lg-7 p-5"> 
+          <div class="col-12 col-lg-7 p-5">
             <%= render "shared/unconfirmed_purchases" %>
           </div>
+
         </div>
 
       </div>
 
-      
-      
-    </main>
+    </div>
+
   </div>
+
 </div>

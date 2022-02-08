@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <div class="container-fluid">
   <div class="row">
@@ -7,6 +8,20 @@
 
 
       <div class="container">
+=======
+<div id="wrapper">
+
+  <%= render "shared/sidebar" %>
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
+      <div class="container-fluid">
+
+>>>>>>> master
         <div class="row">
           <div class="col-4">
             <h3>Proveedor: </h3>
@@ -19,6 +34,7 @@
           </div>
         </div>
 
+<<<<<<< HEAD
         <div class="col-12 col-lg-8 p-5">
           <h2 class="mt-5">Productos agregados</h2>
           <% if @list_purchases.present? %>
@@ -31,10 +47,34 @@
           <div>
             <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
             <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+=======
+          <div class="col-12 col-lg-8 p-5">
+
+            <h2 class="mt-5">Productos agregados</h2>
+            <% if @list_purchases.present? %>
+              <ul>
+                <% @list_purchases.each do |item| %>
+                  <li><%= item.product.name %> | Talla: <%= item.product.size %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
+                <% end %>
+              </ul>
+            <% end %>
+
+            <div>
+              <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+              <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+            </div>
+
+>>>>>>> master
           </div>
         </div>
+
+<<<<<<< HEAD
+    </main>
+=======
       </div>
 
-    </main>
+    </div>
+
+>>>>>>> master
   </div>
 </div>

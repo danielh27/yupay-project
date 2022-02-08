@@ -19,7 +19,10 @@ class PagesController < ApplicationController
     else
       @table_info = { table_title: "Ultimos productos vendidos" }
       latest_products_sold
+      category_sell
     end
+
+
   end
 
   def movements
@@ -32,7 +35,30 @@ class PagesController < ApplicationController
     @total.reverse!
   end
 
+  def kpis
+    @confirmed_orders = Order.where(status: true)
+    @confirmed_purchases = Purchase.where(status: true)
+    @sales = 0
+    @costs = 0
+    @confirmed_orders.each do |order|
+      order.list_orders.each do |order_item|
+        @sales += ( order_item.product.price * order_item.quantity  )
+        @costs += ( order_item.product.cost * order_item.quantity )
+      end
+    end
+    category_sell
+  end
+
+
+
   private
+
+  def category_sell
+    @categories = ListOrder.joins(:product)
+                           .group(:category)
+                           .order("sum_price DESC")
+                           .sum(:price)
+  end
 
   def most_selled_products
     @products = ListOrder.joins(:order)
@@ -56,5 +82,6 @@ class PagesController < ApplicationController
                             .order(updated_at: :desc)
                             .limit(5).where(purchase: { status: true })
   end
+
 
 end

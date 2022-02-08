@@ -1,53 +1,65 @@
-<div class="d-flex general">
+<div id="wrapper">
   <%= render "shared/sidebar" %>
-  <div class="content">
-    <%= render "shared/navbar_dashboard" %>
-    <div class="px-5 py-3">
-      <div class="table-responsive-sm">
-        <table class="table table-borderless products-table">
-          <thead>
-            <tr>
-              <th scope="col" class="text-left text-muted">PRODUCTO</th>
-              <th scope="col" class="text-center text-muted">PRECIO DE VENTA</th>
-              <th scope="col" class="text-center text-muted">CATEGORIA</th>
-              <th scope="col" class="text-center text-muted">STOCK</th>
-              <th scope="col" class="text-center text-muted">TALLA</th>
-              <th scope="col" class="text-center text-muted">ESTADO</th>
-              <th scope="col" class="text-center text-muted">ACCIONES</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @products.each do |product| %>
-              <% if product.visible == true %>
-                <tr class="table-infos">
-                  <td scope="row">
-                    <div class = "d-flex">
-                      <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
-                      <ul class="list-unstyled m-0 text-left ml-3">
-                        <li><strong class="name-column"><%= product.name %></strong></li>
-                        <li class="text-muted">Codigo: <%= product.bar_code %></li>
-                      </ul>
-                    </div>
-                  </td>
-                  <td scope="row" class="column-info">S/ <%= product.price %></td>
-                  <td scope="row" class="column-info"><%= product.category %></td>
-                  <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
-                  <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
-                  <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
-                  <td scope="row" class="column-info">
-                  <%= link_to(product_path(product), class: "btn-actions text-decoration-none") do %>
-                    <i class="fas fa-list"></i> Detalles
-                  <% end %>
-                  <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none") do %>
-                    <i class="far fa-edit"></i> Editar
-                  <% end %>
-                  </td>
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
+      <div class="container-fluid">
+
+        <div class="row justify-content-center">
+          <div class="table-responsive-sm w-100 px-5 py-4">
+            <table class="table table-borderless products-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="text-left text-muted">PRODUCTO</th>
+                  <th scope="col" class="text-center text-muted">PRECIO DE VENTA</th>
+                  <th scope="col" class="text-center text-muted">CATEGORIA</th>
+                  <th scope="col" class="text-center text-muted">STOCK</th>
+                  <th scope="col" class="text-center text-muted">TALLA</th>
+                  <th scope="col" class="text-center text-muted">ESTADO</th>
+                  <th scope="col" class="text-center text-muted">ACCIONES</th>
                 </tr>
-              <% end %>
-            <% end %>
-          </tbody>
-        </table>
+              </thead>
+              <tbody>
+                <% @products.each do |product| %>
+                  <% if product.visible == true %>
+                    <tr class="table-infos">
+                      <td scope="row">
+                        <div class = "d-flex">
+                          <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
+                          <ul class="list-unstyled m-0 text-left ml-3">
+                            <li><strong class="name-column"><%= product.name %></strong></li>
+                            <li class="text-muted">Codigo: <%= product.bar_code %></li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td scope="row" class="column-info">S/ <%= product.price %></td>
+                      <td scope="row" class="column-info"><%= product.category %></td>
+                      <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
+                      <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
+                      <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
+                      <td scope="row" class="column-info">
+                      <%= link_to(product_path(product), class: "btn-actions text-decoration-none") do %>
+                        <i class="fas fa-list"></i> Detalles
+                      <% end %>
+                      <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none") do %>
+                        <i class="far fa-edit"></i> Editar
+                      <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
+
     </div>
+
   </div>
 </div>

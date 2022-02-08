@@ -7,14 +7,23 @@
 
 }
 
-.navbar {
+#navbar-home-page {
   font-weight: 600;
   font-size: 16px;
   width: 100%;
   justify-self: end;
   z-index: 10;
   position: absolute;
-  top: 0
+  top: 0;
+
+  .navbar-nav  {
+    gap: 40PX;
+  }
+
+  .nav {
+    color: white !important;
+    text-align: center;
+  }
 }
 .home-header {
   background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
@@ -43,23 +52,6 @@
   width: 190px;
   height: 45px;
   font-weight: bold !important;
-}
-.purchase-card {
-  background-color: rgba(194, 187, 187, 0.377);
-  border-radius: 15px;
-
-  p {
-    font-size: smaller;
-  }
-
-}
-.order-card {
-  background-color: rgba(159, 241, 159, 0.37);
-  border-radius: 15px;
-
-  p {
-    font-size: smaller;
-  }
 }
 
 // Second section homepage
@@ -92,6 +84,7 @@
   }
   p{
     font-size: 14px;
+     color: black;
   }
 }
 .text-center{

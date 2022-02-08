@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
     decrease_stock(order)
     order.status = true
     order.save
-    redirect_to order_path(order)
   end
 
   def show
