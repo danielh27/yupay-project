@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 
 const initSweetalert = () => {
-  const swalButton = document.querySelector('#sweet-alert-demo');
+  const swalButton = document.querySelector('#confirm-order-modal');
 
   if (swalButton) {
     swalButton.addEventListener('click', () => {

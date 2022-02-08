@@ -74,8 +74,8 @@
                 </tfoot>
               </table>
               <%= link_to "Eliminar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-              <%= link_to "", confirm_order_path(@order), method: "post", id: "confirm-button", class: "d-none" %>
-              <button id="sweet-alert-demo" class="btn btn-primary">Guardar</button>
+              <%= button_to "", confirm_order_path(@order), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
+              <button id="confirm-order-modal" class="btn btn-primary">Guardar</button>
 
             </div>
           </div>
