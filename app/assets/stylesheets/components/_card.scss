@@ -157,43 +157,117 @@
 // cards movimientos
 
   .card-mov {    
-
+    
     .card-header{
       background-color: transparent;
       border-bottom: 0;
     }
-
+    
     .table td {
       border-top: 0;
     }
-  
+    
   }
   
-  .purchase-card {
-    background-color: #FEF5F7;
-    border-radius: 15px;
-    border-color: #F893A5;
+  .order-card {
+    background-color: #E3E9EA;
+    border-radius: 10px;
+    color: black;
+    border-color: #064b5a;
+
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px) translateX(5px) scale(1.05);
+      box-shadow: -5px 5px 10px 2px rgba(1, 52, 64, 0.08);
+    }
     .card-header {
       .btn {
-       color: #F20F38;       
+        color: #013440;
+        box-shadow: none;
+        padding: 0px 12px;
       }
     }
     
+    p {
+      font-size: 14px;
+      margin-bottom: 0px;
+      font-family: "Be-Vietnam-SemiBold";
+    }
     
-  
-    p {
-      font-size: smaller;
-    }
-  
-  }
-  .order-card {
-    background-color: #E3E9EA;
-    border-radius: 15px;
-    color: black;
-    border-color: #013440;
-    p {
-      font-size: smaller;
-    }
+    .card-body {
+      padding-top: 0px;
+      font-size: 14px;
+
+      tr td:nth-child(2) {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow-x: hidden;
+        max-width: 200px;
+      }
+      th {
+        padding: 0px;
+      }
+      
+      td {
+        padding: 0px;
+      }  
+      .text-product-name{
+        font-family: "Be-Vietnam-Bold";
+      }
+      .text-product-price {
+        font-family: "Be-Vietnam-SemiBold";
+      }
+    } 
   }
 
+  .purchase-card {
+    background-color: #FEF5F7;
+    border-radius: 10px;
+    border-color: #F893A5;
 
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-5px) translateX(5px) scale(1.05);
+      box-shadow: -1px 5px 10px 2px rgba(242, 15, 56, 0.07);
+    }
+
+    .card-header {
+      .btn {
+        color: #F20F38; 
+        box-shadow: none;
+        padding: 0px 12px;
+      }
+    }
+    
+    p {
+      font-size: 14px;
+      margin-bottom: 0px;
+      font-family: "Be-Vietnam-SemiBold";
+    }
+    
+    .card-body {
+      padding-top: 0px;
+      font-size: 14px;
+
+      
+      th {
+        padding: 0px;
+      }
+      
+      td {
+        padding: 0px;
+      }
+      .text-product-name{
+        font-family: "Be-Vietnam-SemiBold";
+      }
+      .text-product-price {
+        font-family: "Be-Vietnam-SemiBold";
+      }
+    }
+  }
+  
+
+
+  
