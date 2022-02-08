@@ -9,10 +9,10 @@
 
       <div class="container-fluid">
 
-        <h1>Movimientos</h1>
+        <h1 class="p-5">Movimientos</h1>
         <div class="row justify-content-center">
           <%# botones desplegables %>
-          <div class="container card-mov" id="accordionExample">
+          <div class="container-fluid px-5 card-mov" id="accordionExample">
             <% @total.each do |item| %>
               <% if defined?(item.customer_id)%>
                   <div class="card my-2 order-card">
