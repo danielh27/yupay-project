@@ -1,8 +1,13 @@
-<div class="d-flex general">
+<div id="wrapper">
   <%= render "shared/sidebar" %>
-    <div class="content">
-      <%= render "shared/navbar_dashboard" %>
-      <div class="px-5 py-3">
+
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <div id="content">
+
+      <%= render "shared/topbar" %>
+
+      <div class="container-fluid">
 
         <div class="row"  data-controller="insert-in-list">
 
@@ -68,12 +73,51 @@
                   </tr>
                 </tfoot>
               </table>
-              <%= link_to "Cancelar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-              <%= link_to "Confirmar", confirm_order_path(@order), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+              <%= link_to "Eliminar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
+              <%= link_to "", confirm_order_path(@order), method: "post", id: "confirm-button", class: "d-none" %>
+              <button id="sweet-alert-demo" class="btn btn-primary">Guardar</button>
+
             </div>
           </div>
 
+          <template id="my-template">
+            <swal-title class="text-muted">
+              Verifica los items de tu lista
+            </swal-title>
+            <swal-icon type="question"></swal-icon>
+            <swal-button type="confirm">
+              Confirmar
+            </swal-button>
+            <swal-button type="cancel">
+              Cancelar
+            </swal-button>
+            <swal-html>
+              <div class="p-4">
+                <table class="sales-modal-table w-100 mt-3">
+                  <tbody>
+                    <% if @list_orders.present? %>
+                      <% @list_orders.each do |item| %>
+
+                        <tr>
+                          <td class="font-weight-bold text-muted"><%= item.quantity %> und</td>
+                          <td class="text-muted"><%= item.product.name.upcase %><span class="dotted-line"><%= "." * 50 %></span></td>
+                          <td class="text-muted">S/ <%= item.product.price %></td>
+                        </tr>
+
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </swal-html>
+          </template>
+
         </div>
+
       </div>
+
     </div>
+
+  </div>
+
 </div>

@@ -1,22 +1,18 @@
 // .navbar {
-//   position: absolute;
+//   font-weight: 600;
+//   font-size: 16px;
+//   .container-fluid {
+//     padding: 15px 75px ;
+//   }
+//   .navbar-nav  {
+//     gap: 40PX;
+//   }
+
+//   .nav {
+//     color: white !important;
+//     text-align: center;
+//   }
 // }
-
-.navbar {
-  font-weight: 600;
-  font-size: 16px;
-  .container-fluid {
-    padding: 15px 75px ;
-  }
-  .navbar-nav  {
-    gap: 40PX;
-  }
-
-  .nav {
-    color: white !important;
-    text-align: center;
-  }
-}
 
 .registration {
   text-align: center;
@@ -57,7 +53,7 @@
   height: 80px;
   align-items: center;
   padding: 10px 20px;
-  
+
   .buttom-user {
     border: none;
     background: none;

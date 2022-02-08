@@ -19,16 +19,16 @@ ActiveStorage.start()
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+// External imports
 import JQuery from 'jquery';
 import "controllers"
-window.$ = window.JQuery = JQuery;
-// External imports
 import "bootstrap";
 
+window.$ = window.JQuery = JQuery;
+
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  initSweetalert();
 });
