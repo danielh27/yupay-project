@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :list_purchases
   has_many :orders, through: :list_orders
   has_many :purchases, through: :list_purchases
+  # cloudinary:
+  has_one_attached :photo
   before_save :set_bar_code
   CATEGORY = %w[Polos Jeans Shorts Camisas Chompas Vestidos Faldas Blusas Casacas Abrigos Trajes Bufandas Pijamas Bodies Fajas]
   SIZE = %w[XS S M L XL]
