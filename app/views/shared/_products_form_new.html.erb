@@ -1,10 +1,38 @@
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :category, collection: Product::CATEGORY %>
-  <%= f.input :size, collection: Product::SIZE %>
-  <%= f.input :price %>
-  <%= f.input :cost %>
-  <%= f.input :stock %>
-  <%= f.input :minimum_required %>
-  <%= f.submit %>
-<% end %>
+<div class="pt-4">
+    <%= simple_form_for(@product) do |f| %>
+    <div class="form-row">
+      <div class="col">
+        <%= f.input :name %>
+      </div>
+      <div class="col">
+        <%= f.input :category, collection: Product::CATEGORY %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <%= f.input :size, collection: Product::SIZE %>
+      </div>
+      <div class="col">
+        <%= f.input :price %>
+      </div>
+      <div class="col">
+        <%= f.input :cost %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <%= f.input :stock %>
+      </div>
+      <div class="col">
+        <%= f.input :minimum_required %>
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary mb-2">
+          <%= f.submit %>
+        </button>
+      </div>
+    </div>
+    <% end %>
+</div>
