@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     end
     warehouse = Warehouse.find_by(user: current_user)
     products = Product.where(warehouse: warehouse)
-  @low_stock_count = products.map{|p| p.stock if p.stock < p.minimum_required}.compact.sum
+    @low_stock_count = products.map { |p| p.stock if p.stock < p.minimum_required }.compact.sum
   end
 
   def movements

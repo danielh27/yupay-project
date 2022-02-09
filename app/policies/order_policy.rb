@@ -14,6 +14,6 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return true
+    record.user == user
   end
 end
