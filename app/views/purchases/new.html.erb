@@ -8,41 +8,93 @@
 
       <%= render "shared/topbar" %>
 
-      <div class="container-fluid">
+      <div class="container-fluid" id="container-fluid-new-purchase">
 
-      <h2 class="text-center title-purchases"> ¿Qué deseas hacer? </h2>
+        <div class="row h-100 justify-content-center align-items-center">
 
-      <div> </div>
+          <div class="col-10">
+
+            <div class="main-section-new-purchase text-center">
+
+              <h1>¿Que deseas hacer?</h1>
+              <button class="btn-purchase btn-new-supplier">Nuevo proveedor</button>
+              <button id="new-purchase-button" class="btn-purchase btn-new-purchase">Ingresar mercaderia</button>
+              <%= link_to "Crear producto", new_product_path, class: "mt-4 btn-purchase btn-new-product" %>
 
 
-        <div class="row">
+              <div id="pending-purchases-section">
 
-          <div class="col-12 col-lg-5 p-5">
-
-            <div class="card p-3 m-3">
-              <h2 class="card-title">Ingreso de mercaderia</h2>
-
-              <div class="card-body">
-                <%= simple_form_for(@purchase) do |f| %>
-                  <%= f.association :supplier, prompt: "Seleccione un proveedor" %>
-                  <%= f.submit value: "Nueva entrada", class: "btn btn-primary" %>
+                <% if @unconfirmed_purchases.present? %>
+                  <div class="card" id="pending-purchases-card">
+                    <h2>Tienes <%= @unconfirmed_purchases.count > 1 ? "#{@unconfirmed_purchases.count} compras" : "1 compra" %> sin confirmar</h2>
+                    <p>Puedes <button id="pending-purchases-modal-button" class="btn-continue-purchase btn-view-pending-purchases">continuar</button> o <button class="btn-cancel-purchase btn-view-pending-purchases">cancelar</button></p>
+                  </div>
                 <% end %>
+
+                <%# Modal para visualizar compras pendientes %>
+                <template id="pending-purchases-template-modal">
+                  <swal-title class="text-muted">
+                    Compras pendientes
+                  </swal-title>
+                  <swal-icon type="warning"></swal-icon>
+                  <swal-button type="confirm" color="#013440">OK</swal-button>
+                  <swal-html>
+                    <div class="p-4">
+                      <table class="w-100 mt-3">
+                        <thead>
+                          <tr>
+                            <th class="text-left">Proveedor</th>
+                            <th>N° de productos</th>
+                            <th colspan="2">Accion</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% if @unconfirmed_purchases.present? %>
+                            <% @unconfirmed_purchases.each do |item| %>
+
+                              <tr>
+                                <td class="text-muted text-left"><%= item.supplier.name %></td>
+                                <td class="text-muted"><%= item.list_purchases.count %> und</td>
+                                <td>
+                                  <%= link_to purchase_list_purchases_path(item), style: "color: #013440;" do%>
+                                    <i class="far fa-eye"></i>
+                                  <% end %>
+                                </td>
+
+                                <td>
+                                  <%= link_to purchase_path(item), method: "delete", style: "color: #f20f388f;" do %>
+                                    <i class="fas fa-trash"></i>
+                                  <% end %>
+                                </td>
+                              </tr>
+
+                            <% end %>
+                          <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </swal-html>
+                </template>
+
+                <%# Modal para seleccionar supplier %>
+                <template id="new-purchase-form">
+                  <swal-title class="text-muted">
+                    Selecciona un distribuidor
+                  </swal-title>
+                  <swal-icon type="info"></swal-icon>
+                  <swal-html>
+                    <%= simple_form_for(@purchase) do |f| %>
+                      <%= f.association :supplier, label: false, prompt: "Distribuidores disponibles"%>
+                      <%= f.submit id: "submit-new-purchase-btn", class: "d-none" %>
+                    <% end %>
+                  </swal-html>
+                </template>
+
+
               </div>
 
             </div>
 
-            <%= link_to "Crear producto", new_product_path, class: "btn btn-primary m-3" %>
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              Nuevo proveedor
-            </button>
-
-            <%= render "shared/new_supplier_modal" %>
-
-          </div>
-
-          <div class="col-12 col-lg-7 p-5">
-            <%= render "shared/unconfirmed_purchases" %>
           </div>
 
         </div>

@@ -4,6 +4,11 @@ const initSweetalert = () => {
   const confirmOrderButton = document.querySelector('#confirm-order-modal-button');
   const pendingOrdersButton = document.querySelector("#pending-orders-modal-button");
 
+  const pendingPurchasesButton = document.querySelector("#pending-purchases-modal-button");
+
+  const newPurchaseButton = document.querySelector("#new-purchase-button");
+
+
   if (confirmOrderButton) {
     confirmOrderButton.addEventListener('click', () => {
 
@@ -58,6 +63,40 @@ const initSweetalert = () => {
         template: "#pending-order-template-modal",
         backdrop: 'rgba(0, 0, 0, 0.6)'
       })
+    });
+  }
+
+  if (pendingPurchasesButton) {
+    pendingPurchasesButton.addEventListener("click", () => {
+
+      Swal.fire({
+        template: "#pending-purchases-template-modal",
+        backdrop: 'rgba(0, 0, 0, 0.6)'
+      })
+    });
+  }
+
+  if (newPurchaseButton) {
+    newPurchaseButton.addEventListener("click", () => {
+
+      Swal.fire({
+        template: "#new-purchase-form",
+        backdrop: 'rgba(0, 0, 0, 0.6)'
+      })
+
+      .then((result) => {
+        const inputValue = document.querySelector("#purchase_supplier_id");
+        console.log(inputValue.value);
+
+        if (inputValue.value == "") {
+          Swal.fire({ icon: "error", title: "Debes seleccionar un distribuirdor"})
+        }
+
+        if (result.isConfirmed) {
+          const link = document.querySelector("#submit-new-purchase-btn");
+          // link.click();
+        }
+      });
     });
   }
 };

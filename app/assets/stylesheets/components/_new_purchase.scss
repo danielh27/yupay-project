@@ -1,0 +1,100 @@
+#container-fluid-new-purchase{
+  height: 89%;
+}
+
+.main-section-new-purchase {
+
+  h1 {
+    font-weight: bold;
+    font-size: 7.225rem;
+    color: #013440;
+  }
+
+  #pending-purchases-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  .btn-purchase {
+    font-family: 'Be-Vietnam-Bold';
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    border-radius: 0.313rem;
+    font-size: 1.75rem;
+    padding: 0.438rem 1.513rem;
+    margin: 3rem 0.9rem;
+    transition: background-color 0.4s, transform 0.4s;
+  }
+
+  .btn-purchase:hover {
+    transform: translateY(-5px);
+  }
+
+  .btn-new-product {
+    padding: 0.53rem 1.513rem;
+    color: white;
+    background-color: #013440;
+
+    &:hover {
+      background-color: #184650;
+    }
+  }
+
+  .btn-new-supplier {
+    background-color: #E3E9EA;
+    color: #013440;
+    border: 1px solid #013440;
+
+    &:hover {
+      background-color: #c7d7da;
+    }
+  }
+
+  .btn-new-purchase {
+    background-color: hsla(349, 90%, 50%, 0.10);
+    color: #F20F38;
+    border: 1px solid #F20F38;
+
+    &:hover {
+      background-color: hsla(349, 90%, 50%, 0.20);
+    }
+  }
+
+  #pending-purchases-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+  }
+
+  #pending-purchases-card {
+    color: #013440;
+    background: #E3E9EA;
+    padding: 0.36rem 7rem;
+    border-radius: 0.625rem;
+
+    h2 {
+      font-size: 1.875rem;
+    }
+  }
+
+  .btn-view-pending-purchases {
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .btn-continue-purchase {
+    color: #013440;
+  }
+
+  .btn-cancel-purchase {
+    color: #F20F38;
+  }
+
+}
