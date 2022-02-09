@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
   def new
     @unconfirmed_orders = Order.where(status: false, user: current_user)
+    @order = Order.new
+    @customer = Customer.new
     authorize @unconfirmed_orders
   end
 
   def create
-    order = Order.new(customer: Customer.first)
+    order = Order.new(order_params)
     order.user = current_user
     authorize order
     order.status = false
@@ -34,6 +36,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def order_params
+    params.require(:order).permit(:name, :address, :customer_id)
+  end
 
   def decrease_stock(order)
     order.list_orders.each do |item|

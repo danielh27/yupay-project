@@ -4,7 +4,7 @@ class ListOrdersController < ApplicationController
     # @list_orders = ListOrder.includes(:product).where(order: params[:order_id])
     @list_orders = policy_scope(ListOrder).includes(:product).where(order: params[:order_id])
     @order = Order.find(params[:order_id])
-    @products = Product.where(warehouse: current_user).order(price: :desc)
+    @products = policy_scope(Product).order(price: :desc)
     @total_sum = @list_orders.select(:price, :quantity).sum("price * quantity").round(2)
 
     if params[:query].present?
@@ -26,6 +26,8 @@ class ListOrdersController < ApplicationController
 
     total_sum = @list_orders.select(:price, :quantity).sum("price * quantity") +  (@product.price * @list_order.quantity)
     @total_sum = sprintf('%.2f', total_sum)
+
+    authorize @list_order
 
     respond_to do |format|
       if @list_order.save

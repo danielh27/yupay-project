@@ -7,9 +7,13 @@ const initSweetalert = () => {
   const pendingPurchasesButton = document.querySelector("#pending-purchases-modal-button");
 
   const newPurchaseButton = document.querySelector("#new-purchase-button");
+  const newOrderButton = document.querySelector("#new-order-button");
+
+
   const newSupplierButton = document.querySelector("#new-supplier-button");
+  const newCustomerButton = document.querySelector("#new-customer-button");
 
-
+  // Modal para confirmar venta
   if (confirmOrderButton) {
     confirmOrderButton.addEventListener('click', () => {
 
@@ -59,6 +63,7 @@ const initSweetalert = () => {
     });
   }
 
+  // Modal para ventas pendientes por confirmar
   if (pendingOrdersButton) {
     pendingOrdersButton.addEventListener("click", () => {
 
@@ -70,6 +75,7 @@ const initSweetalert = () => {
     });
   }
 
+  // Modal para compras pendientes por confirmar
   if (pendingPurchasesButton) {
     pendingPurchasesButton.addEventListener("click", () => {
 
@@ -81,6 +87,7 @@ const initSweetalert = () => {
     });
   }
 
+  // Modal para generar una nueva compra
   if (newPurchaseButton) {
     newPurchaseButton.addEventListener("click", () => {
 
@@ -110,6 +117,37 @@ const initSweetalert = () => {
     });
   }
 
+  // Modal para generar una nueva venta
+  if (newOrderButton) {
+    newOrderButton.addEventListener("click", () => {
+
+      Swal.fire({
+        template: "#new-order-form",
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
+      })
+
+        .then((result) => {
+          const inputValue = document.querySelector("#order_customer_id");
+
+          if (inputValue.value == "" && !result.dismiss) {
+            Swal.fire({
+              icon: "error",
+              title: "Debes seleccionar un cliente",
+              showCloseButton: true
+            })
+          }
+          else if (result.isConfirmed) {
+            const submitOrderBtn = document.querySelector("#submit-new-order-btn");
+            submitOrderBtn.click();
+
+          }
+
+        });
+    });
+  }
+
+  // Modal para agregar un nuevo supplier
   if (newSupplierButton) {
     newSupplierButton.addEventListener("click", () => {
       Swal.fire({
@@ -135,6 +173,36 @@ const initSweetalert = () => {
         }
 
       });
+
+    });
+  }
+
+  // Modal para generar una nueva compra
+  if (newCustomerButton) {
+    newCustomerButton.addEventListener("click", () => {
+      Swal.fire({
+        template: "#new-customer-form",
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
+      })
+
+        .then((result) => {
+          const inputSupplier = document.querySelector("#customer_name");
+
+          if (inputSupplier.value == "" && !result.dismiss) {
+            Swal.fire({
+              icon: "error",
+              title: "Debes escribir un nombre",
+              showCloseButton: true
+            })
+          }
+          else if (result.isConfirmed) {
+            const submitCustomerBtn = document.querySelector("#submit-new-customer-btn");
+            submitCustomerBtn.click();
+
+          }
+
+        });
 
     });
   }
