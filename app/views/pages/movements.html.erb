@@ -44,7 +44,7 @@
                             <tr class="d-flex">
                               <td class="text-right pr-3"><%= order_item.quantity %> un</td>
                               <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
-                              <td class="text-right text-product-price">Precio de Venta: S/. <%= order_item.product.price %></td>
+                              <td class="text-right text-product-price ml-3"> S/. <%= order_item.product.price %></td>
                             </tr>
                           <% end %>
                         </table>
@@ -83,7 +83,7 @@
                               <td class="text-right pr-3"><%= order_item.quantity %> un</td>
                               <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
                               <%# ojo aca va el costo %>
-                              <td class="text-right text-product-price">Costo: S/. <%= order_item.product.cost %></td>
+                              <td class="text-right text-product-price ml-3">S/. <%= order_item.product.cost %></td>
                             </tr>
                           <% end %>
                         </table>
