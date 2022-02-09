@@ -14,13 +14,21 @@
 //   }
 // }
 
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  font-family: "Be-Vietnam-Bold";
+  &:hover {
+    color: #F20F38;
+  }
+}
 .registration {
   text-align: center;
-  background-color: rgba(1, 52, 64, 0.1);
+  background-color: rgba(1, 52, 64, 0.3);
   width: 120px;
   height: 45px;
   border-radius: 10px;
-  color: #013440 !important;
+  color: white !important;
 }
 .registration:hover {
   background-color: #F20F38;
@@ -31,11 +39,11 @@
 .login {
   text-align: center;
   // background-color: #D9D9D9;
-  background-color: rgba(1, 52, 64, 0.2);
+  background-color: rgba(1, 52, 64, 0.3);
   width: 120px;
   height: 45px;
   border-radius: 10px;
-  color: #013440 !important;
+  color: white !important;
 }
 .login:hover {
   background-color: #F20F38;
