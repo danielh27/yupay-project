@@ -153,6 +153,8 @@ const initSweetalert = () => {
       Swal.fire({
         template: "#new-supplier-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
+        confirmButtonColor: '#013440',
+        confirmButtonText: 'Yes, delete it!',
         showCloseButton: true
       })
 
