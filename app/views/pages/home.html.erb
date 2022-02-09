@@ -6,9 +6,11 @@
     <% else %>
     <%=  render 'shared/navbar_home' %>
     <% end %>
-    <div class="d-flex">
-      <div class="container px-4 py-5 banner-c ">
+    <%# NO LLEVA LA CLASE HOME-HEADER EN EL DIV DE ABAJO %>
+    <div class="d-flex"> 
+      <div class="container px-4 py-5 banner-c">
         <div class="row flex-lg-row-reverse g-5 py-5">
+          <%# PARA QUE SIRVE ESTE DIV??? %>
           <div class="col-10 col-sm-8 col-lg-6">
           </div>
           <div class="col-lg-6">
@@ -24,7 +26,8 @@
 
 <%# SEGUNDA PARTE DEL HOME %>
   <div class="cards-home">
-    <div id="image-home-2"></div>
+    <div id="image-home-2">
+    </div>
     <div class="cards-info">
       <div>
         <div class=" text-center py-3"><h2 class="display-4">¿Por qué elegirnos?</h2></div>
