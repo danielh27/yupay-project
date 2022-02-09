@@ -1,6 +1,8 @@
 class SuppliersController < ApplicationController
   def create
-    supplier = Supplier.create(supplier_params)
+    supplier = Supplier.new(supplier_params)
+    supplier.user = current_user
+    supplier.save
     authorize supplier
     redirect_to new_purchase_path
   end

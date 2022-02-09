@@ -1,7 +1,7 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(warehouse: user)
     end
   end
 
@@ -10,10 +10,10 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    record.warehouse.user == user
   end
 
   def edit?
-    return true
+    record.warehouse.user == user
   end
 end

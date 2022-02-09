@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
   def show
     @list_purchase = ListPurchase.where(product_id: params[:id])
     @list_order = ListOrder.where(product_id: params[:id])
-
     @total = @list_purchase + @list_order
     @total.sort_by! { |p| p.created_at }
     @total.reverse!
