@@ -1,6 +1,7 @@
 class SuppliersController < ApplicationController
   def create
     Supplier.create(supplier_params)
+    redirect_to new_purchase_path
   end
 
   private
