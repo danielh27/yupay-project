@@ -10,6 +10,6 @@ class SuppliersController < ApplicationController
   private
 
   def supplier_params
-    params.require(:supplier).permit(:name)
+    params.require(:supplier).permit(:name, :addres, :tax_code)
   end
 end
