@@ -1,6 +1,6 @@
 <div class="pt-4">
     <%= simple_form_for(@product) do |f| %>
-    <div class="form-row">
+    <div style="color: #013440" class="form-row">
       <div class="col">
         <%= f.input :name %>
       </div>
@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div style="color: #013440" class="form-row">
       <div class="col">
         <%= f.input :size, collection: Product::SIZE %>
       </div>
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="form-row">
+    <div style="color: #013440" class="form-row align-items-center">
       <div class="col">
         <%= f.input :stock %>
       </div>
@@ -29,9 +29,7 @@
         <%= f.input :minimum_required %>
       </div>
       <div class="col">
-        <button type="submit" class="btn btn-primary mb-2">
-          <%= f.submit %>
-        </button>
+          <%= f.submit class:"btn btn-login mt-3" %>
       </div>
     </div>
     <% end %>

@@ -16,6 +16,11 @@
     text-decoration: none;
     position: relative;
     padding: 0.75rem 3.25rem 0.75rem 1.25rem;
+
+    h6 {
+      color: #013440;
+    }
+
     &::after {
       position: absolute;
       right: 0;
@@ -27,6 +32,7 @@
       font-family: 'Font Awesome 5 Free';
       color: $gray-400;
     }
+
     &.collapsed {
       border-radius: $card-border-radius;
       &::after {

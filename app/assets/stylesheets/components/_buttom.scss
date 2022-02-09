@@ -3,13 +3,15 @@
   width: 100%;
   border-radius: 4px;
   color: white;
+  
 }
 
 
 .btn-actions {
   font-size: 12px;
   background-color: #fccfd7;
-  font-weight: bold;
+  // font-weight: bold;
+  font-family: "Be-Vietnam-Bold";
   color: #F20F38;
   border-radius: 6px;
   padding: 8px 14px;
@@ -26,7 +28,8 @@
   margin: 0;
   font-size: 0.875rem;
   border-radius: 6px;
-  font-weight: bold;
+  // font-weight: bold;
+  font-family: "Be-Vietnam-Bold";
   width: 90px;
   padding: 6px 16px;
 }
@@ -46,4 +49,19 @@
 .btn {
   font-size: 16px !important;
   font-weight: 500 !important;
+}
+
+
+.form-control.is-valid {
+  border-color: #013440 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23F20F38' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+}
+
+abbr[title], abbr[data-original-title] {
+  text-decoration: none;
+  
+}
+abbr, accronym { 
+  // border-bottom: 0px; 
+  display: none;
 }
