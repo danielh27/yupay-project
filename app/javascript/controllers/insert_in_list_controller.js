@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["items", "dropdownProduct", "dropdownQuantity", "total_sum"];
+  static targets = ["items",  "total_sum"];
 
   // connect() {
   //   console.log(this.element);

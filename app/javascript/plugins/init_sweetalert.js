@@ -1,13 +1,14 @@
 import Swal from 'sweetalert2';
 
 const initSweetalert = () => {
-  const swalButton = document.querySelector('#sweet-alert-demo');
+  const confirmOrderButton = document.querySelector('#confirm-order-modal-button');
+  const pendingOrdersButton = document.querySelector("#pending-orders-modal-button");
 
-  if (swalButton) {
-    swalButton.addEventListener('click', () => {
+  if (confirmOrderButton) {
+    confirmOrderButton.addEventListener('click', () => {
 
       Swal.fire({
-        template: "#my-template",
+        template: "#confirm-order-modal-template",
         backdrop: 'rgba(0, 0, 0, 0.6)'
       })
 
@@ -47,6 +48,16 @@ const initSweetalert = () => {
         }
       });
 
+    });
+  }
+
+  if (pendingOrdersButton) {
+    pendingOrdersButton.addEventListener("click", () => {
+
+      Swal.fire({
+        template: "#pending-order-template-modal",
+        backdrop: 'rgba(0, 0, 0, 0.6)'
+      })
     });
   }
 };

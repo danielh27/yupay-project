@@ -20,11 +20,11 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 // External imports
-import JQuery from 'jquery';
+// import JQuery from 'jquery';
 import "controllers"
 import "bootstrap";
 
-window.$ = window.JQuery = JQuery;
+// window.$ = window.JQuery = JQuery;
 
 // Internal imports, e.g:
 import { initSweetalert } from '../plugins/init_sweetalert';
