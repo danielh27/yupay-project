@@ -68,7 +68,11 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5rem;
+    .text-title {
+      color: #013440 !important;
+    }
   }
+  
 
   #pending-purchases-card {
     color: #013440;

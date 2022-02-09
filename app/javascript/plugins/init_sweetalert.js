@@ -94,6 +94,10 @@ const initSweetalert = () => {
       Swal.fire({
         template: "#new-purchase-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
+        // title: '<h2 class="text-title">Selecciona un proveedor</h2>',
+
+        confirmButtonColor: '#013440',
+        confirmButtonText: 'Agregar',
         showCloseButton: true
       })
 
@@ -104,6 +108,7 @@ const initSweetalert = () => {
           Swal.fire({
             icon: "error",
             title: "Debes seleccionar un distribuirdor",
+            titleColor: '#013440',
             showCloseButton: true
           })
         }
@@ -124,6 +129,8 @@ const initSweetalert = () => {
       Swal.fire({
         template: "#new-order-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
+        confirmButtonColor: '#013440',
+        confirmButtonText: 'Agregar',
         showCloseButton: true
       })
 
@@ -154,7 +161,7 @@ const initSweetalert = () => {
         template: "#new-supplier-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
-        confirmButtonText: 'Yes, delete it!',
+        confirmButtonText: 'Agregar',
         showCloseButton: true
       })
 

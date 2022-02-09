@@ -41,10 +41,10 @@
                               <th class="text-right">Precio de Venta Un</th>
                             </tr> %>
                           <% item.list_orders.each do |order_item| %>
-                            <tr>
-                              <td ><%= order_item.quantity %> un</td>
-                              <td class="text-left text-product-name"> <%= order_item.product.name %><span class="dotted-line"><%= "." * 300 %></span></td>
-                              <td class="text-right text-product-price"><%= order_item.product.price %></td>
+                            <tr class="d-flex">
+                              <td class="text-right pr-3"><%= order_item.quantity %> un</td>
+                              <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
+                              <td class="text-right text-product-price ml-3"> S/. <%= order_item.product.price %></td>
                             </tr>
                           <% end %>
                         </table>
@@ -79,10 +79,11 @@
                               <th class="text-right">Costo Unitario</th>
                             </tr>%>
                           <% item.list_purchases.each do |order_item| %>
-                            <tr>
-                              <td ><%= order_item.quantity %> un</td>
-                              <td class="text-left text-product-name"> <%= order_item.product.name %></td>
-                              <td class="text-right text-product-price"><%= order_item.product.price %></td>
+                            <tr class="d-flex">
+                              <td class="text-right pr-3"><%= order_item.quantity %> un</td>
+                              <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
+                              <%# ojo aca va el costo %>
+                              <td class="text-right text-product-price ml-3">S/. <%= order_item.product.cost %></td>
                             </tr>
                           <% end %>
                         </table>
