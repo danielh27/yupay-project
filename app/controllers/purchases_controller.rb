@@ -4,7 +4,6 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new
     @unconfirmed_purchases = Purchase.where(status: false, user: current_user)
     @supplier = Supplier.new
-    @suppliers = Supplier.where(user: current_user)
     authorize @purchase
   end
 
