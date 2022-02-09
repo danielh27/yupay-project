@@ -9,23 +9,23 @@
 
       <div class="container-fluid">
 
-        <div class="row mt-5">
+        <div class="row mt-1 firstrow-dashboard">
 
-          <!-- Earnings (Monthly) Card -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
-              <div class="card-body">
+          <!-- Low stock Card -->
+          <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-left-danger shadow h-100">
+              <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                      Ganancias (Mensual)
-                    </div>
-                    <div class="h5 mb-0 text-gray-800">
-                      $40,000
+                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                        Bajo stock</div>
+                    <div class="h5 mb-0 text-gray-800 d-flex pl-2">
+                      <%= Product.where("stock < minimum_required").count %> 
+                      <p class="pl-2 mt-1" style="font-size: smaller">products</p> 
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  <div class="col-auto mt-2">
+                    <i class="fas fa-exclamation text-gray-300 pr-3" style="font-size: 25px;"></i>
                   </div>
                 </div>
               </div>
@@ -33,62 +33,62 @@
           </div>
 
           <!-- Earnings (Annual) Card -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
-              <div class="card-body">
+          <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-left-success shadow h-100">
+              <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                      Ganancias (Anual)
+                      Ganancias del mes
                     </div>
-                    <div class="h5 mb-0 text-gray-800">
+                    <div class="h5 mb-0 text-gray-800 pl-2">
                       $215,000
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  <div class="col-auto mt-2">
+                    <i class="fas fa-dollar-sign text-gray-300 pr-2" style="font-size: 25px;"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-            <!-- Pending Orders/Purchases Card -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-warning shadow h-100 py-2">
-              <div class="card-body">
+          <!-- Earnings (Monthly) Card -->
+          <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-left-primary shadow h-100">
+              <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                      Compras/Ventas pendientes por confirmar
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Ventas del mes
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <%= Order.includes(:purchases).where(status: false).count %>
+                    <div class="h5 mb-0 text-gray-800  pl-2">
+                      $40,000
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  <div class="col-auto mt-2">
+                    <i class="fas fa-dollar-sign text-gray-300 pr-2" style="font-size: 25px;"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-
-          <!-- Low stock Card -->
-          <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-danger shadow h-100 py-2">
-              <div class="card-body">
+          <!-- Card adicional 2 -->
+          <div class="col-xl-3 col-md-6 mb-3">
+            <div class="card border-left-secondary shadow h-100 py-1">
+              <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                        Productos con bajo stock</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <%= Product.where("stock < minimum_required").count %>
+                    <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                      Ticket Promedio
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800 pl-2">
+                      S/. 35.50 
                     </div>
                   </div>
-                  <div class="col-auto">
-                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  <div class="col-auto mt-2">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300 pr-2"></i>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@
 
           <!-- Area Chart -->
           <div class="col-xl-7 col-lg-7">
-            <div class="card shadow mb-4">
+            <div class="card shadow mb-3">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Resumen de ventas</h6>
