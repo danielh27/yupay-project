@@ -27,6 +27,8 @@ class ListOrdersController < ApplicationController
     total_sum = @list_orders.select(:price, :quantity).sum("price * quantity") +  (@product.price * @list_order.quantity)
     @total_sum = sprintf('%.2f', total_sum)
 
+    authorize @list_order
+
     respond_to do |format|
       if @list_order.save
         format.html { redirect_to order_list_orders_path(@order) }
