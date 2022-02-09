@@ -24,7 +24,9 @@
 
               <div class="card-body">
                 <%= simple_form_for(@purchase) do |f| %>
+                  <% if current_user == @suppliers %>
                   <%= f.association :supplier, prompt: "Seleccione un proveedor" %>
+                  <% end %>
                   <%= f.submit value: "Nueva entrada", class: "btn btn-primary" %>
                 <% end %>
               </div>
