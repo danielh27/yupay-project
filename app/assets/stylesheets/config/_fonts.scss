@@ -1,13 +1,38 @@
 // Import Google fonts
 // @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Be Vietnam:400,800');
+// @import url('https://fonts.googleapis.com/css?family=Be Vietnam:400,800');
 
 // Define fonts for body and headers
 //  $body-font: "Work Sans", "Helvetica", "sans-serif";
 //  $headers-font: "Nunito", "Helvetica", "sans-serif";
 
- $body-font: 'Be Vietnam', 'sans-serif';
- $headers-font: 'Be Vietnam', 'sans-serif';
+ $body-font: 'Be-Vietnam', 'sans-serif';
+ $headers-font: 'Be-Vietnam-Bold', 'sans-serif';
+
+ @font-face {
+  font-family: 'Be-Vietnam';
+  src: url('/assets/BeVietnam-Regular.ttf')
+}
+
+@font-face {
+  font-family: 'Be-Vietnam-Medium';
+  src: url('/assets/BeVietnam-Medium.ttf')
+}
+
+@font-face {
+  font-family: 'Be-Vietnam-SemiBold';
+  src: url('/assets/BeVietnam-SemiBold.ttf')
+}
+
+@font-face {
+  font-family: 'Be-Vietnam-Bold';
+  src: url('/assets/BeVietnam-Bold.ttf')
+}
+
+@font-face {
+  font-family: 'Be-Vietnam-ExtraBold';
+  src: url('/assets/BeVietnam-ExtraBold.ttf')
+}
 
 // font-family: 'Be Vietnam Pro', sans-serif;
 

@@ -37,7 +37,7 @@
   }
 
   p {
-    font-size: 0.813rem;
+    font-size: 0.875rem;
     margin: 0px;
   }
 
@@ -49,6 +49,7 @@
 // Sidebar
 .sidebar {
     width: $sidebar-collapsed-width;
+    
 
     .nav-item {
         position: relative;
@@ -71,13 +72,15 @@
             width: 5.938rem;
             height: 100%;
             padding: 0;
+            font-family: "Be-Vietnam-Medium";
 
         }
 
         &.active {
             .nav-link {
                 background-color: #184650;
-                font-weight: 700;
+                // font-weight: 700;
+                font-family: "Be-Vietnam-SemiBold"
             }
         }
 
