@@ -63,7 +63,7 @@
                       Compras/Ventas pendientes por confirmar
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <%= Order.includes(:purchases).where(status: false).count %>
+                      <%= Order.includes(:purchases).where(status: false, user: current_user).count %>
                     </div>
                   </div>
                   <div class="col-auto">
@@ -84,7 +84,7 @@
                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                         Productos con bajo stock</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <%= Product.where("stock < minimum_required").count %>
+                    <%= @low_stock_count %>
                     </div>
                   </div>
                   <div class="col-auto">
@@ -109,7 +109,7 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-area">
-                  <%= area_chart Product.group_by_day(:created_at).count%>
+                  <%= area_chart Product.where(warehouse: current_user).group_by_hour(:created_at).count%>
                   <%# <canvas id="myAreaChart"></canvas> %>
                 </div>
               </div>
@@ -126,8 +126,8 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
-                  <%= pie_chart ListOrder.joins(:product).group(:category).sum("price*quantity"), legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2,
-                  loading: "Loading...", empty: "No data", refresh: 3600 %>
+                  <%= pie_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group(:category).sum('price * quantity'),
+                  legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 3600 %>
                   <%# <canvas id="myPieChart"></canvas> %>
                 </div>
 
