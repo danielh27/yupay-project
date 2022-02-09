@@ -1,15 +1,36 @@
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :name, label: "Nombre" %>
-  <%= f.input :category , label: "Categoria", collection: Product::CATEGORY %>
-  <%= f.input :size,  label: "Talla", collection: Product::SIZE %>
-  <%= f.input :price,  label: "Precio" %>
-  <%= f.input :cost,  label: "Costo" %>
-  <%= f.input :stock %>
-  <%= f.input :minimum_required, label: "Stock Minimo" %>
-  <%= f.input :photo, label: "Fotografia" ,as: :file %>  
-  <br>
-  <div class="text-center btn btn-primary">
-    <%= f.submit %>
-  </div>
-  
-<% end %>
+<div class="pt-4">
+    <%= simple_form_for(@product) do |f| %>
+    <div style="color: #013440" class="form-row">
+      <div class="col">
+        <%= f.input :name %>
+      </div>
+      <div class="col">
+        <%= f.input :category, collection: Product::CATEGORY %>
+      </div>
+    </div>
+
+    <div style="color: #013440" class="form-row">
+      <div class="col">
+        <%= f.input :size, collection: Product::SIZE %>
+      </div>
+      <div class="col">
+        <%= f.input :price %>
+      </div>
+      <div class="col">
+        <%= f.input :cost %>
+      </div>
+    </div>
+
+    <div style="color: #013440" class="form-row align-items-center">
+      <div class="col">
+        <%= f.input :stock %>
+      </div>
+      <div class="col">
+        <%= f.input :minimum_required %>
+      </div>
+      <div class="col">
+          <%= f.submit class:"btn btn-login mt-3" %>
+      </div>
+    </div>
+    <% end %>
+</div>
