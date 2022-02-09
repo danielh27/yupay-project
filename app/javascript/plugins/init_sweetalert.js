@@ -7,6 +7,7 @@ const initSweetalert = () => {
   const pendingPurchasesButton = document.querySelector("#pending-purchases-modal-button");
 
   const newPurchaseButton = document.querySelector("#new-purchase-button");
+  const newSupplierButton = document.querySelector("#new-supplier-button");
 
 
   if (confirmOrderButton) {
@@ -106,6 +107,35 @@ const initSweetalert = () => {
         }
 
       });
+    });
+  }
+
+  if (newSupplierButton) {
+    newSupplierButton.addEventListener("click", () => {
+      Swal.fire({
+        template: "#new-supplier-form",
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
+      })
+
+      .then((result) => {
+        const inputSupplier = document.querySelector("#supplier_name");
+
+        if (inputSupplier.value == "" && !result.dismiss) {
+          Swal.fire({
+            icon: "error",
+            title: "Debes escribir un nombre",
+            showCloseButton: true
+          })
+        }
+        else if (result.isConfirmed) {
+          const submitSupplierBtn = document.querySelector("#submit-new-supplier-btn");
+          submitSupplierBtn.click();
+
+        }
+
+      });
+
     });
   }
 };

@@ -17,7 +17,7 @@
             <div class="main-section-new-purchase text-center">
 
               <h1>¿Que deseas hacer?</h1>
-              <button class="btn-purchase btn-new-supplier">Nuevo proveedor</button>
+              <button id="new-supplier-button" class="btn-purchase btn-new-supplier">Nuevo proveedor</button>
               <button id="new-purchase-button" class="btn-purchase btn-new-purchase">Ingresar mercaderia</button>
               <%= link_to "Crear producto", new_product_path, class: "mt-4 btn-purchase btn-new-product" %>
 
@@ -76,7 +76,7 @@
                   </swal-html>
                 </template>
 
-                <%# Modal para seleccionar supplier %>
+                <%# Modal para ingresar mercaderia %>
                 <template id="new-purchase-form">
                   <swal-title class="text-muted">
                     Selecciona un distribuidor
@@ -86,6 +86,20 @@
                     <%= simple_form_for(@purchase) do |f| %>
                       <%= f.association :supplier, label: false, prompt: "Distribuidores disponibles"%>
                       <%= f.submit id: "submit-new-purchase-btn", class: "d-none" %>
+                    <% end %>
+                  </swal-html>
+                </template>
+
+                <%# Modal para ingresar un nuevo supplier %>
+                <template id="new-supplier-form">
+                  <swal-title class="text-muted">
+                    Agrega un nuevo distribuidor
+                  </swal-title>
+                  <swal-icon type="info"></swal-icon>
+                  <swal-html>
+                    <%= simple_form_for(@supplier) do |f| %>
+                      <%= f.input :name, label: false, placeholder: "Escribe el nombre"%>
+                      <%= f.submit id: "submit-new-supplier-btn", class: "d-none" %>
                     <% end %>
                   </swal-html>
                 </template>
