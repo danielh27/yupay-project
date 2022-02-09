@@ -1,7 +1,7 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(warehouse: user)
+      scope.where(warehouse: user.warehouses.first)
     end
   end
 
