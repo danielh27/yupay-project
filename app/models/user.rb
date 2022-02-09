@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :warehouses
   has_many :orders
   has_many :purchases
+  has_many :suppliers
+  has_many :customers
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

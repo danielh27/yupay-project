@@ -22,7 +22,7 @@
                           <div class="d-flex justify-content-between row">
                             <div class="d-flex justify-content-left">
                               <p>N°<%= item.id %></p>
-                              <p style="padding-left:30px">Se registro ventas de <%= item.list_orders.count %> productos </p>
+                              <p style="padding-left:30px"> <strong> Se registro  <%= item.list_orders.count %></strong>  ventas al cliente ............ </p>
                             </div>
 
                             <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>

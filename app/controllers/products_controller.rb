@@ -3,17 +3,17 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit update destroy show]
 
   def index
-    @products = Product.all
+    @products = policy_scope(Product)
+    # @products = policy_scope(Product).where(warehouse: current_user)
+    # este ya no se usa porque se puso desde el scope de product policy
   end
 
   def show
     @list_purchase = ListPurchase.where(product_id: params[:id])
     @list_order = ListOrder.where(product_id: params[:id])
-
     @total = @list_purchase + @list_order
     @total.sort_by! { |p| p.created_at }
     @total.reverse!
-
     respond_to do |format|
       format.html
       format.json { @product }
@@ -22,11 +22,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.warehouse = current_user.warehouses.first
+    authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -56,6 +58,7 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def product_params

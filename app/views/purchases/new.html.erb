@@ -84,7 +84,7 @@
                   <swal-icon type="info"></swal-icon>
                   <swal-html>
                     <%= simple_form_for(@purchase) do |f| %>
-                      <%= f.association :supplier, label: false, prompt: "Distribuidores disponibles"%>
+                      <%= f.input :supplier_id, collection: Supplier.where(user: current_user), label: false, prompt: "Distribuidores disponibles"%>
                       <%= f.submit id: "submit-new-purchase-btn", class: "d-none" %>
                     <% end %>
                   </swal-html>
@@ -99,6 +99,8 @@
                   <swal-html>
                     <%= simple_form_for(@supplier) do |f| %>
                       <%= f.input :name, label: false, placeholder: "Escribe el nombre"%>
+                      <%= f.input :address, label: false, placeholder: "Direccion (Opcional)" %>
+                      <%= f.input :tax_code, label: false, placeholder: "RUC (Opcional)" %>
                       <%= f.submit id: "submit-new-supplier-btn", class: "d-none" %>
                     <% end %>
                   </swal-html>

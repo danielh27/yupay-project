@@ -8,70 +8,70 @@
 
       <%= render "shared/topbar" %>
 
-      <div class="container-fluid">
+        <div class="container-fluid">
 
-        <div class="row">
-          <div class="container-card">
-            <div class="card-product">
-              <div class="image-product">
-                <% if @product.photo.key %>
-                  <%= cl_image_tag @product.photo.key, crop: :fill %>                  
-                <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1583151923262-1aadb814995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" %>
-                <% end %>
-                  
-              </div>
-              <div class="info-product">
-                <% string = @product.name.split(" ") %>
-                <h1><%= string.first %></h1>
-                <p><%= string[1..string.length-1].join(' ') %></p>
-                <p class="stock"> Stock:<%= @product.stock%></p>
-                <p class="size"><%= @product.size %> </p>
-                <p class="category"> Categoria: <%= @product.category %> </p>
-                <br><p>Precio de Venta: </p>
-                <h2> S/. <%= @product.price %> </h2>
+          <div class="row">
+            <div class="container-card">
+              <div class="card-product">
+                <div class="image-product">
+                  <% if @product.photo.key %>
+                    <%= cl_image_tag @product.photo.key, crop: :fill %>
+                  <% else %>
+                    <%= image_tag "https://images.unsplash.com/photo-1583151923262-1aadb814995a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" %>
+                  <% end %>
+
+                </div>
+                <div class="info-product">
+                  <% string = @product.name.split(" ") %>
+                  <h1><%= string.first %></h1>
+                  <p><%= string[1..string.length-1].join(' ') %></p>
+                  <p class="stock"> Stock:<%= @product.stock%></p>
+                  <p class="size"><%= @product.size %> </p>
+                  <p class="category"> Categoria: <%= @product.category %> </p>
+                  <br><p>Precio de Venta: </p>
+                  <h2> S/. <%= @product.price %> </h2>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div clas="row">
-          <div class="container-table">
-            <h3 class="font-weight-bold ml-4 mb-3">Movimientos</h3>
-            <table class="table table-borderless table-show">
-                <thead style="background-color: #E3E9EA">
-                  <tr class="text-center">
-                    <th scope="col" class="py-3">TIPO</Ti></th>
-                    <th scope="col" class="py-3">FECHA REGISTRADA</th>
-                    <th scope="col" class="py-3">HORA REGISTRADA</th>
-                    <th scope="col" class="py-3">COSTO</th>
-                    <th scope="col" class="py-3">CANTIDAD</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% @total.each do |col| %>
-                    <% if col.is_a?(ListOrder) %>
-                      <tr class="table-infos text-center table-red">
-                    <% else %>
-                      <tr class="table-infos text-center table-blue">
-                    <% end %>
-                        <% if col.is_a?(ListOrder) %>
-                        <td scope="row" class="font-weight-bold" style="color:#F20F38">Salida</td>
-                        <% else %>
-                        <td scope="row" class="font-weight-bold" style="color:#013440">Entrada</td>
-                        <% end %>
-                        <td scope="row"> <%= col.created_at.localtime.strftime("%m/%d/%Y") %></td>
-                        <td scope="row"> <%= col.created_at.localtime.strftime("%I:%M:%S %p") %></td>
-                        <td scope="row"> <%= col.product.cost %></td>
-                        <td scope="row"> <%= col.quantity %></td>
-                      </tr>
-                    <% end %>
-                </tbody>
-            </table>
+          <div clas="row">
+            <div class="container-table">
+              <h3 class="font-weight-bold ml-4 mb-3">Movimientos</h3>
+              <table class="table table-borderless table-show">
+                  <thead style="background-color: #E3E9EA">
+                    <tr class="text-center">
+                      <th scope="col" class="py-3">TIPO</Ti></th>
+                      <th scope="col" class="py-3">FECHA REGISTRADA</th>
+                      <th scope="col" class="py-3">HORA REGISTRADA</th>
+                      <th scope="col" class="py-3">COSTO</th>
+                      <th scope="col" class="py-3">CANTIDAD</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @total.each do |col| %>
+                      <% if col.is_a?(ListOrder) %>
+                        <tr class="table-infos text-center table-red">
+                      <% else %>
+                        <tr class="table-infos text-center table-blue">
+                      <% end %>
+                          <% if col.is_a?(ListOrder) %>
+                          <td scope="row" class="font-weight-bold" style="color:#F20F38">Salida</td>
+                          <% else %>
+                          <td scope="row" class="font-weight-bold" style="color:#013440">Entrada</td>
+                          <% end %>
+                          <td scope="row"> <%= col.created_at.localtime.strftime("%m/%d/%Y") %></td>
+                          <td scope="row"> <%= col.created_at.localtime.strftime("%I:%M:%S %p") %></td>
+                          <td scope="row"> <%= col.product.cost %></td>
+                          <td scope="row"> <%= col.quantity %></td>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-      </div>
+        </div>
 
     </div>
 

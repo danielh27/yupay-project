@@ -1,7 +1,6 @@
 
 <%= simple_form_for(list_purchase, url: purchase_list_purchases_path) do |f| %>
-      <%= f.association :product, collection: Product.all.map { |p| ["#{p.name} | Talla: #{p.size}", p.id] }, label: "Selecciona un producto", prompt: "Producto..." %>
-      <%= f.input :quantity, label: "Cantidad" %>
-      <%= f.submit value: "Agregar", class: "btn btn-primary" %>
-
+  <%= f.association :product, collection: list_products, label: "Selecciona un producto", prompt: "Producto..." %>
+  <%= f.input :quantity, label: "Cantidad" %>
+  <%= f.submit value: "Agregar", class: "btn btn-primary" %>
 <% end %>
