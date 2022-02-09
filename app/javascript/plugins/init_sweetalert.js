@@ -14,7 +14,8 @@ const initSweetalert = () => {
 
       Swal.fire({
         template: "#confirm-order-modal-template",
-        backdrop: 'rgba(0, 0, 0, 0.6)'
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
       })
 
       // Swal.fire({
@@ -40,7 +41,8 @@ const initSweetalert = () => {
             cancelButtonText: "Nueva venta",
             cancelButtonColor: "#7066e0",
             reverseButtons: true,
-            backdrop: 'rgba(0, 0, 0, 0.6)'
+            backdrop: 'rgba(0, 0, 0, 0.6)',
+            showCloseButton: true
           })
 
           .then((result) => {
@@ -61,7 +63,8 @@ const initSweetalert = () => {
 
       Swal.fire({
         template: "#pending-order-template-modal",
-        backdrop: 'rgba(0, 0, 0, 0.6)'
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
       })
     });
   }
@@ -71,7 +74,8 @@ const initSweetalert = () => {
 
       Swal.fire({
         template: "#pending-purchases-template-modal",
-        backdrop: 'rgba(0, 0, 0, 0.6)'
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
       })
     });
   }
@@ -81,21 +85,26 @@ const initSweetalert = () => {
 
       Swal.fire({
         template: "#new-purchase-form",
-        backdrop: 'rgba(0, 0, 0, 0.6)'
+        backdrop: 'rgba(0, 0, 0, 0.6)',
+        showCloseButton: true
       })
 
       .then((result) => {
         const inputValue = document.querySelector("#purchase_supplier_id");
-        console.log(inputValue.value);
 
-        if (inputValue.value == "") {
-          Swal.fire({ icon: "error", title: "Debes seleccionar un distribuirdor"})
+        if (inputValue.value == "" && !result.dismiss) {
+          Swal.fire({
+            icon: "error",
+            title: "Debes seleccionar un distribuirdor",
+            showCloseButton: true
+          })
+        }
+        else if (result.isConfirmed) {
+          const submitBtn = document.querySelector("#submit-new-purchase-btn");
+          submitBtn.click();
+
         }
 
-        if (result.isConfirmed) {
-          const link = document.querySelector("#submit-new-purchase-btn");
-          // link.click();
-        }
       });
     });
   }
