@@ -109,7 +109,7 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-area">
-                  <%= area_chart ListOrder.group_by_day(:created_at).count%>
+                  <%= area_chart Product.group_by_day(:created_at).count%>
                   <%# <canvas id="myAreaChart"></canvas> %>
                 </div>
               </div>
