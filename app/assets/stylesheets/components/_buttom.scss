@@ -3,7 +3,7 @@
   width: 100%;
   border-radius: 4px;
   color: white;
-  
+
 }
 
 
@@ -59,9 +59,22 @@
 
 abbr[title], abbr[data-original-title] {
   text-decoration: none;
-  
+
 }
-abbr, accronym { 
-  // border-bottom: 0px; 
+abbr, accronym {
+  // border-bottom: 0px;
   display: none;
+}
+.btn-new-product{
+  font-family: "Be-Vietnam-Bold";
+  text-decoration: none;
+  background-color: #013440;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background-color 0.4s;
+}
+.btn-new-product:hover{
+  text-decoration: none;
+  background-color: #184650;
 }
