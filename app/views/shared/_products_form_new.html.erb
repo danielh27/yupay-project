@@ -27,11 +27,15 @@
       </div>
       <div class="col">
         <%= f.input :minimum_required,   label: "Stock Minimo" %>
-      </div>
-      
+      </div>            
+    </div>
+    <div style="color: #013440" class="form-row align-items-center">
       <div class="col">
-          <%= f.submit class:"btn btn-login mt-3" %>
+          <%= f.input :photo, as: :file %>
       </div>
     </div>
+    <div class="col">
+          <%= f.submit class:"btn btn-login mt-3" %>
+      </div>
     <% end %>
 </div>
