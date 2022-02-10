@@ -66,7 +66,7 @@
 
 .low-stock {
   color: white;
-  background-color: #F4555A;
+  background-color: #F20F38;
 }
 
 // #F4555A boton stock rojo
@@ -163,6 +163,7 @@ abbr, accronym {
   padding: 12px 20px;
   border-radius: 10px;
   transition: background-color 0.5s;
+  margin-right: 4rem;
 
   &:hover {
     text-decoration: none;

@@ -31,6 +31,7 @@ const initSweetalert = () => {
       } else {
 
         Swal.fire({
+          
           template: "#confirm-order-modal-template",
           backdrop: 'rgba(0, 0, 0, 0.6)',
           confirmButtonColor: '#013440',
@@ -46,13 +47,15 @@ const initSweetalert = () => {
             link.click();
 
             Swal.fire({
+              iconColor: '#739096',
+              color: '#013440',
               icon: 'success',
               title: 'Venta confirmada!',
               confirmButtonText: "Ir a movimientos",
-              confirmButtonColor: "#6e7881",
+              confirmButtonColor: "#F20F38",
               showCancelButton: true,
               cancelButtonText: "Nueva venta",
-              cancelButtonColor: "#7066e0",
+              cancelButtonColor: "#013440",
               reverseButtons: true,
               backdrop: 'rgba(0, 0, 0, 0.6)',
               showCloseButton: true
@@ -79,7 +82,10 @@ const initSweetalert = () => {
     pendingOrdersButton.addEventListener("click", () => {
 
       Swal.fire({
+        iconColor: '#739096',
         template: "#pending-order-template-modal",
+        color: '#013440',
+        
         backdrop: 'rgba(0, 0, 0, 0.6)',
         showCloseButton: true
       })
@@ -91,7 +97,9 @@ const initSweetalert = () => {
     pendingPurchasesButton.addEventListener("click", () => {
 
       Swal.fire({
+        iconColor: '#739096',
         template: "#pending-purchases-template-modal",
+        color: '#013440',
         backdrop: 'rgba(0, 0, 0, 0.6)',
         showCloseButton: true
       })
