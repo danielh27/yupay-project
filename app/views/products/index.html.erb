@@ -47,12 +47,12 @@
                       <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
                       <td scope="row" class="column-info iconos-prodindex">
                       <%= link_to(product_path(product), title: "VER")  do %>
-                        <%= image_tag("detalles.svg")  %>
+                        <%= image_tag"detalles.svg", class:"detalles-svg" %>
                       <% end %>
                       <%# espacios en blanco %>
                       &nbsp;&nbsp;&nbsp;
-                      <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none", title: "EDITAR")  do %>
-                        <i class="far fa-edit" style="font-size:20px;"></i>
+                      <%= link_to(edit_product_path(product), class: "ml-1 text-decoration-none", title: "EDITAR")  do %>
+                        <%= image_tag "editar.svg", class:"editar-svg" %>
                       <% end %>
                       </td>
                     </tr>
