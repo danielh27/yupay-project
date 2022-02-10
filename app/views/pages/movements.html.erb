@@ -22,7 +22,7 @@
                           <div class="d-flex justify-content-between row">
                             <div class="d-flex justify-content-left">
                               <p>N°<%= item.id %></p>
-                              <p style="padding-left:30px"> <strong> Se registro  <%= item.list_orders.count %></strong>  ventas al cliente <%= item.customer.name %> </p>
+                              <p style="padding-left:30px"> <strong> Se registró  <%= item.list_orders.count %></strong>  ventas al cliente <%= item.customer.name %> </p>
                             </div>
 
                             <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
@@ -35,7 +35,7 @@
                     <div id= <%= "order#{item.id}"  %>  class="collapse" aria-labelledby=<%= "heading-order#{item.id}"  %> data-parent="#accordionExample">
                       <div class="card-body">
                         <table class="table table-mov">
-                           <%# <tr> 
+                           <%# <tr>
                               <th>Cantidad</th>
                               <th>Producto</th>
                               <th class="text-right">Precio de Venta Un</th>
@@ -73,7 +73,7 @@
                     <div id=<%= "purchase#{item.id}"  %> class="collapse" aria-labelledby= <%= "heading-purchase#{item.id}"  %> data-parent="#accordionExample">
                       <div class="card-body">
                         <table class="table table-mov">
-                            <%#<tr>   
+                            <%#<tr>
                               <th>Cantidad</th>
                               <th>Producto</th>
                               <th class="text-right">Costo Unitario</th>

@@ -1,6 +1,6 @@
 <% if params[:query] == "1" %>
   <% @products.each do |product, total_sales| %>
-  <tr>
+  <tr class="card-dashboard-effects">
     <td class="w-25 bg-white">
       <div class = "d-flex">
         <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
@@ -22,7 +22,7 @@
 
 <% elsif (params[:query].present? && params[:query] == "2") || params[:query].nil? %>
   <% @products.each do |item| %>
-    <tr>
+    <tr class="card-dashboard-effects">
       <td class="w-25 bg-white">
         <div class = "d-flex">
           <%= image_tag "https://source.unsplash.com/random/?#{item.product.category}", class: "img-product-info" %>
@@ -44,7 +44,7 @@
 
 <% elsif params[:query] == "3" %>
   <% @products.each do |item| %>
-    <tr>
+    <tr class="card-dashboard-effects">
       <td class="w-25 bg-white">
         <div class = "d-flex">
           <%= image_tag "https://source.unsplash.com/random/?#{item.product.category}", class: "img-product-info" %>
