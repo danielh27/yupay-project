@@ -9,15 +9,15 @@
 
       <div class="container-fluid">
 
-        <div class="row"  data-controller="insert-in-list">
+        <div class="row justify-content-around section-order-container"  data-controller="insert-in-list">
 
           <%# Search section %>
           <div class="col-6">
             <div class="card bg-transparent border-0 search-products-section py-3 pl-3" data-controller="refresh-products-list">
-              <h2 class="text-muted font-weight-bold">Nueva venta</h2>
-              <%= form_with url: order_list_orders_path(params[:order_id]), method: :get, html: { class: 'mb-5 pr-3', data: { refresh_products_list_target: 'form' } } do |f| %>
+              <h2>Nueva venta</h2>
+              <%= form_with url: order_list_orders_path(params[:order_id]), method: :get, html: { class: 'mb-3 search-input-container', data: { refresh_products_list_target: 'form' } } do |f| %>
                 <%= f.text_field :query,
-                                class: "form-control mt-3",
+                                class: "form-control search-input mt-3",
                                 placeholder: 'Escribe el nombre o codigo del producto',
                                 value: params[:query],
                                 data: { refresh_products_list_target: 'searchInput', action: "keyup->refresh-products-list#update" } %>
@@ -27,31 +27,42 @@
           </div>
 
           <%# Items section %>
-          <div class="col-6">
-            <div class="card bg-transparent border-0 pt-3 pl-4 items-section">
-              <h2 class="text-muted font-weight-bold">Productos</h2>
-              <h4 class="text-muted font-weight-bold mb-5 mt-3">Cliente: <%= @order.customer.name %></h4>
+          <div class="col-5 items-section-container">
+
+            <div class="border-0 pt-3 items-section">
+
+              <p>Cliente</p>
+              <h2 class="mb-5 customer-name"><%= @order.customer.name %></h2>
+
+            </div>
+
+            <div class="white-table-section">
+
               <div class="items-table-container table-responsive-xl">
                 <table class="table table-borderless items-table" >
                   <thead>
                     <tr>
-                      <th scope="col" class="text-muted pl-0">NOMBRE</th>
-                      <th scope="col" class="text-muted">TALLA</th>
-                      <th scope="col" class="text-muted">CANTIDAD</th>
-                      <th scope="col" class="text-muted">PRECIO</th>
-                      <th scope="col" class="text-muted">ACCION</th>
+                      <th scope="col" class="pl-0">NOMBRE</th>
+                      <th scope="col" class="">TALLA</th>
+                      <th scope="col" class="">CANTIDAD</th>
+                      <th scope="col" class="">PRECIO</th>
+                      <%# <th scope="col" class="">ACCION</th> %>
                     </tr>
                   </thead>
                   <tbody data-insert-in-list-target="items">
                     <% if @list_orders.present? %>
                       <% @list_orders.each do |item| %>
 
-                        <tr class="border-bottom">
+                        <tr class="">
                           <td><%= item.product.name %></td>
                           <td><%= item.product.size %></td>
                           <td><%= item.quantity %></td>
-                          <td>S/ <%= item.product.price %></td>
-                          <td><%= link_to "Retirar", list_order_path(item), method: "delete" %></td>
+                          <td>
+                            S/ <%= item.product.price %>
+                            <%= link_to list_order_path(item), method: "delete" do %>
+                              <i class="fas fa-backspace pl-2" style="color: #F20F38"></i>
+                            <% end %>
+                          </td>
                         </tr>
 
                       <% end %>
@@ -60,28 +71,34 @@
                 </table>
               </div>
 
-            </div>
-            <div class="confirm-cancel-btns pl-4 border-top">
-              <table class="table table-borderless items-table mb-5">
-                <tfoot>
-                  <tr>
-                    <th scope="col" class="text-danger pl-0">TOTAL</th>
-                    <td></td>
-                    <td></td>
-                    <td colspan="2" class="text-center text-danger font-weight-bold total-price" data-insert-in-list-target="total_sum">S/ <%= @total_sum  %></td>
-                    <td></td>
-                  </tr>
-                </tfoot>
-              </table>
-              <%= link_to "Eliminar", order_path(@order), method: "delete", class: "btn btn-cancel", data: { confirm: "Cancelar compra?" } %>
-              <%= button_to "", confirm_order_path(@order), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
-              <button id="confirm-order-modal-button" class="btn btn-confirm">Guardar</button>
+              <div class="total-price-section">
+
+                <table class="table table-borderless items-table">
+                  <tfoot>
+                    <tr>
+                      <th scope="col" class="pl-0 color-red-bold">TOTAL</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td colspan="1" class="text-center color-red-bold total-price" data-insert-in-list-target="total_sum">S/ <%= @total_sum  %></td>
+                    </tr>
+                  </tfoot>
+                </table>
+
+              </div>
 
             </div>
+
+            <div class="confirm-cancel-section mt-4">
+              <%= button_to "Cancelar", order_path(@order), method: "delete", class: "btn bg-red-text-white-bold confirm-cancel-btn-padding", data: { confirm: "Cancelar compra?" } %>
+              <%= button_to "", confirm_order_path(@order), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
+              <button id="confirm-order-modal-button" class="btn bg-blue-text-white-bold confirm-cancel-btn-padding">Confirmar</button>
+            </div>
+
           </div>
 
           <%# Modal para confirmar venta %>
-          <template id="confirm-order-modal-template">
+          <template id="confirm-order-modal-template" data-insert-in-list-target="modal_items_template">
             <swal-title class="text-muted">
               Verifica los items de tu lista
             </swal-title>
