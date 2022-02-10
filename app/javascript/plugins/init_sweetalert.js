@@ -96,6 +96,7 @@ const initSweetalert = () => {
     newPurchaseButton.addEventListener("click", () => {
 
       Swal.fire({
+        iconColor: '#739096',
         template: "#new-purchase-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         // title: '<h2 class="text-title">Selecciona un proveedor</h2>',
@@ -111,8 +112,9 @@ const initSweetalert = () => {
         if (inputValue.value == "" && !result.dismiss) {
           Swal.fire({
             icon: "error",
+            iconColor: '#F20F38',
             confirmButtonColor: '#013440',
-            title: "Debes seleccionar un distribuirdor",
+            title: "<h2 style='color: #013440;'>Debes seleccionar un distribuirdor</h2>",
             titleColor: '#013440',
             showCloseButton: true
           })
@@ -132,6 +134,7 @@ const initSweetalert = () => {
     newOrderButton.addEventListener("click", () => {
 
       Swal.fire({
+        iconColor: '#739096',
         template: "#new-order-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
@@ -146,7 +149,9 @@ const initSweetalert = () => {
           if (inputValue.value == "" && !result.dismiss) {
             Swal.fire({
               icon: "error",
-              title: "Debes seleccionar un cliente",
+              iconColor: '#F20F38',
+              confirmButtonColor: '#013440',
+              title: "<h2 style='color: #013440;'>Debes seleccionar un cliente</h2>",
               showCloseButton: true
             })
           }
@@ -164,6 +169,7 @@ const initSweetalert = () => {
   if (newSupplierButton) {
     newSupplierButton.addEventListener("click", () => {
       Swal.fire({
+        iconColor: '#739096',
         template: "#new-supplier-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
@@ -178,8 +184,9 @@ const initSweetalert = () => {
         if (inputSupplier.value == "" && !result.dismiss) {
           Swal.fire({
             icon: "error",
+            iconColor: '#F20F38',
             confirmButtonColor: '#013440',
-            title: "Debes escribir un nombre",
+            title: "<h2 style='color: #013440;'>Debes escribir un nombre</h2>",
             showCloseButton: true
           })
         }
@@ -198,6 +205,7 @@ const initSweetalert = () => {
   if (newCustomerButton) {
     newCustomerButton.addEventListener("click", () => {
       Swal.fire({
+        iconColor: '#739096',
         template: "#new-customer-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
@@ -212,8 +220,9 @@ const initSweetalert = () => {
           if (inputSupplier.value == "" && !result.dismiss) {
             Swal.fire({
               icon: "error",
+              iconColor: '#F20F38',
               confirmButtonColor: '#013440',
-              title: "Debes escribir un nombre",
+              title: "<h2 style='color: #013440;'>Debes escribir un nombre</h2>",
               showCloseButton: true
             })
           }
