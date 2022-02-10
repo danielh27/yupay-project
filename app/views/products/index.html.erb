@@ -42,15 +42,15 @@
                       </td>
                       <td scope="row" class="column-info">S/ <%= product.price %></td>
                       <td scope="row" class="column-info"><%= product.category %></td>
-                      <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
+                      <td scope="row" class="column-info mb-0"><%= product.stock %> <%= image_tag "stock.svg", class:"mb-1"%></td>
                       <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
                       <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
                       <td scope="row" class="column-info">
                       <%= link_to(product_path(product)) do %>
-                        <%= image_tag "detalles.svg" %>
+                        <%= image_tag "detalles.svg", class: "detalles-svg" %>
                       <% end %>
-                      <%= link_to(edit_product_path(product), class: "btn-actions ml-2 text-decoration-none") do %>
-                        <i class="far fa-edit"></i> Editar
+                      <%= link_to(edit_product_path(product), class: "ml-2 text-decoration-none") do %>
+                        <%= image_tag "editar.svg", class: "editar-svg" %>
                       <% end %>
                       </td>
                     </tr>
