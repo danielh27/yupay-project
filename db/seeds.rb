@@ -39,54 +39,54 @@ puts "Cleaning database..."
 
 # end
 
-# definicion fecha de creacion
-fecha = 3.days.ago
+# Definicion fecha de creacion AQUI. OJO:
+fecha = 1.days.ago
 
-5.times do
-  new_order = Order.new(status: true, customer_id: 3, user_id:1, created_at:fecha, updated_at: fecha)
-  new_order.save!
-  new_list_orders = ListOrder.new(
-    quantity: 2,
-    product_id: rand(2..49),  
-    order_id: Order.last.id,
+# 5.times do
+#   new_order = Order.new(status: true, customer_id: 3, user_id:1, created_at:fecha, updated_at: fecha)
+#   new_order.save!
+#   new_list_orders = ListOrder.new(
+#     quantity: 2,
+#     product_id: rand(2..49),  
+#     order_id: Order.last.id,
+#     created_at: fecha,
+#     updated_at: fecha,
+#   )
+#   new_list_orders.save!
+#   # 2do item
+#   new_list_orders2 = ListOrder.new(
+#     quantity: 2,
+#     product_id: rand(2..49),  
+#     order_id: Order.last.id,
+#     created_at: fecha,
+#     updated_at:fecha,
+#   )
+#   new_list_orders2.save!
+# end
+
+# puts "orders completed!"
+
+10.times do
+  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: fecha, updated_at: fecha)
+  new_purchase.save!
+  new_list_purchases = ListPurchase.new(
+    quantity: 10,
+    product_id: rand(1..50),  
+    purchase_id: Purchase.last.id,
     created_at: fecha,
-    updated_at: fecha,
+    updated_at:fecha,
+
   )
-  new_list_orders.save!
+  new_list_purchases.save!
   # 2do item
-  new_list_orders2 = ListOrder.new(
-    quantity: 2,
-    product_id: rand(2..49),  
-    order_id: Order.last.id,
+  new_list_purchases2 = ListPurchase.new(
+    quantity: 10,
+    product_id: rand(1..50),  
+    purchase_id: Purchase.last.id,
     created_at: fecha,
     updated_at:fecha,
   )
-  new_list_orders2.save!
+  new_list_purchases2.save!
 end
 
-puts "orders completed!"
-
-# 5.times do
-#   new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: fecha, updated_at: fecha)
-#   new_purchase.save!
-#   new_list_purchases = ListPurchase.new(
-#     quantity: 10,
-#     product_id: rand(1..50),  
-#     purchase_id: Purchase.last.id,
-#     created_at: fecha,
-#     updated_at:fecha,
-
-#   )
-#   new_list_purchases.save!
-#   # 2do item
-#   new_list_purchases2 = ListPurchase.new(
-#     quantity: 10,
-#     product_id: rand(1..50),  
-#     purchase_id: Purchase.last.id
-#     created_at: fecha,
-#     updated_at:fecha,
-#   )
-#   new_list_purchases2.save!
-# end
-
-# puts "purchases completed!"
+puts "purchases completed!"
