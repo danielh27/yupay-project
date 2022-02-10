@@ -2,6 +2,6 @@
           data: { action: 'submit->insert-in-list#send' }, html: { class: "" }) do |f| %>
 
   <%= f.hidden_field :product_id, value: product.id.to_i %>
-  <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad", error: "Selecciona la cantidad"%>
-  <%= f.submit "Añadido", class: "btn btn-actions w-75 ml-2 disabled btn-actions-active" %>
+  <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad", error: "Selecciona la cantidad", disabled: true%>
+  <%= f.submit "Añadido", class: "btn btn-actions w-75 ml-2 disabled btn-actions-active", disabled: true %>
 <% end %>

@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[edit update destroy show]
 
   def index
-    @products = policy_scope(Product)
+    @products = policy_scope(Product).order(stock: :desc)
     # @products = policy_scope(Product).where(warehouse: current_user)
     # este ya no se usa porque se puso desde el scope de product policy
   end
