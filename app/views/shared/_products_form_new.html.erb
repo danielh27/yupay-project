@@ -2,32 +2,33 @@
     <%= simple_form_for(@product) do |f| %>
     <div style="color: #013440" class="form-row">
       <div class="col">
-        <%= f.input :name %>
+        <%= f.input :name, label: "Nombre" %>
       </div>
       <div class="col">
-        <%= f.input :category, collection: Product::CATEGORY %>
+        <%= f.input :category,  label: "Categoria", collection: Product::CATEGORY %>
       </div>
     </div>
 
     <div style="color: #013440" class="form-row">
       <div class="col">
-        <%= f.input :size, collection: Product::SIZE %>
+        <%= f.input :size,  label: "Talla", collection: Product::SIZE %>
       </div>
       <div class="col">
-        <%= f.input :price %>
+        <%= f.input :price ,  label: "Precio"%>
       </div>
       <div class="col">
-        <%= f.input :cost %>
+        <%= f.input :cost,   label: "Costo" %>
       </div>
     </div>
 
     <div style="color: #013440" class="form-row align-items-center">
       <div class="col">
-        <%= f.input :stock %>
+        <%= f.input :stock ,   label: "Stock"%>
       </div>
       <div class="col">
-        <%= f.input :minimum_required %>
+        <%= f.input :minimum_required,   label: "Stock Minimo" %>
       </div>
+      
       <div class="col">
           <%= f.submit class:"btn btn-login mt-3" %>
       </div>
