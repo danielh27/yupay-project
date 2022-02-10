@@ -12,7 +12,7 @@
         <div class="row mt-1 firstrow-dashboard">
 
           <!-- Low stock Card -->
-          <div class="col-xl-3 col-md-6 mb-3">
+          <div class="col-xl-3 col-md-6 mb-3 card-dashboard-effects">
             <div class="card border-left-low-stock shadow-sm h-100">
               <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
@@ -33,7 +33,7 @@
           </div>
 
           <!-- Earnings (Annual) Card -->
-          <div class="col-xl-3 col-md-6 mb-3">
+          <div class="col-xl-3 col-md-6 mb-3 card-dashboard-effects">
             <div class="card border-left-profit shadow-sm h-100">
               <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
@@ -42,9 +42,7 @@
                       Ganancias del mes
                     </div>
                     <div class="h5 mb-0 text-gray-800 pl-2">
-                      <% ventas = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
-                      <% costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: {user_id: current_user}).sum('cost * quantity') %>
-                      <p>S/.<%= (ventas - costos).round(2) %></p>
+                      <p>S/. <%= @profity %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -56,7 +54,7 @@
           </div>
 
           <!-- Earnings (Monthly) Card -->
-          <div class="col-xl-3 col-md-6 mb-3">
+          <div class="col-xl-3 col-md-6 mb-3 card-dashboard-effects">
             <div class="card border-left-earnigs shadow-sm h-100">
               <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
@@ -65,7 +63,7 @@
                       Ventas del mes
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <p>S/.<%= ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %></p>
+                      <p>S/. <%= @earnings %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -77,7 +75,7 @@
           </div>
 
           <!-- Card adicional 2 -->
-          <div class="col-xl-3 col-md-6 mb-3">
+          <div class="col-xl-3 col-md-6 mb-3 card-dashboard-effects">
             <div class="card border-left-ticket shadow-sm h-100 py-1">
               <div class="card-body p-3">
                 <div class="row no-gutters align-items-center">
@@ -85,13 +83,7 @@
                     <div class="text-xs font-weight-bold text-card4-dashboard text-uppercase mb-1">
                         Ticket promedio</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <% total = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
-                    <% cantidad = ListOrder.joins(:order).where(order: {user_id: current_user}).sum('quantity') %>
-                    <% if total == 0 %>
-                    <p>S/.<%= 0 %></p>
-                    <% else %>
-                    <p>S/.<%= (total/cantidad).round(2) %></p>
-                    <% end %>
+                    <%= @average_ticket %>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -107,23 +99,23 @@
         <div class="row">
 
           <!-- Area Chart -->
-          <div class="col-xl-7 col-lg-7">
+          <div class="col-xl-7 col-lg-7 card-dashboard-effects">
             <div class="card shadow-sm mb-3">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold">Resumen de ventas</h6>
               </div>
               <!-- Card Body -->
-              <div class="card-body">
+              <div class="card-body ">
                 <div class="chart-area">
-                  <%= area_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>          
+                  <%= area_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group_by_day(:created_at).sum("quantity*price"), round:2, loading: "Loading...", empty: "No data", prefix: "S/.", refresh: 10, zeros:true, download:true, dataset: {borderWidth: 2}, colors: ["#013440"] %>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Pie Chart -->
-          <div class="col-xl-5 col-lg-5">
+          <div class="col-xl-5 col-lg-5 card-dashboard-effects">
             <div class="card shadow-sm mb-4">
               <!-- Card Header - Dropdown -->
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -133,8 +125,7 @@
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                   <%= pie_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group(:category).sum('price * quantity'),
-                  legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 3600 %>
-                  <%# <canvas id="myPieChart"></canvas> %>
+                  legend: 'left', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 10, zeros:true, download:true, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096"] %>
                 </div>
 
                 <div class="mt-4 text-center small">
@@ -179,7 +170,7 @@
                   <thead>
                     <tr>
                       <th scope="col" class="text-muted pl-0">PRODUCTO</th>
-                      <th scope="col" class="text-center text-muted">CATEGORIA</th>
+                      <th scope="col" class="text-center text-muted">CATEGORÍA</th>
                       <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "COSTO" : "PRECIO DE VENTA" %></th>
                       <th scope="col" class="text-center text-muted">STOCK</th>
                       <th scope="col" class="text-center text-muted">TALLA</th>

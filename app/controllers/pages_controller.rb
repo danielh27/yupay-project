@@ -21,9 +21,7 @@ class PagesController < ApplicationController
       latest_products_sold
       category_sell
     end
-    warehouse = Warehouse.find_by(user: current_user)
-    products = Product.where(warehouse: warehouse)
-    @low_stock_count = products.map { |p| p.stock if p.stock < p.minimum_required }.compact.sum
+    charts
   end
 
   def movements
@@ -82,5 +80,26 @@ class PagesController < ApplicationController
                             .includes(:product, purchase: [:supplier])
                             .order(updated_at: :desc)
                             .limit(5).where(purchase: { status: true, user: current_user })
+  end
+
+  def charts
+    @low_stock_count = policy_scope(Product).where('stock < minimum_required').count
+
+    ventas = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')
+    costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: { user_id: current_user }).sum('cost * quantity')
+    total = (ventas - costos)
+    @profity = sprintf('%.2f', total)
+
+    result = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')
+    @earnings = sprintf('%.2f', result)
+
+    tickets = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')
+    cantidad = Order.where(user_id: current_user).count
+    if tickets.zero?
+      @average_ticket = "S/. 0.00"
+    else
+      division = (tickets  / cantidad)
+      @average_ticket = "S/. #{sprintf('%.2f', division)}"
+    end
   end
 end
