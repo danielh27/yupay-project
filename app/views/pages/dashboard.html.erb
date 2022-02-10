@@ -108,8 +108,7 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-area">
-                  <%= area_chart Product.where(warehouse: current_user).group_by_hour(:created_at).count%>
-                  <%# <canvas id="myAreaChart"></canvas> %>
+                  <%= line_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>                  
                 </div>
               </div>
             </div>

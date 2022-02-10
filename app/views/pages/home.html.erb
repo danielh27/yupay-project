@@ -1,6 +1,6 @@
 <body>
   <%# BANNER %>
-  <div class="home-header">
+  <div class="home-header shadow">
     <% if user_signed_in? %>
     <%= render 'shared/navbar_user_home' %>
     <% else %>
@@ -24,7 +24,7 @@
   </div>
 
 <%# SEGUNDA PARTE DEL HOME %>
-  <div class="cards-home">
+  <div class="cards-home shadow">
     <div id="image-home-2">
     </div>
     <div class="cards-info">
@@ -82,9 +82,9 @@
           <p class="price">$29.00</p>
           <button class="btn-m">Prueba Gratis</button>
           <div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>100 Entries</p> </div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 User license</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>600 Entries</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Multiple User Plan</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>5 User license</p> </div>
             <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
             <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
             <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
@@ -95,10 +95,10 @@
           <p class="price">$39.00</p>
           <button class="btn-m">Prueba Gratis</button>
           <div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>100 Entries</p> </div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 User license</p> </div>
-            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>2000 Entries</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Multiple User Plan</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>10 User license</p> </div>
+            <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>5 Custom field</p> </div>
             <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
             <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
           </div>
@@ -109,12 +109,12 @@
   <%# FOOTER %>
    <footer>
     <div class="d-flex flex-wrap justify-content-between align-items-center py-2 mt-auto border-top">
-      <p class="col-md-3 mb-0 text-muted"> © 2022 Yupay</p>
+      <p class="col-md-3 mb-0 text-muted pl-4"> © 2022 Yupay Corp</p>
       <ul class="nav justify-content-end">
-        <li class="nav-item"><a href="#" class="px-2 text-muted fs-1">Inicio</a></li>
-        <li class="nav-item"><a href="#" class="px-2 text-muted">Preguntas frecuentes</a></li>
-        <li class="nav-item"><a href="#" class="px-2 text-muted">Quiénes Somos</a></li>
-        <li class="nav-item"><a href="#" class="px-2 text-muted">Términos y Condiciones</a></li>
+        <li class="nav-item"><a href="#" class="px-4 text-muted fs-1">Inicio</a></li>
+        <li class="nav-item"><a href="#" class="px-4 text-muted">Preguntas frecuentes</a></li>
+        <li class="nav-item"><a href="#" class="px-4 text-muted">Quiénes Somos</a></li>
+        <li class="nav-item"><a href="#" class="px-4 text-muted">Términos y Condiciones</a></li>
       </ul>
     </div>
   </footer>

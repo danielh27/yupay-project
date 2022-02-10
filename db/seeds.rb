@@ -40,7 +40,7 @@ puts "Cleaning database..."
 # end
 
 5.times do
-  new_order = Order.new(status: true, customer_id: 1, user_id:1, created_at: 3.days.ago, updated_at: 3.days.ago)
+  new_order = Order.new(status: true, customer_id: 3, user_id:1, created_at: 8.days.ago, updated_at: 7.days.ago)
   new_order.save!
   new_list_orders = ListOrder.new(
     quantity: 2,
@@ -48,12 +48,19 @@ puts "Cleaning database..."
     order_id: Order.last.id
   )
   new_list_orders.save!
+  # 2do item
+  new_list_orders2 = ListOrder.new(
+    quantity: 2,
+    product_id: rand(2..49),  
+    order_id: Order.last.id
+  )
+  new_list_orders2.save!
 end
 
 puts "orders completed!"
 
-30.times do
-  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: 40.days.ago, updated_at: 35.days.ago)
+5.times do
+  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: 3, updated_at: 3.days.ago)
   new_purchase.save!
   new_list_purchases = ListPurchase.new(
     quantity: 10,
@@ -61,6 +68,13 @@ puts "orders completed!"
     purchase_id: Purchase.last.id
   )
   new_list_purchases.save!
+  # 2do item
+  new_list_purchases2 = ListPurchase.new(
+    quantity: 10,
+    product_id: rand(1..50),  
+    purchase_id: Purchase.last.id
+  )
+  new_list_purchases2.save!
 end
 
 puts "purchases completed!"
