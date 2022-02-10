@@ -108,7 +108,7 @@
               <!-- Card Body -->
               <div class="card-body ">
                 <div class="chart-area">
-                  <%= area_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>
+                  <%= area_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group_by_day(:created_at).sum("quantity*price"), round:2, loading: "Loading...", empty: "No data", prefix: "S/.", refresh: 10, zeros:true, download:true, dataset: {borderWidth: 2}, colors: ["#013440"] %>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                   <%= pie_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group(:category).sum('price * quantity'),
-                  legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 3600, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096"] %>
+                  legend: 'left', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 10, zeros:true, download:true, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096"] %>
                 </div>
 
                 <div class="mt-4 text-center small">
