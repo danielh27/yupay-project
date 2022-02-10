@@ -20,8 +20,8 @@
                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1 ml-2">
                         Bajo stock</div>
                     <div class="h5 mb-0 text-gray-800 d-flex pl-2">
-                      <%= Product.where("stock < minimum_required").count %> 
-                      <p class="pl-2 mt-1" style="font-size: smaller">products</p> 
+                       <%= @low_stock_count %>
+                      <p class="pl-2 mt-1" style="font-size: smaller">products</p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -42,7 +42,9 @@
                       Ganancias del mes
                     </div>
                     <div class="h5 mb-0 text-gray-800 pl-2">
-                      $215,000
+                      <% ventas = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
+                      <% costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: {user_id: current_user}).sum('cost * quantity') %>
+                      <p>S/.<%= (ventas - costos).round(2) %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -63,7 +65,7 @@
                       Ventas del mes
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <%= Order.includes(:purchases).where(status: false, user: current_user).count %>
+                      <p>S/.<%= ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -81,9 +83,11 @@
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                        Productos con bajo stock</div>
+                        Ticket promedio</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <%= @low_stock_count %>
+                    <% total = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
+                    <% cantidad = ListOrder.joins(:order).where(order: {user_id: current_user}).sum('quantity') %>
+                    <p>S/.<%= (total/cantidad).round(2) %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
