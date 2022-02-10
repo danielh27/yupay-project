@@ -93,7 +93,9 @@ abbr, accronym {
 
 .confirm-cancel-btn-padding {
   padding: 0.1rem 1rem;
-.btn-new-product{
+}
+
+.btn-new-product {
   font-family: "Be-Vietnam-Bold";
   text-decoration: none;
   background-color: #013440;
@@ -102,12 +104,13 @@ abbr, accronym {
   border-radius: 10px;
   transition: background-color 0.5s;
 
-  &:hover{
-  text-decoration: none;
-  background-color: #184650;
-  color: white;
+  &:hover {
+    text-decoration: none;
+    background-color: #184650;
+    color: white;
   }
-  i{
+
+  i {
     font-size: 13px;
   }
 }
