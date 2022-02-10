@@ -10,6 +10,17 @@
   // max-height: 60vh;
 }
 
+.confirm-cancel-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.color-red-bold {
+  font-family: 'Be-Vietnam-Bold';
+  color: #F20F38;
+}
+
 .section-order-container {
   gap: 4rem;
 
@@ -19,8 +30,8 @@
     margin: 0;
   }
 
-  .name-customer {
-    font-size: 3rem;
+  .customer-name {
+    font-size: 2.7rem;
   }
 
   .search-input-container {
@@ -57,6 +68,15 @@
   height: 45vh;
   background-color: white;
   padding: 1rem 2rem;
+}
+
+.white-table-section {
+  background-color: white;
+  border-radius: 0.625rem;
+}
+
+.total-price-section {
+  padding: 0 2rem;
 }
 
 .search-card {
@@ -115,13 +135,18 @@
   tbody {
     overflow-y: auto;
     font-size: 0.94rem;
+
+    tr {
+      border-bottom: 1px solid #e3e6f0;
+    }
+
   }
 
   tr td {
     padding: 0.45rem;
   }
 
-  tr th {
+  thead tr th {
     color: #013440;
     font-family: 'Be-Vietnam-Bold';
   }
@@ -160,8 +185,4 @@
     // font-size: 1.1rem;
   }
 
-}
-
-.confirm-cancel-btns {
-  margin-top: auto;
 }

@@ -3,7 +3,7 @@
   width: 100%;
   border-radius: 4px;
   color: white;
-  
+
 }
 
 
@@ -59,9 +59,38 @@
 
 abbr[title], abbr[data-original-title] {
   text-decoration: none;
-  
+
 }
-abbr, accronym { 
-  // border-bottom: 0px; 
+abbr, accronym {
+  // border-bottom: 0px;
   display: none;
+}
+
+.bg-red-text-white-bold {
+  font-family: 'Be-Vietnam-Medium';
+  background-color: #F20F38;
+  color: white;
+  transition: 0.4s;
+
+  &:hover {
+    color: white;
+    background-color: #e92d4f;
+  }
+}
+
+.bg-blue-text-white-bold {
+  background-color: #013440;
+  font-family: 'Be-Vietnam-Medium';
+  color: white;
+  transition: 0.4s;
+
+  &:hover {
+    color: white;
+    background-color: #184650;
+  }
+
+}
+
+.confirm-cancel-btn-padding {
+  padding: 0.1rem 1rem;
 }

@@ -32,11 +32,9 @@
             <div class="border-0 pt-3 items-section">
 
               <p>Cliente</p>
-              <h2 class="mb-5 name-customer"><%= @order.customer.name %></h2>
+              <h2 class="mb-5 customer-name"><%= @order.customer.name %></h2>
 
             </div>
-
-
 
             <div class="white-table-section">
 
@@ -55,7 +53,7 @@
                     <% if @list_orders.present? %>
                       <% @list_orders.each do |item| %>
 
-                        <tr class="border-bottom">
+                        <tr class="">
                           <td><%= item.product.name %></td>
                           <td><%= item.product.size %></td>
                           <td><%= item.quantity %></td>
@@ -73,35 +71,34 @@
                 </table>
               </div>
 
-              <div class="confirm-cancel-btns border-top">
+              <div class="total-price-section">
 
-                <table class="table table-borderless items-table mb-5">
+                <table class="table table-borderless items-table">
                   <tfoot>
                     <tr>
-                      <th scope="col" class="text-danger pl-0">TOTAL</th>
+                      <th scope="col" class="pl-0 color-red-bold">TOTAL</th>
                       <td></td>
                       <td></td>
-                      <td colspan="2" class="text-center text-danger font-weight-bold total-price" data-insert-in-list-target="total_sum">S/ <%= @total_sum  %></td>
                       <td></td>
+                      <td colspan="1" class="text-center color-red-bold total-price" data-insert-in-list-target="total_sum">S/ <%= @total_sum  %></td>
                     </tr>
                   </tfoot>
                 </table>
 
               </div>
 
-              <div>
-                <%= link_to "Eliminar", order_path(@order), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-                <%= button_to "", confirm_order_path(@order), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
-                <button id="confirm-order-modal-button" class="btn btn-primary">Guardar</button>
-              </div>
-
             </div>
 
+            <div class="confirm-cancel-section mt-4">
+              <%= button_to "Cancelar", order_path(@order), method: "delete", class: "btn bg-red-text-white-bold confirm-cancel-btn-padding", data: { confirm: "Cancelar compra?" } %>
+              <%= button_to "", confirm_order_path(@order), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
+              <button id="confirm-order-modal-button" class="btn bg-blue-text-white-bold confirm-cancel-btn-padding">Confirmar</button>
+            </div>
 
           </div>
 
           <%# Modal para confirmar venta %>
-          <template id="confirm-order-modal-template">
+          <template id="confirm-order-modal-template" data-insert-in-list-target="modal_items_template">
             <swal-title class="text-muted">
               Verifica los items de tu lista
             </swal-title>
