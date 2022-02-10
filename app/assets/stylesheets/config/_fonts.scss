@@ -11,27 +11,27 @@
 
  @font-face {
   font-family: 'Be-Vietnam';
-  src: url('/assets/BeVietnam-Regular.ttf')
+  src: asset-url('BeVietnam-Regular.ttf')
 }
 
 @font-face {
   font-family: 'Be-Vietnam-Medium';
-  src: url('/assets/BeVietnam-Medium.ttf')
+  src: asset-url('BeVietnam-Medium.ttf')
 }
 
 @font-face {
   font-family: 'Be-Vietnam-SemiBold';
-  src: url('/assets/BeVietnam-SemiBold.ttf')
+  src: asset-url('BeVietnam-SemiBold.ttf')
 }
 
 @font-face {
   font-family: 'Be-Vietnam-Bold';
-  src: url('/assets/BeVietnam-Bold.ttf')
+  src: asset-url('BeVietnam-Bold.ttf')
 }
 
 @font-face {
   font-family: 'Be-Vietnam-ExtraBold';
-  src: url('/assets/BeVietnam-ExtraBold.ttf')
+  src: asset-url('BeVietnam-ExtraBold.ttf')
 }
 
 // font-family: 'Be Vietnam Pro', sans-serif;

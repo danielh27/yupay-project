@@ -53,7 +53,7 @@ end
 puts "orders completed!"
 
 30.times do
-  new_purchase = Purchase.new(status: true, supplier_id: 1, user_id:1, created_at: 40.days.ago, updated_at: 35.days.ago)
+  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: 40.days.ago, updated_at: 35.days.ago)
   new_purchase.save!
   new_list_purchases = ListPurchase.new(
     quantity: 10,
