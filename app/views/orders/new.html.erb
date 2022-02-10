@@ -24,7 +24,7 @@
                 <% if @unconfirmed_orders.present? %>
                   <div class="card" id="pending-orders-card">
                     <h2>Tienes <%= @unconfirmed_orders.count > 1 ? "#{@unconfirmed_orders.count} ventas" : "1 venta" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-orders-modal-button" class="btn-continue-order inline-btn-order">continuar</button> o <button class="btn-cancel-order inline-btn-order">cancelar</button></p>
+                    <p>Visualiza tus pendientes <button id="pending-orders-modal-button" class="btn-continue-order inline-btn-order">aqui</button> <%# o <button class="btn-cancel-order inline-btn-order"> </button>%></p>
                   </div>
                 <% end %>
 

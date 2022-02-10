@@ -27,7 +27,7 @@
                 <% if @unconfirmed_purchases.present? %>
                   <div class="card" id="pending-purchases-card">
                     <h2>Tienes <%= @unconfirmed_purchases.count > 1 ? "#{@unconfirmed_purchases.count} compras" : "1 compra" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-purchases-modal-button" class="btn-continue-purchase btn-view-pending-purchases">continuar</button> o <button class="btn-cancel-purchase btn-view-pending-purchases">cancelar</button></p>
+                    <p>Visualiza tus pendientes <button id="pending-purchases-modal-button" class="btn-continue-purchase btn-view-pending-purchases">aqui</button> <%# o<button class="btn-cancel-purchase btn-view-pending-purchases">cancelar</button> %>  </p>
                   </div>
                 <% end %>
 
