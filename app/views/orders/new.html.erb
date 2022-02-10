@@ -15,7 +15,7 @@
 
             <div class="main-section-new-order text-center ">
 
-              <h1>¿Que deseas hacer?</h1>
+              <h1>¿Qué deseas hacer?</h1>
               <button id="new-customer-button" class="btn-order btn-new-customer">Nuevo cliente</button>
               <button id="new-order-button" class="mt-4 btn-new-order">Nueva venta</button>
 
@@ -110,7 +110,7 @@
                   <swal-icon type="info"></swal-icon>
                   <swal-html>
                     <%= simple_form_for(@order) do |f| %>
-                      <%= f.input :customer_id, collection: Customer.where(user: current_user), label: false, prompt: "Distribuidores disponibles"%>
+                      <%= f.input :customer_id, collection: Customer.where(user: current_user), label: false, prompt: "Clientes disponibles"%>
                       <%= f.submit id: "submit-new-order-btn", class: "d-none" %>
                     <% end %>
                   </swal-html>
