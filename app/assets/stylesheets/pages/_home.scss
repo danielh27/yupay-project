@@ -52,8 +52,14 @@
   font-size: 20px !important;
   width: 190px;
   height: 45px;
-  // font-weight: bold !important;
   font-family: "Be-Vietnam-Bold";
+  padding: 12px 18px;
+  &:hover{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(242, 35, 60);
+  }
 }
 
 // Second section homepage
