@@ -8,8 +8,12 @@
       <%= render "shared/topbar" %>
 
       <div class="container-fluid">
-
-        <div class="row justify-content-center">
+        <div class="text-right mt-4">
+          <%= link_to(new_product_path, class: "btn-new-product") do %>
+            <i class="fas fa-plus"></i> Agregar
+          <% end %>
+        </div>
+        <div class="row justify-content-center mt-3">
           <div class="table-responsive-sm w-100 px-5 py-4">
             <table class="table table-borderless products-table">
               <thead>
@@ -38,7 +42,7 @@
                       </td>
                       <td scope="row" class="column-info">S/ <%= product.price %></td>
                       <td scope="row" class="column-info"><%= product.category %></td>
-                      <td scope="row" class="column-info"><%= product.stock %> <i class="far fa-chart-bar text-muted"></i></td>
+                      <td scope="row" class="column-info mb-0"><%= product.stock %> <%= image_tag "stock.svg", class:"mb-1"%></td>
                       <td scope="row" class="column-info text-muted"> <%= product.size %> </td>
                       <td scope="row" class="column-info"> <%= render "shared/product_status", product: product %> </td>
                       <td scope="row" class="column-info iconos-prodindex">

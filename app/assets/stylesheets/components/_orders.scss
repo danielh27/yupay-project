@@ -1,11 +1,54 @@
 .search-products-section {
-  min-height: 800px;
-  max-height: 90vh;
+  // height: 70vh;
+  // min-height: 700px;
+  // max-height: 90vh;
 }
 
 .items-section {
-  min-height: 685px;
-  max-height: 70vh;
+  // min-height: 60vh;
+  // min-height: 685px;
+  // max-height: 60vh;
+}
+
+.confirm-cancel-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.color-red-bold {
+  font-family: 'Be-Vietnam-Bold';
+  color: #F20F38;
+}
+
+.section-order-container {
+  gap: 1rem;
+
+  h2, p {
+    color: #013440;
+    font-family: 'Be-Vietnam-Bold';
+    margin: 0;
+  }
+
+  .customer-name {
+    font-size: 2.7rem;
+  }
+
+  .search-input-container {
+    padding-right: 1.9rem;
+  }
+
+  .search-input {
+    background-color: #f3f3f3;
+    color: #C4C4C4;
+  }
+
+  .items-section-container {
+    background-color: #E3E9EA;
+    border-radius: 0.625rem;
+    padding: 2rem;
+  }
+
 }
 
 .search_results, .items-table-container {
@@ -22,6 +65,18 @@
 
   // display: flex;
   // flex-grow: 1;
+  height: 52vh;
+  background-color: white;
+  padding: 1rem 2rem;
+}
+
+.white-table-section {
+  background-color: white;
+  border-radius: 0.625rem;
+}
+
+.total-price-section {
+  padding: 0 2rem;
 }
 
 .search-card {
@@ -33,6 +88,7 @@
   align-items: center;
   margin: 15px 0;
   border-radius: 6px;
+  // max-width: 650px;
 }
 
 .product-quantity {
@@ -74,13 +130,35 @@
 
 
 .items-table {
+  background-color: white;
 
   tbody {
     overflow-y: auto;
+    font-size: 0.94rem;
+
+    tr {
+      border-bottom: 1px solid #e3e6f0;
+    }
+
+  }
+
+  tr td {
+    padding: 0.45rem;
+  }
+
+  thead tr th {
+    color: #013440;
+    font-family: 'Be-Vietnam-Bold';
   }
 
   tr td:first-child {
     padding-left: 0;
+    text-align: left;
+    width: 240px;
+    max-width: 240px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
   }
 
   td, tr {
@@ -94,8 +172,8 @@
   }
 
   tbody tr td:first-child, tfoot tr th {
-    width: 340px;
-    max-width: 350px;
+    // width: 340px;
+    // max-width: 350px;
   }
 
   // tfoot tr td {
@@ -104,11 +182,7 @@
   // }
 
   tfoot tr td, tfoot tr th {
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
   }
 
-}
-
-.confirm-cancel-btns {
-  margin-top: auto;
 }
