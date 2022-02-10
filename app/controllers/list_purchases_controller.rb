@@ -4,9 +4,12 @@ class ListPurchasesController < ApplicationController
   end
 
   def index
-    @list_purchase = ListPurchase.new
-    @list_purchases = ListPurchase.where(purchase: params[:purchase_id])
+    # @list_purchase = ListPurchase.new
+    # @list_purchases = ListPurchase.where(purchase: params[:purchase_id])
     @purchase = Purchase.find(params[:purchase_id])
+    @list_purchases = policy_scope(ListPurchase).where(purchase: params[:purchase_id])
+    list = Warehouse.where(user: current_user)
+    @list_products = Product.where(warehouse: list)
   end
 
   def create
@@ -14,6 +17,7 @@ class ListPurchasesController < ApplicationController
     @list_purchase = ListPurchase.new(list_purchase_params)
     @list_purchases = ListPurchase.where(purchase: params[:purchase_id])
     @list_purchase.purchase = @purchase
+    authorize @list_purchase
     if @list_purchase.save
       redirect_to purchase_list_purchases_path(@purchase)
     else

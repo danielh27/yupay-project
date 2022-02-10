@@ -3,6 +3,10 @@
   width: 100%;
   font-size: 15px;
 
+  thead th {
+    color: #013440 !important;
+  }
+
   td {
     padding: 10px 0px;
   }
@@ -38,4 +42,22 @@
 }
 .text-center th {
   color: #013440;
+}
+
+
+img.detalles-svg {
+  width: 25px;
+
+  filter: invert(65%) sepia(21%) saturate(0%) hue-rotate(224deg) brightness(91%) contrast(86%);
+  &:hover {
+    filter: invert(14%) sepia(15%) saturate(5239%) hue-rotate(158deg) brightness(103%) contrast(99%);
+  }
+}
+
+img.editar-svg {
+  width: 20px;
+  filter: invert(65%) sepia(21%) saturate(0%) hue-rotate(224deg) brightness(91%) contrast(86%);
+  &:hover {
+    filter: invert(29%) sepia(86%) saturate(7494%) hue-rotate(341deg) brightness(94%) contrast(102%);
+  }
 }

@@ -15,15 +15,16 @@
 
             <div class="main-section-new-order text-center ">
 
-              <h1>Realiza una...</h1>
-              <%= link_to "Nueva venta", orders_path, method: "post", class: "mt-4 btn-new-order" %>
+              <h1>¿Que deseas hacer?</h1>
+              <button id="new-customer-button" class="btn-order btn-new-customer">Nuevo cliente</button>
+              <button id="new-order-button" class="mt-4 btn-new-order">Nueva venta</button>
 
               <div id="pending-orders-section">
 
                 <% if @unconfirmed_orders.present? %>
                   <div class="card" id="pending-orders-card">
                     <h2>Tienes <%= @unconfirmed_orders.count > 1 ? "#{@unconfirmed_orders.count} ventas" : "1 venta" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-orders-modal-button" class="btn-continue-order btn-order">continuar</button> o <button class="btn-cancel-order btn-order">cancelar</button></p>
+                    <p>Puedes <button id="pending-orders-modal-button" class="btn-continue-order inline-btn-order">continuar</button> o <button class="btn-cancel-order inline-btn-order">cancelar</button></p>
                   </div>
                 <% end %>
 
@@ -86,9 +87,38 @@
                   </swal-html>
                 </template>
 
+                 <%# Modal para ingresar un nuevo customer %>
+                <template id="new-customer-form">
+                  <swal-title class="text-muted">
+                    Agrega un nuevo cliente
+                  </swal-title>
+                  <swal-icon type="info"></swal-icon>
+                  <swal-html>
+                    <%= simple_form_for(@customer) do |f| %>
+                      <%= f.input :name, label: false, placeholder: "Escribe el nombre"%>
+                      <%= f.input :address, label: false, placeholder: "Direccion (Opcional)" %>
+                      <%= f.submit id: "submit-new-customer-btn", class: "d-none" %>
+                    <% end %>
+                  </swal-html>
+                </template>
+
+                <%# Modal para realizar una nueva venta %>
+                <template id="new-order-form">
+                  <swal-title class="text-muted">
+                    Selecciona un cliente
+                  </swal-title>
+                  <swal-icon type="info"></swal-icon>
+                  <swal-html>
+                    <%= simple_form_for(@order) do |f| %>
+                      <%= f.input :customer_id, collection: Customer.where(user: current_user), label: false, prompt: "Distribuidores disponibles"%>
+                      <%= f.submit id: "submit-new-order-btn", class: "d-none" %>
+                    <% end %>
+                  </swal-html>
+                </template>
+
 
               </div>
-              
+
             </div>
 
           </div>

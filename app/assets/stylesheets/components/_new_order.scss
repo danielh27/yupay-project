@@ -6,7 +6,7 @@
 
   h1 {
     font-weight: bold;
-    font-size: 5.625rem;
+    font-size: 5.0rem;
     color: #013440;
   }
 
@@ -48,11 +48,29 @@
   }
 
   .btn-order {
-    background: none;
+    font-family: 'Be-Vietnam-Bold';
+    display: inline-block;
     border: none;
-    padding: 0;
-    font-weight: bold;
     text-decoration: none;
+    border-radius: 0.313rem;
+    font-size: 1.75rem;
+    padding: 0.438rem 1.513rem;
+    margin: 3rem 0.9rem;
+    transition: background-color 0.4s, transform 0.4s;
+  }
+
+  .btn-order:hover {
+    transform: translateY(-5px);
+  }
+
+  .btn-new-customer {
+    background-color: #E3E9EA;
+    color: #013440;
+    border: 1px solid #013440;
+
+    &:hover {
+      background-color: #c7d7da;
+    }
   }
 
   .btn-continue-order {
@@ -63,8 +81,15 @@
     color: #F20F38;
   }
 
+  .inline-btn-order {
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
 }
 
-#pending-order-template-modal {
-
-}
+// #pending-order-template-modal {
+// }
