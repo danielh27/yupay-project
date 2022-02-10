@@ -34,16 +34,20 @@
     // width: 80%;
     margin-top: 5rem;
   }
-
-
+  
+  
   #pending-orders-card {
     color: #013440;
     background: #E3E9EA;
-    padding: 0.36rem 7rem;
+    padding: 1.36rem 6rem;
     border-radius: 0.625rem;
 
     h2 {
       font-size: 1.875rem;
+      margin-bottom: 4px;
+    }
+    p {
+      margin-bottom: 0;
     }
   }
 

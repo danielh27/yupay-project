@@ -1,6 +1,7 @@
 <div class="products pr-3 search_results" id="search_results" data-refresh-products-list-target="results" data-controller="scroll-reveal">
   <% @products.each do |product| %>
     <div class="search-card">
+
       <%= image_tag "https://source.unsplash.com/random/?#{product.category}" %>
       <div class="search-card-infos">
         <h2><%= product.name %></h2>
@@ -13,8 +14,18 @@
                   data: { action: 'submit->insert-in-list#send' }, html: { class: "" }) do |f| %>
 
           <%= f.hidden_field :product_id, value: product.id.to_i %>
-          <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad"%>
-          <%= f.submit "Añadir", class: "btn btn-actions w-75 ml-2" %>
+
+          <% if @list_orders.map(&:product_id).include?(product.id) %>
+            <%= f.input :quantity, label: false, collection: [], prompt: "Cantidad", disabled: true%>
+            <%= f.submit "Añadido", class: "btn btn-actions w-75 ml-2 btn-actions-active", disabled: true %>
+          <% elsif product.stock < 1 %>
+            <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad", disabled: true%>
+            <%= f.submit "Sin stock", class: "btn no-stock-btn w-75 ml-2", disabled: true %>
+          <% else %>
+            <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad"%>
+            <%= f.submit "Añadir", class: "btn btn-actions w-75 ml-2" %>
+          <% end %>
+
         <% end %>
       </div>
 
