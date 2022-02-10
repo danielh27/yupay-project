@@ -1,0 +1,5 @@
+meta_product_name: "Yupay"
+meta_title: "Yupay - LLeva el control de tu inventario"
+meta_description: "Relevant description"
+meta_image: "home2.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
