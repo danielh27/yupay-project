@@ -23,6 +23,16 @@
   }
 }
 
+.btn-actions-active {
+  background-color: #d3d3d3;
+  color: black;
+
+  &:hover {
+    background-color: #d3d3d3;
+    color: black;
+  }
+}
+
 .low-stock, .normal-stock {
   display: inline-block;
   margin: 0;
@@ -76,8 +86,34 @@ abbr, accronym {
   display: none;
 }
 
+.bg-red-text-white-bold {
+  font-family: 'Be-Vietnam-Medium';
+  background-color: #F20F38;
+  color: white;
+  transition: 0.4s;
 
+  &:hover {
+    color: white;
+    background-color: #e92d4f;
+  }
+}
 
+.bg-blue-text-white-bold {
+  background-color: #013440;
+  font-family: 'Be-Vietnam-Medium';
+  color: white;
+  transition: 0.4s;
+
+  &:hover {
+    color: white;
+    background-color: #184650;
+  }
+
+}
+
+.confirm-cancel-btn-padding {
+  padding: 0.1rem 1rem;
+}
 
 // botones generales
 .btn-confirm {
@@ -97,12 +133,13 @@ abbr, accronym {
   border-radius: 4px;
   width: 20%;
   color: white;
-  
+
   // &:hover {
   //   background-color: #F20F38;
   //   color: white;
   // }
 }
+
 .btn-new-product{
   font-family: "Be-Vietnam-Bold";
   text-decoration: none;
@@ -112,12 +149,13 @@ abbr, accronym {
   border-radius: 10px;
   transition: background-color 0.5s;
 
-  &:hover{
-  text-decoration: none;
-  background-color: #184650;
-  color: white;
+  &:hover {
+    text-decoration: none;
+    background-color: #184650;
+    color: white;
   }
-  i{
+
+  i {
     font-size: 13px;
   }
 }

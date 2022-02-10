@@ -69,6 +69,7 @@
   grid-gap: 140px;
   height: 100vh;
 }
+
 #image-home-2 {
  background-image: url('https://images.unsplash.com/photo-1598257006408-538c27529235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
  width: 100%;
@@ -76,6 +77,7 @@
  background-repeat: no-repeat;
  background-size: cover;
 }
+
 .card-small {
   height: 260px;
   width: 300px;
@@ -86,31 +88,36 @@
   background-color: #F8F8F8;
   border: 0.1px solid rgb(1, 52, 64);
   border-radius: 15px;
-  h3{
+
+  h3 {
     // font-weight: bold;
     font-family: "Be-Vietnam-SemiBold";
     font-size: 20px;
     color: rgb(1, 52, 64);
   }
-  p{
+  p {
     font-size: 14px;
     color: black;
   }
 }
-#subtitle-home{
-  h2{
+
+.cards-info .text-center {
+
+  h2 {
   // font-weight: bold;
   font-family: "Be-Vietnam-ExtraBold";
   font-size: 45px;
   margin-top: 5rem;
   }
 }
+
 .icon-home{
   font-size: 50px;
   color: rgb(1, 52, 64);
   margin-bottom: 16px;
   margin-top: 16px;
 }
+
 .cards-info{
   margin-right: 100px;
 }
