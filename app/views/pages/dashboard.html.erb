@@ -42,9 +42,7 @@
                       Ganancias del mes
                     </div>
                     <div class="h5 mb-0 text-gray-800 pl-2">
-                      <% ventas = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
-                      <% costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: {user_id: current_user}).sum('cost * quantity') %>
-                      <p>S/.<%= (ventas - costos).round(2) %></p>
+                      <p>S/. <%= @profity %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -65,7 +63,7 @@
                       Ventas del mes
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                      <p>S/.<%= ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %></p>
+                      <p>S/. <%= @earnings %></p>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -85,13 +83,7 @@
                     <div class="text-xs font-weight-bold text-card4-dashboard text-uppercase mb-1">
                         Ticket promedio</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
-                    <% total = ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).sum('price * quantity') %>
-                    <% cantidad = ListOrder.joins(:order).where(order: {user_id: current_user}).sum('quantity') %>
-                    <% if total == 0 %>
-                    <p>S/.<%= 0 %></p>
-                    <% else %>
-                    <p>S/.<%= (total/cantidad).round(2) %></p>
-                    <% end %>
+                    <%= @average_ticket %>
                     </div>
                   </div>
                   <div class="col-auto mt-2">
@@ -116,7 +108,7 @@
               <!-- Card Body -->
               <div class="card-body">
                 <div class="chart-area">
-                  <%= line_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>          
+                  <%= line_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>
                 </div>
               </div>
             </div>
@@ -133,8 +125,7 @@
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                   <%= pie_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group(:category).sum('price * quantity'),
-                  legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 3600 %>
-                  <%# <canvas id="myPieChart"></canvas> %>
+                  legend: 'bottom', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 3600, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096"] %>
                 </div>
 
                 <div class="mt-4 text-center small">
