@@ -108,7 +108,7 @@
               <!-- Card Body -->
               <div class="card-body ">
                 <div class="chart-area">
-                  <%= line_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>
+                  <%= area_chart ListOrder.joins(:product).group_by_day(:created_at).sum("quantity*price")%>
                 </div>
               </div>
             </div>
