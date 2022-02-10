@@ -3,11 +3,9 @@
 // Banner section
 .banner-c {
   justify-content: center;
-  margin: auto;
-  height: 80vh;
-
+  margin: 5rem auto;
+  height: 100vh;
 }
-
 #navbar-home-page {
   // font-weight: 600;
   font-family: "Be-Vietnam-Bold";
@@ -28,7 +26,7 @@
   }
 }
 .home-header {
-  background: linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,1)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background: linear-gradient(to top, rgba(1,62,64,0.2), rgba(1,62,64,0.8)), linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,0.8)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
   min-height: 800px;
   width: 100%;
@@ -51,11 +49,17 @@
   color: #ffffff;
   background-color: #F20F38;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 20px !important;
   width: 190px;
   height: 45px;
-  // font-weight: bold !important;
   font-family: "Be-Vietnam-Bold";
+  padding: 12px 18px;
+  &:hover{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(242, 35, 60);
+  }
 }
 
 // Second section homepage
@@ -63,17 +67,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 140px;
+  height: 100vh;
 }
 #image-home-2 {
- background-image: url('https://images.unsplash.com/photo-1610737234961-9fce52860989?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80'); 
+ background-image: url('https://images.unsplash.com/photo-1598257006408-538c27529235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
  width: 100%;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
 }
 .card-small {
-  height: 280px;
-  width: 320px;
+  height: 260px;
+  width: 300px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -97,6 +102,7 @@
   // font-weight: bold;
   font-family: "Be-Vietnam-ExtraBold";
   font-size: 45px;
+  margin-top: 5rem;
   }
 }
 .icon-home{
