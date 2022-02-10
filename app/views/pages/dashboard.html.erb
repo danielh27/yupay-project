@@ -125,7 +125,8 @@
               <div class="card-body">
                 <div class="chart-pie pt-4 pb-2">
                   <%= pie_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group(:category).sum('price * quantity'),
-                  legend: 'left', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 10, zeros:true, download:true, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096"] %>
+                  legend: 'left', donut: true, height:"120%", prefix: "S/.", round: 2, loading: "Loading...", empty: "No data", refresh: 10, zeros:true, download:true, colors: ["#013440", "#F20F38", "rgba(242,15,56,0.55)", "rgba(1,52,64,0.55)", "#F87B92", "#739096",
+                  "rgba(1,52,64,0.9)", "rgba(1,52,64,0.8)", "rgba(1,52,64,0.7)", "rgba(1,52,64,0.6)", "rgba(1,52,64,0.5)", "rgba(1,52,64,0.4)", "rgba(1,52,64,0.3)", "rgba(1,52,64,0.2)", "rgba(1,52,64,0.1)", "rgba(242,15,56,0.9)", "rgba(242,15,56,0.8)", "rgba(242,15,56,0.7)", "rgba(242,15,56,0.6)", "rgba(242,15,56,0.5)", "rgba(242,15,56,0.4)", "rgba(242,15,56,0.3)", "rgba(242,15,56,0.2)", "rgba(242,15,56,0.1)", "#1B4954", "#345D66", "#4E717A", "#67858C", "#809AA0", "#99AEB3", "#B3C3C6", "#CCD6D9", "#E6EBEC", "#F4274C", "#F53F60", "#F65774", "#F76F88", "#F9879C", "#FA9FAF", "#FCB7C4", "#FCCFD7", "#FEE7EC"] %>
                 </div>
 
                 <div class="mt-4 text-center small">
