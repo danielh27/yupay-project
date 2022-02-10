@@ -57,13 +57,13 @@
                                 <td class="text-muted"><%= item.list_purchases.count %> und</td>
                                 <td>
                                   <%= link_to purchase_list_purchases_path(item), style: "color: #013440;" do%>
-                                    <i class="far fa-eye"></i>
+                                    <%= image_tag "detalles.svg", class:"detalles-svg" %>
                                   <% end %>
                                 </td>
 
                                 <td>
                                   <%= link_to purchase_path(item), method: "delete", style: "color: #f20f388f;" do %>
-                                    <i class="fas fa-trash"></i>
+                                    <%= image_tag "eliminar.svg", class:"eliminar-svg" %>
                                   <% end %>
                                 </td>
                               </tr>
