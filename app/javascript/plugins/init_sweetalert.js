@@ -72,7 +72,10 @@ const initSweetalert = () => {
     pendingOrdersButton.addEventListener("click", () => {
 
       Swal.fire({
+        iconColor: '#739096',
         template: "#pending-order-template-modal",
+        color: '#013440',
+        
         backdrop: 'rgba(0, 0, 0, 0.6)',
         showCloseButton: true
       })
