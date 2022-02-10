@@ -2,12 +2,13 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["items",  "total_sum"];
+  static targets = ["items", "modal_items_template", "total_sum"];
 
   // connect() {
-  //   console.log(this.element);
-  //   console.log(this.itemsTarget);
-  //   console.log(this.total_sumTarget);
+    // console.log(this.element);
+    // console.log(this.itemsTarget);
+    // console.log(this.total_sumTarget);
+    // console.log(this.modal_items_templateTarget.content.querySelector("tbody"));
   // }
 
   send(event) {
@@ -22,9 +23,15 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.inserted_item) {
-          let table_row = document.createElement("tr");
-          table_row.innerHTML = data.inserted_item;
-          this.itemsTarget.appendChild(table_row);
+          let list_item = document.createElement("tr");
+          list_item.innerHTML = data.inserted_item;
+
+          let modal_list_item = document.createElement("tr");
+          modal_list_item.innerHTML = data.inserted_modal_item;
+
+          this.itemsTarget.appendChild(list_item);
+          this.modal_items_templateTarget.content.querySelector("tbody").appendChild(modal_list_item);
+
           this.total_sumTarget.innerText = `S/ ${data.total_sum}`
         }
         currentForm.outerHTML = data.form;
