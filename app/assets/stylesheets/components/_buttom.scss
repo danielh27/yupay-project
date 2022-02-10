@@ -23,6 +23,16 @@
   }
 }
 
+.btn-actions-active {
+  background-color: #d3d3d3;
+  color: black;
+
+  &:hover {
+    background-color: #d3d3d3;
+    color: black;
+  }
+}
+
 .low-stock, .normal-stock {
   display: inline-block;
   margin: 0;
