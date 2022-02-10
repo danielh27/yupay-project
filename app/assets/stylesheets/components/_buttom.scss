@@ -23,6 +23,21 @@
   }
 }
 
+.no-stock-btn {
+  font-size: 12px;
+  background-color: #fccfd7;
+  // font-weight: bold;
+  font-family: "Be-Vietnam-Bold";
+  color: #F20F38;
+  border-radius: 6px;
+  padding: 8px 14px;
+  opacity: 0.45 !important;
+
+  &:hover {
+    color: #F20F38;
+  }
+}
+
 .btn-actions-active {
   background-color: #d3d3d3;
   color: black;

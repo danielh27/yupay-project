@@ -8,7 +8,7 @@ class ListOrdersController < ApplicationController
     @total_sum = @list_orders.select(:price, :quantity).sum("price * quantity").round(2)
 
     if params[:query].present?
-      @products = Product.where('name ILIKE :query OR bar_code ILIKE :query', query: "%#{params[:query]}%")
+      @products = policy_scope(Product).where('name ILIKE :query OR bar_code ILIKE :query', query: "%#{params[:query]}%")
     end
 
     respond_to do |format|
