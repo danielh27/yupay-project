@@ -16,9 +16,9 @@
 
             <div class="main-section-new-purchase text-center">
 
-              <h1>¿Que deseas hacer?</h1>
+              <h1>¿Qué deseas hacer?</h1>
               <button id="new-supplier-button" class="btn-purchase btn-new-supplier">Nuevo proveedor</button>
-              <button id="new-purchase-button" class="btn-purchase btn-new-purchase">Ingresar mercaderia</button>
+              <button id="new-purchase-button" class="btn-purchase btn-new-purchase">Ingresar mercadería</button>
               <%= link_to "Crear producto", new_product_path, class: "mt-4 btn-purchase btn-new-product" %>
 
 
@@ -27,7 +27,7 @@
                 <% if @unconfirmed_purchases.present? %>
                   <div class="card" id="pending-purchases-card">
                     <h2>Tienes <%= @unconfirmed_purchases.count > 1 ? "#{@unconfirmed_purchases.count} compras" : "1 compra" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-purchases-modal-button" class="btn-continue-purchase btn-view-pending-purchases">continuar</button> o <button class="btn-cancel-purchase btn-view-pending-purchases">cancelar</button></p>
+                    <p>Visualiza tus pendientes <button id="pending-purchases-modal-button" class="btn-continue-purchase btn-view-pending-purchases">aqui</button> <%# o<button class="btn-cancel-purchase btn-view-pending-purchases">cancelar</button> %>  </p>
                   </div>
                 <% end %>
 

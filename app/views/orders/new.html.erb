@@ -15,7 +15,7 @@
 
             <div class="main-section-new-order text-center ">
 
-              <h1>¿Que deseas hacer?</h1>
+              <h1>¿Qué deseas hacer?</h1>
               <button id="new-customer-button" class="btn-order btn-new-customer">Nuevo cliente</button>
               <button id="new-order-button" class="mt-4 btn-new-order">Nueva venta</button>
 
@@ -24,7 +24,7 @@
                 <% if @unconfirmed_orders.present? %>
                   <div class="card" id="pending-orders-card">
                     <h2>Tienes <%= @unconfirmed_orders.count > 1 ? "#{@unconfirmed_orders.count} ventas" : "1 venta" %> sin confirmar</h2>
-                    <p>Puedes <button id="pending-orders-modal-button" class="btn-continue-order inline-btn-order">continuar</button> o <button class="btn-cancel-order inline-btn-order">cancelar</button></p>
+                    <p>Visualiza tus pendientes <button id="pending-orders-modal-button" class="btn-continue-order inline-btn-order">aqui</button> <%# o <button class="btn-cancel-order inline-btn-order"> </button>%></p>
                   </div>
                 <% end %>
 
@@ -110,7 +110,7 @@
                   <swal-icon type="info"></swal-icon>
                   <swal-html>
                     <%= simple_form_for(@order) do |f| %>
-                      <%= f.input :customer_id, collection: Customer.where(user: current_user), label: false, prompt: "Distribuidores disponibles"%>
+                      <%= f.input :customer_id, collection: Customer.where(user: current_user), label: false, prompt: "Clientes disponibles"%>
                       <%= f.submit id: "submit-new-order-btn", class: "d-none" %>
                     <% end %>
                   </swal-html>
