@@ -22,7 +22,7 @@
                           <div class="d-flex justify-content-between row">
                             <div class="d-flex justify-content-left">
                               <p>N°<%= item.id %></p>
-                              <p style="padding-left:30px"> <strong> Se registro  <%= item.list_orders.count %></strong>  ventas al cliente ............ </p>
+                              <p style="padding-left:30px"> <strong> Se registro  <%= item.list_orders.count %></strong>  ventas al cliente <%= item.customer.name %> </p>
                             </div>
 
                             <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
@@ -61,7 +61,7 @@
                           <div class="d-flex justify-content-between row">
                           <div class="d-flex">
                             <p>N°<%= item.id %></p>
-                            <p style="padding-left:30px">Se registro compras de <%= item.list_purchases.count %> productos </p>
+                            <p style="padding-left:30px">Se registro <%= item.list_purchases.count %> compras al proveedor  <%= item.supplier.name %></p>
                           </div>
 
                             <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
