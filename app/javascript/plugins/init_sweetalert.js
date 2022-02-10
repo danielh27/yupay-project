@@ -23,7 +23,9 @@ const initSweetalert = () => {
 
         Swal.fire({
           icon: "error",
-          title: "Debes añadir al menos un producto"
+          title: "Debes añadir al menos un producto",
+          color: '#013440',
+          confirmButtonColor: '#013440'
         })
 
       } else {
