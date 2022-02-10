@@ -20,6 +20,10 @@ const initSweetalert = () => {
       Swal.fire({
         template: "#confirm-order-modal-template",
         backdrop: 'rgba(0, 0, 0, 0.6)',
+        confirmButtonColor: '#013440',
+        cancelButtonColor: '#F20F38',
+        color: '#013440',
+        // buttonsStyling: false,
         showCloseButton: true
       })
 
@@ -95,7 +99,7 @@ const initSweetalert = () => {
         template: "#new-purchase-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
         // title: '<h2 class="text-title">Selecciona un proveedor</h2>',
-
+        color: '#013440',
         confirmButtonColor: '#013440',
         confirmButtonText: 'Agregar',
         showCloseButton: true
@@ -107,6 +111,7 @@ const initSweetalert = () => {
         if (inputValue.value == "" && !result.dismiss) {
           Swal.fire({
             icon: "error",
+            confirmButtonColor: '#013440',
             title: "Debes seleccionar un distribuirdor",
             titleColor: '#013440',
             showCloseButton: true
@@ -131,6 +136,7 @@ const initSweetalert = () => {
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
         confirmButtonText: 'Agregar',
+        color: '#013440',
         showCloseButton: true
       })
 
@@ -162,6 +168,7 @@ const initSweetalert = () => {
         backdrop: 'rgba(0, 0, 0, 0.6)',
         confirmButtonColor: '#013440',
         confirmButtonText: 'Agregar',
+        color: '#013440',
         showCloseButton: true
       })
 
@@ -171,6 +178,7 @@ const initSweetalert = () => {
         if (inputSupplier.value == "" && !result.dismiss) {
           Swal.fire({
             icon: "error",
+            confirmButtonColor: '#013440',
             title: "Debes escribir un nombre",
             showCloseButton: true
           })
@@ -192,6 +200,9 @@ const initSweetalert = () => {
       Swal.fire({
         template: "#new-customer-form",
         backdrop: 'rgba(0, 0, 0, 0.6)',
+        confirmButtonColor: '#013440',
+        confirmButtonText: 'Agregar',
+        color: '#013440',
         showCloseButton: true
       })
 
@@ -201,6 +212,7 @@ const initSweetalert = () => {
           if (inputSupplier.value == "" && !result.dismiss) {
             Swal.fire({
               icon: "error",
+              confirmButtonColor: '#013440',
               title: "Debes escribir un nombre",
               showCloseButton: true
             })

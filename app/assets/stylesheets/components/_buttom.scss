@@ -65,3 +65,27 @@ abbr, accronym {
   // border-bottom: 0px; 
   display: none;
 }
+
+.btn-confirm {
+  font-family: "Be-Vietnam-Bold";
+  background-color: #013440;
+  border-radius: 4px;
+  width: 20%;
+  color: white;
+}
+
+.btn-cancel {
+  font-family: "Be-Vietnam-Bold";
+  background-color: #F20F38;
+
+  // border-color: #F20F38;
+  // border-width: 2px;
+  border-radius: 4px;
+  width: 20%;
+  color: white;
+  
+  // &:hover {
+  //   background-color: #F20F38;
+  //   color: white;
+  // }
+}
