@@ -1,0 +1,11 @@
+<tr>
+  <td><%= item.product.name %></td>
+  <td><%= item.product.size %></td>
+  <td><%= item.quantity %></td>
+  <td>
+    S/ <%= item.product.cost %>
+    <%= link_to list_purchase_path(item), method: "delete" do %>
+      <i class="fas fa-backspace pl-2" style="color: #F20F38"></i>
+    <% end %>
+  </td>
+</tr>
