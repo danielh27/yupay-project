@@ -38,7 +38,7 @@ require 'faker'
 
 # id del usiario a asignar movimientos
 
-user_id = 6
+user_id = 2
 user_products = User.find(user_id).warehouses.first.products
 user_customers = Customer.where(user_id: user_id)
 user_suppliers = Supplier.where(user_id: user_id)
