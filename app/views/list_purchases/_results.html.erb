@@ -10,19 +10,16 @@
       </div>
 
       <div class="product-quantity">
-        <%= simple_form_for(@list_order, url: order_list_orders_path,
+        <%= simple_form_for(@list_purchase, url: purchase_list_purchases_path,
                   data: { action: 'submit->insert-in-list#send' }, html: { class: "" }) do |f| %>
 
           <%= f.hidden_field :product_id, value: product.id.to_i %>
 
-          <% if @list_orders.map(&:product_id).include?(product.id) %>
-            <%= f.input :quantity, label: false, collection: [], prompt: "Cantidad", disabled: true%>
+          <% if @list_purchases.map(&:product_id).include?(product.id) %>
+            <%= f.input :quantity, label: false, placeholder: "Cantidad", disabled: true, input_html: { class: "text-center" }%>
             <%= f.submit "Añadido", class: "btn btn-actions w-75 ml-2 btn-actions-active", disabled: true %>
-          <% elsif product.stock < 1 %>
-            <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad", disabled: true%>
-            <%= f.submit "Sin stock", class: "btn no-stock-btn w-75 ml-2", disabled: true %>
           <% else %>
-            <%= f.input :quantity, label: false, collection: 1..product.stock, prompt: "Cantidad"%>
+            <%= f.input :quantity, placeholder: "Cantidad", label: false, input_html: { class: "text-center" } %>
             <%= f.submit "Añadir", class: "btn btn-actions w-75 ml-2" %>
           <% end %>
 

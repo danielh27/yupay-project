@@ -1,0 +1,7 @@
+<%= simple_form_for(@list_purchase, url: purchase_list_purchases_path,
+          data: { action: 'submit->insert-in-list#send' }, html: { class: "" }) do |f| %>
+
+  <%= f.hidden_field :product_id, value: product.id.to_i %>
+  <%= f.input :quantity, label: false, placeholder: "Cantidad", error: "Ingresa una cantidad", disabled: true%>
+  <%= f.submit "Añadido", class: "btn btn-actions w-75 ml-2 disabled btn-actions-active", disabled: true %>
+<% end %>

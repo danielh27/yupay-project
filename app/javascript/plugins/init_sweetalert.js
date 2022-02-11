@@ -2,6 +2,8 @@ import Swal from 'sweetalert2';
 
 const initSweetalert = () => {
   const confirmOrderButton = document.querySelector('#confirm-order-modal-button');
+  const confirmPurchaseButton = document.querySelector('#confirm-purchase-modal-button');
+
   const pendingOrdersButton = document.querySelector("#pending-orders-modal-button");
 
   const pendingPurchasesButton = document.querySelector("#pending-purchases-modal-button");
@@ -31,7 +33,7 @@ const initSweetalert = () => {
       } else {
 
         Swal.fire({
-          
+
           template: "#confirm-order-modal-template",
           backdrop: 'rgba(0, 0, 0, 0.6)',
           confirmButtonColor: '#013440',
@@ -77,6 +79,69 @@ const initSweetalert = () => {
     });
   }
 
+  // Modal para confirmar compra
+  if (confirmPurchaseButton) {
+    confirmPurchaseButton.addEventListener('click', () => {
+
+      const listItemsCount = document.querySelector(".items-table-container tbody").childElementCount
+
+      if (listItemsCount < 1) {
+
+        Swal.fire({
+          icon: "error",
+          title: "Debes añadir al menos un producto",
+          color: '#013440',
+          confirmButtonColor: '#013440'
+        })
+
+      } else {
+
+        Swal.fire({
+          template: "#confirm-purchase-modal-template",
+          backdrop: 'rgba(0, 0, 0, 0.6)',
+          confirmButtonColor: '#013440',
+          cancelButtonColor: '#F20F38',
+          color: '#013440',
+          // buttonsStyling: false,
+          showCloseButton: true
+        })
+
+          .then((result) => {
+            if (result.isConfirmed) {
+              const link = document.querySelector("#confirm-button");
+              link.click();
+
+              Swal.fire({
+                iconColor: '#739096',
+                color: '#013440',
+                icon: 'success',
+                title: 'Compra confirmada!',
+                confirmButtonText: "Ir a movimientos",
+                confirmButtonColor: "#F20F38",
+                showCancelButton: true,
+                cancelButtonText: "Nueva venta",
+                cancelButtonColor: "#013440",
+                reverseButtons: true,
+                backdrop: 'rgba(0, 0, 0, 0.6)',
+                showCloseButton: true
+              })
+
+                .then((result) => {
+                  if (result.isConfirmed || result.dismiss == Swal.DismissReason.backdrop) {
+                    window.location.replace("/movements");
+                  } else if (result.dismiss == Swal.DismissReason.cancel) {
+                    window.location.replace("/orders/new");
+                  }
+                });
+            }
+          });
+
+      }
+
+
+    });
+  }
+
   // Modal para ventas pendientes por confirmar
   if (pendingOrdersButton) {
     pendingOrdersButton.addEventListener("click", () => {
@@ -85,7 +150,7 @@ const initSweetalert = () => {
         iconColor: '#739096',
         template: "#pending-order-template-modal",
         color: '#013440',
-        
+
         backdrop: 'rgba(0, 0, 0, 0.6)',
         showCloseButton: true
       })

@@ -12,35 +12,129 @@
 
       <div class="container-fluid">
 
-        <div class="row">
-          <div class="col-4">
-            <h3>Proveedor: </h3>
-            <h1 class="font-weight-bolder"> <%= @purchase.supplier.name %> </h1>
+        <div class="row justify-content-around section-order-container"  data-controller="insert-in-list">
+
+          <%# Search section %>
+          <div class="col-6">
+            <div class="card bg-transparent border-0 search-products-section py-3 pl-3" data-controller="refresh-products-list">
+
+              <h2>Ingresar mercaderia</h2>
+
+              <%= form_with url: purchase_list_purchases_path(params[:purchase_id]), method: :get, html: { class: 'mb-3 search-input-container', data: { refresh_products_list_target: 'form' } } do |f| %>
+                <%= f.text_field :query,
+                                class: "form-control search-input mt-3",
+                                placeholder: 'Escribe el nombre o codigo del producto',
+                                value: params[:query],
+                                data: { refresh_products_list_target: 'searchInput', action: "keyup->refresh-products-list#update" } %>
+              <% end %>
+              <%= render "results" %>
+            </div>
           </div>
 
-          <div class="col-8">
-            <h3>Ingresar mercaderia</h3>
-             <%= render 'shared/purchase_form', list_purchase: ListPurchase.new, list_products: @list_products %>
-          </div>
-        </div>
+          <%# Items section %>
+          <div class="col-5 items-section-container">
 
-          <div class="col-12 col-lg-8 p-5">
+            <div class="border-0 pt-3 items-section">
 
-            <h2 class="mt-5">Productos agregados</h2>
-            <% if @list_purchases.present? %>
-              <ul>
-                <% @list_purchases.each do |item| %>
-                  <li><%= item.product.name %> | Talla: <%= item.product.size %> | Cantidad: <%= item.quantity %> <%= link_to "Retirar", list_purchase_path(item), method: "delete"  %></li>
-                <% end %>
-              </ul>
-            <% end %>
+              <p>Distribuidor</p>
+              <h2 class="mb-5 customer-name"><%= @purchase.supplier.name %></h2>
 
-            <div>
-              <%= link_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn btn-danger", data: { confirm: "Cancelar compra?" } %>
-              <%= link_to "Confirmar", confirm_purchase_path(@purchase), method: "post", class: "btn btn-success", data: { confirm: "Confirmar compra?" } %>
+            </div>
+
+            <div class="white-table-section">
+
+              <div class="items-table-container table-responsive-xl">
+                <table class="table table-borderless items-table" >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="pl-0">NOMBRE</th>
+                      <th scope="col" class="">TALLA</th>
+                      <th scope="col" class="">CANTIDAD</th>
+                      <th scope="col" class="">COSTO</th>
+                      <%# <th scope="col" class="">ACCION</th> %>
+                    </tr>
+                  </thead>
+                  <tbody data-insert-in-list-target="items">
+                    <% if @list_purchases.present? %>
+                      <% @list_purchases.each do |item| %>
+
+                        <tr class="">
+                          <td><%= item.product.name %></td>
+                          <td><%= item.product.size %></td>
+                          <td><%= item.quantity %></td>
+                          <td>
+                            S/ <%= item.product.cost %>
+                            <%= link_to list_purchase_path(item), method: "delete" do %>
+                              <i class="fas fa-backspace pl-2" style="color: #F20F38"></i>
+                            <% end %>
+                          </td>
+                        </tr>
+
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="total-price-section">
+
+                <table class="table table-borderless items-table">
+                  <tfoot>
+                    <tr>
+                      <th scope="col" class="pl-0 color-red-bold">TOTAL</th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td colspan="1" class="text-center color-red-bold total-price" data-insert-in-list-target="total_sum">S/ <%= @total_sum  %></td>
+                    </tr>
+                  </tfoot>
+                </table>
+
+              </div>
+
+            </div>
+
+            <div class="confirm-cancel-section mt-4">
+              <%= button_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn bg-red-text-white-bold confirm-cancel-btn-padding", data: { confirm: "Cancelar compra?" } %>
+              <%= button_to "", confirm_purchase_path(@purchase), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
+              <button id="confirm-purchase-modal-button" class="btn bg-blue-text-white-bold confirm-cancel-btn-padding">Continuar</button>
             </div>
 
           </div>
+
+          <%# Modal para confirmar compra %>
+          <template id="confirm-purchase-modal-template" data-insert-in-list-target="modal_items_template">
+            <swal-title>
+              Verifica los items de tu lista
+            </swal-title>
+            <swal-icon type="question"></swal-icon>
+            <swal-button type="confirm">
+              Confirmar
+            </swal-button>
+            <swal-button type="cancel">
+              Cancelar
+            </swal-button>
+            <swal-html>
+              <div class="p-4">
+                <table class="sales-modal-table w-100 mt-3">
+                  <tbody>
+                    <% if @list_purchases.present? %>
+                      <% @list_purchases.each do |item| %>
+
+                        <tr>
+                          <td class="font-weight-bold text-muted"><%= item.quantity %> und</td>
+                          <td class="text-muted"><%= item.product.name.upcase %><span class="dotted-line"><%= "." * 50 %></span></td>
+                          <td class="text-muted">S/ <%= item.product.cost %></td>
+                        </tr>
+
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </swal-html>
+          </template>
+
         </div>
 
       </div>
