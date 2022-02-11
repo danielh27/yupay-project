@@ -46,8 +46,8 @@ user_suppliers = Supplier.where(user_id: user_id)
 # Rango de dias para crear los movimientos y maximos items por venta y compra
 
 days_number = 90
-max_orders_items = 3
-max_purchases_items = 6
+max_orders_items = 2
+max_purchases_items = 15
 
 puts "Creando movimientos..."
 
@@ -56,33 +56,38 @@ while days_number != 0
   random_customer = user_customers.sample
   random_supplier = user_suppliers.sample
 
-  Order.create(
-    status: true,
-    customer: random_customer,
-    user_id: user_id,
-    created_at: days_number.days.ago,
-    updated_at: days_number.days.ago
-  )
+  rand(5..10).times do
 
-  rand(1..max_orders_items).times do
-    random_product = user_products.sample
-    random_quantity = rand(3..6)
-
-    # Si la cantidad de la venta es mayor al stock disponible, busca otro producto
-
-    random_product = user_products.sample while random_product.stock < random_quantity
-
-    ListOrder.create(
-      quantity: random_quantity,
-      product: random_product,
-      order: Order.last,
+    Order.create(
+      status: true,
+      customer: random_customer,
+      user_id: user_id,
       created_at: days_number.days.ago,
       updated_at: days_number.days.ago
     )
 
-    random_product.stock -= random_quantity
-    random_product.save
+    rand(1..max_orders_items).times do
+      random_product = user_products.sample
+      random_quantity = rand(1..3)
+
+      # Si la cantidad de la venta es mayor al stock disponible, busca otro producto
+
+      random_product = user_products.sample while random_product.stock < random_quantity
+
+      ListOrder.create(
+        quantity: random_quantity,
+        product: random_product,
+        order: Order.last,
+        created_at: days_number.days.ago,
+        updated_at: days_number.days.ago
+      )
+
+      random_product.stock -= random_quantity
+      random_product.save
+    end
+
   end
+
 
   # Genera compras cada 7 dias
 
@@ -97,7 +102,7 @@ while days_number != 0
 
     rand(1..max_purchases_items).times do
       random_product = user_products.sample
-      random_quantity = rand(5..8)
+      random_quantity = rand(10..15)
 
       ListPurchase.create(
         quantity: random_quantity,
@@ -115,7 +120,7 @@ while days_number != 0
   end
 
   days_number -= 1
-  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 9
+  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 5
 
 end
 
