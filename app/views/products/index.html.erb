@@ -35,11 +35,7 @@
                     <tr class="table-infos">
                       <td scope="row">
                         <div class = "d-flex">
-                          <% if @product.photo.key %>
-                            <%= cl_image_tag @product.photo.key, crop: :fill %>
-                          <% else %>
-                            <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
-                          <% end %>
+                          <%= image_tag "https://source.unsplash.com/random/?#{product.category}", class: "img-product-info" %>
                           <ul class="list-unstyled m-0 text-left ml-3">
                             <li><strong class="name-column"><%= product.name %></strong></li>
                             <li class="text-muted">Código: <%= product.bar_code %></li>
