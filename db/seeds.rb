@@ -1,8 +1,5 @@
 require 'faker'
 
-puts "Cleaning database..."
-
-
 # categories = %w[Polos Jeans Shorts Camisas Chompas Vestidos Faldas Blusas Casacas Abrigos Trajes Bufandas Pijamas Bodies Fajas]
 # colors = %w[amarillo verde azul rojo negro blanco gris rosado morado carmesi magenta champagne indigo coral turquesa salmon beige lila]
 # sizes = %w[XS S M L XL]
@@ -39,54 +36,92 @@ puts "Cleaning database..."
 
 # end
 
-# Definicion fecha de creacion AQUI. OJO:
-fecha = 1.days.ago
+# id del usiario a asignar movimientos
 
-# 5.times do
-#   new_order = Order.new(status: true, customer_id: 3, user_id:1, created_at:fecha, updated_at: fecha)
-#   new_order.save!
-#   new_list_orders = ListOrder.new(
-#     quantity: 2,
-#     product_id: rand(2..49),  
-#     order_id: Order.last.id,
-#     created_at: fecha,
-#     updated_at: fecha,
-#   )
-#   new_list_orders.save!
-#   # 2do item
-#   new_list_orders2 = ListOrder.new(
-#     quantity: 2,
-#     product_id: rand(2..49),  
-#     order_id: Order.last.id,
-#     created_at: fecha,
-#     updated_at:fecha,
-#   )
-#   new_list_orders2.save!
-# end
+user_id = 2
+user_products = User.find(user_id).warehouses.first.products
+user_customers = Customer.where(user_id: user_id)
+user_suppliers = Supplier.where(user_id: user_id)
 
-# puts "orders completed!"
+# Rango de dias para crear los movimientos y maximos items por venta y compra
 
-10.times do
-  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: fecha, updated_at: fecha)
-  new_purchase.save!
-  new_list_purchases = ListPurchase.new(
-    quantity: 10,
-    product_id: rand(1..50),  
-    purchase_id: Purchase.last.id,
-    created_at: fecha,
-    updated_at:fecha,
+days_number = 90
+max_orders_items = 2
+max_purchases_items = 15
 
-  )
-  new_list_purchases.save!
-  # 2do item
-  new_list_purchases2 = ListPurchase.new(
-    quantity: 10,
-    product_id: rand(1..50),  
-    purchase_id: Purchase.last.id,
-    created_at: fecha,
-    updated_at:fecha,
-  )
-  new_list_purchases2.save!
+puts "Creando movimientos..."
+
+while days_number != 0
+
+  random_customer = user_customers.sample
+  random_supplier = user_suppliers.sample
+
+  rand(5..10).times do
+
+    Order.create(
+      status: true,
+      customer: random_customer,
+      user_id: user_id,
+      created_at: days_number.days.ago,
+      updated_at: days_number.days.ago
+    )
+
+    rand(1..max_orders_items).times do
+      random_product = user_products.sample
+      random_quantity = rand(1..3)
+
+      # Si la cantidad de la venta es mayor al stock disponible, busca otro producto
+
+      random_product = user_products.sample while random_product.stock < random_quantity
+
+      ListOrder.create(
+        quantity: random_quantity,
+        product: random_product,
+        order: Order.last,
+        created_at: days_number.days.ago,
+        updated_at: days_number.days.ago
+      )
+
+      random_product.stock -= random_quantity
+      random_product.save
+    end
+
+  end
+
+
+  # Genera compras cada 7 dias
+
+  if (days_number % 7).zero?
+    Purchase.create(
+      status: true,
+      supplier: random_supplier,
+      user_id: user_id,
+      created_at: days_number.days.ago,
+      updated_at: days_number.days.ago
+    )
+
+    rand(1..max_purchases_items).times do
+      random_product = user_products.sample
+      random_quantity = rand(10..15)
+
+      ListPurchase.create(
+        quantity: random_quantity,
+        product: random_product,
+        purchase: Purchase.last,
+        created_at: days_number.days.ago,
+        updated_at: days_number.days.ago
+      )
+
+      random_product.stock += random_quantity
+      random_product.save
+
+    end
+
+  end
+
+  days_number -= 1
+  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 5
+
 end
 
-puts "purchases completed!"
+puts "Movimientos creados!"
