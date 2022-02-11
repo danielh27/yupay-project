@@ -23,7 +23,6 @@ class PurchasesController < ApplicationController
     purchase.status = true
     authorize purchase
     purchase.save
-    redirect_to purchase_path(purchase)
   end
 
   def show

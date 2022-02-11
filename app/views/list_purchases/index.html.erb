@@ -97,11 +97,43 @@
             <div class="confirm-cancel-section mt-4">
               <%= button_to "Cancelar", purchase_path(@purchase), method: "delete", class: "btn bg-red-text-white-bold confirm-cancel-btn-padding", data: { confirm: "Cancelar compra?" } %>
               <%= button_to "", confirm_purchase_path(@purchase), method: "post", id: "confirm-button", form_class: "d-none", class: "d-none" %>
-              <button id="confirm-order-modal-button" class="btn bg-blue-text-white-bold confirm-cancel-btn-padding">Confirmar</button>
+              <button id="confirm-purchase-modal-button" class="btn bg-blue-text-white-bold confirm-cancel-btn-padding">Continuar</button>
             </div>
 
           </div>
 
+          <%# Modal para confirmar compra %>
+          <template id="confirm-purchase-modal-template" data-insert-in-list-target="modal_items_template">
+            <swal-title>
+              Verifica los items de tu lista
+            </swal-title>
+            <swal-icon type="question"></swal-icon>
+            <swal-button type="confirm">
+              Confirmar
+            </swal-button>
+            <swal-button type="cancel">
+              Cancelar
+            </swal-button>
+            <swal-html>
+              <div class="p-4">
+                <table class="sales-modal-table w-100 mt-3">
+                  <tbody>
+                    <% if @list_purchases.present? %>
+                      <% @list_purchases.each do |item| %>
+
+                        <tr>
+                          <td class="font-weight-bold text-muted"><%= item.quantity %> und</td>
+                          <td class="text-muted"><%= item.product.name.upcase %><span class="dotted-line"><%= "." * 50 %></span></td>
+                          <td class="text-muted">S/ <%= item.product.cost %></td>
+                        </tr>
+
+                      <% end %>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </swal-html>
+          </template>
 
         </div>
 
