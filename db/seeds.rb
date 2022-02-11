@@ -45,9 +45,9 @@ user_suppliers = Supplier.where(user_id: user_id)
 
 # Rango de dias para crear los movimientos y maximos items por venta y compra
 
-days_number = 90
+days_number = 60
 max_orders_items = 2
-max_purchases_items = 15
+max_purchases_items = 12
 
 puts "Creando movimientos..."
 
@@ -56,7 +56,7 @@ while days_number != 0
   random_customer = user_customers.sample
   random_supplier = user_suppliers.sample
 
-  rand(5..10).times do
+  rand(1..4).times do
 
     Order.create(
       status: true,
@@ -120,7 +120,7 @@ while days_number != 0
   end
 
   days_number -= 1
-  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 5
+  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 6
 
 end
 
