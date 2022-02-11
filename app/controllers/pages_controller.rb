@@ -87,7 +87,7 @@ class PagesController < ApplicationController
 
     day_time = Time.now.day
 
-    ventas = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).where(created_at: day_time.days.ago..Time.now).sum('(price - cost) * quantity')
+    ventas = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).where(created_at: day_time.days.ago..Time.now).sum('price * quantity')
     costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: { user_id: current_user }).sum('cost * quantity')
     total = (ventas - costos)
     @profity = sprintf('%.2f', total)

@@ -36,18 +36,20 @@ require 'faker'
 
 # end
 
-# Definicion fecha de creacion AQUI. OJO:
+# id del usiario a asignar movimientos
 
 user_id = 6
 user_products = User.find(user_id).warehouses.first.products
 user_customers = Customer.where(user_id: user_id)
 user_suppliers = Supplier.where(user_id: user_id)
 
-days_number = 90
-max_orders_items = 5
-max_purchases_items = 3
+# Rango de dias para crear los movimientos y maximos items por venta y compra
 
-options = ["order", "purchase"]
+days_number = 90
+max_orders_items = 3
+max_purchases_items = 6
+
+puts "Creando movimientos..."
 
 while days_number != 0
 
@@ -63,14 +65,26 @@ while days_number != 0
   )
 
   rand(1..max_orders_items).times do
+    random_product = user_products.sample
+    random_quantity = rand(3..6)
+
+    # Si la cantidad de la venta es mayor al stock disponible, busca otro producto
+
+    random_product = user_products.sample while random_product.stock < random_quantity
+
     ListOrder.create(
-      quantity: rand(5..6),
-      product: user_products.sample,
+      quantity: random_quantity,
+      product: random_product,
       order: Order.last,
       created_at: days_number.days.ago,
       updated_at: days_number.days.ago
     )
+
+    random_product.stock -= random_quantity
+    random_product.save
   end
+
+  # Genera compras cada 7 dias
 
   if (days_number % 7).zero?
     Purchase.create(
@@ -82,18 +96,27 @@ while days_number != 0
     )
 
     rand(1..max_purchases_items).times do
+      random_product = user_products.sample
+      random_quantity = rand(5..8)
+
       ListPurchase.create(
-        quantity: rand(2..3),
-        product: user_products.sample,
+        quantity: random_quantity,
+        product: random_product,
         purchase: Purchase.last,
         created_at: days_number.days.ago,
         updated_at: days_number.days.ago
       )
+
+      random_product.stock += random_quantity
+      random_product.save
+
     end
 
   end
 
   days_number -= 1
-  max_orders_items += 3 if (days_number % 10).zero?
+  max_orders_items += 3 if (days_number % 10).zero? && max_orders_items < 9
 
 end
+
+puts "Movimientos creados!"
