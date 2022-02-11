@@ -119,7 +119,7 @@ const initSweetalert = () => {
                 confirmButtonText: "Ir a movimientos",
                 confirmButtonColor: "#F20F38",
                 showCancelButton: true,
-                cancelButtonText: "Nueva venta",
+                cancelButtonText: "Nueva compra",
                 cancelButtonColor: "#013440",
                 reverseButtons: true,
                 backdrop: 'rgba(0, 0, 0, 0.6)',
@@ -130,7 +130,7 @@ const initSweetalert = () => {
                   if (result.isConfirmed || result.dismiss == Swal.DismissReason.backdrop) {
                     window.location.replace("/movements");
                   } else if (result.dismiss == Swal.DismissReason.cancel) {
-                    window.location.replace("/orders/new");
+                    window.location.replace("/purchases/new");
                   }
                 });
             }
