@@ -1,8 +1,5 @@
 require 'faker'
 
-puts "Cleaning database..."
-
-
 # categories = %w[Polos Jeans Shorts Camisas Chompas Vestidos Faldas Blusas Casacas Abrigos Trajes Bufandas Pijamas Bodies Fajas]
 # colors = %w[amarillo verde azul rojo negro blanco gris rosado morado carmesi magenta champagne indigo coral turquesa salmon beige lila]
 # sizes = %w[XS S M L XL]
@@ -41,60 +38,63 @@ puts "Cleaning database..."
 
 # Definicion fecha de creacion AQUI. OJO:
 
-user_products = User.find(2).warehouses.first.products
+user_id = 6
+user_products = User.find(user_id).warehouses.first.products
+user_customers = Customer.where(user_id: user_id)
+user_suppliers = Supplier.where(user_id: user_id)
+
 days_number = 90
-max_orders_items = 3
+max_orders_items = 5
+max_purchases_items = 3
 
-90.times do
+options = ["order", "purchase"]
 
-  random_customer = Customer.where(user_id: 2).sample
+while days_number != 0
 
-  new_order = Order.new(
-    status: true,
-    customer: random_customer,
-    user_id: 2,
-    created_at: days_number.days.ago,
-    updated_at: days_number.days.ago
-  )
+  random_customer = user_customers.sample
+  random_supplier = user_suppliers.sample
 
-  rand(1..max_orders_items).times do
-    new_order_item = ListOrder.new(
-      quantity: rand(5..6),
-      product: user_products.sample,
-      order: new_order,
+  if (options.sample == "order")
+    Order.create(
+      status: true,
+      customer: random_customer,
+      user_id: user_id,
       created_at: days_number.days.ago,
       updated_at: days_number.days.ago
     )
+
+    rand(1..max_orders_items).times do
+      ListOrder.create(
+        quantity: rand(5..6),
+        product: user_products.sample,
+        order: Order.last,
+        created_at: days_number.days.ago,
+        updated_at: days_number.days.ago
+      )
+    end
+
+  else
+    Purchase.create(
+      status: true,
+      supplier: random_supplier,
+      user_id: user_id,
+      created_at: days_number.days.ago,
+      updated_at: days_number.days.ago
+    )
+
+    rand(1..max_purchases_items).times do
+      ListPurchase.create(
+        quantity: rand(2..3),
+        product: user_products.sample,
+        purchase: Purchase.last,
+        created_at: days_number.days.ago,
+        updated_at: days_number.days.ago
+      )
+    end
+
   end
 
-  new_order.save
-  max_orders_items += 3 if days_number % 
+  days_number -= 1
+  max_orders_items += 3 if (days_number % 10).zero?
 
 end
-
-puts "orders completed!"
-
-10.times do
-  new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: fecha, updated_at: fecha)
-  new_purchase.save!
-  new_list_purchases = ListPurchase.new(
-    quantity: 10,
-    product_id: rand(1..50),
-    purchase_id: Purchase.last.id,
-    created_at: fecha,
-    updated_at:fecha,
-
-  )
-  new_list_purchases.save!
-  # 2do item
-  new_list_purchases2 = ListPurchase.new(
-    quantity: 10,
-    product_id: rand(1..50),
-    purchase_id: Purchase.last.id,
-    created_at: fecha,
-    updated_at:fecha,
-  )
-  new_list_purchases2.save!
-end
-
-puts "purchases completed!"
