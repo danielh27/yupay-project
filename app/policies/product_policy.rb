@@ -13,6 +13,10 @@ class ProductPolicy < ApplicationPolicy
     record.warehouse.user == user
   end
 
+  def update?
+    record.warehouse.user == user
+  end
+
   def edit?
     record.warehouse.user == user
   end

@@ -15,13 +15,13 @@
          <div class="form-inputs">
           <div class="row">
             <div class="col">
-              <%= f.input :first_name, required: true, placeholder: "Luis" %>
+              <%= f.input :first_name, required: true, placeholder: "Luis", label: "Nombre" %>
             </div>
             <div class="col">
-              <%= f.input :last_name, required: true, placeholder: "Perez" %>
+              <%= f.input :last_name, required: true, placeholder: "Perez", label: "Apellido" %>
             </div>
             <div class="col">
-              <%= f.input :username, required: true, placeholder: "luis.perez123"%>
+              <%= f.input :username, required: true, placeholder: "luis.perez123", label: "Username"%>
             </div>
           </div>
 
@@ -30,7 +30,10 @@
               <%= f.input :email,
                           required: true,
                           autofocus: true,
-                          input_html: { autocomplete: "email" }, placeholder: "luisperez@gmail.com"%>
+                          input_html: { autocomplete: "email" },
+                          placeholder: "luisperez@gmail.com",
+                          label: "Correo"
+                          %>
             </div>
           </div>
 
@@ -38,11 +41,13 @@
             <div class="col">
               <%= f.input :password,
                           required: true,
-                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          label: "Contraseña",
+                          hint: ("#{@minimum_password_length} caracteres minimo" if @minimum_password_length),
                           input_html: { autocomplete: "new-password" }, placeholder: "*************" %>
             </div>
             <div class="col">
               <%= f.input :password_confirmation,
+                          label: "Confirmar contraseña",
                           required: true,
                           input_html: { autocomplete: "new-password" }, placeholder: "*************" %>
             </div>
@@ -50,7 +55,7 @@
         <div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up", class: "btn-login" %>
+          <%= f.button :submit, "Registrarse", class: "btn-login" %>
         </div>
       <% end %>
 
