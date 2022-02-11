@@ -40,38 +40,46 @@ puts "Cleaning database..."
 # end
 
 # Definicion fecha de creacion AQUI. OJO:
-fecha = 1.days.ago
 
-# 5.times do
-#   new_order = Order.new(status: true, customer_id: 3, user_id:1, created_at:fecha, updated_at: fecha)
-#   new_order.save!
-#   new_list_orders = ListOrder.new(
-#     quantity: 2,
-#     product_id: rand(2..49),  
-#     order_id: Order.last.id,
-#     created_at: fecha,
-#     updated_at: fecha,
-#   )
-#   new_list_orders.save!
-#   # 2do item
-#   new_list_orders2 = ListOrder.new(
-#     quantity: 2,
-#     product_id: rand(2..49),  
-#     order_id: Order.last.id,
-#     created_at: fecha,
-#     updated_at:fecha,
-#   )
-#   new_list_orders2.save!
-# end
+user_products = User.find(2).warehouses.first.products
+days_number = 90
+max_orders_items = 3
 
-# puts "orders completed!"
+90.times do
+
+  random_customer = Customer.where(user_id: 2).sample
+
+  new_order = Order.new(
+    status: true,
+    customer: random_customer,
+    user_id: 2,
+    created_at: days_number.days.ago,
+    updated_at: days_number.days.ago
+  )
+
+  rand(1..max_orders_items).times do
+    new_order_item = ListOrder.new(
+      quantity: rand(5..6),
+      product: user_products.sample,
+      order: new_order,
+      created_at: days_number.days.ago,
+      updated_at: days_number.days.ago
+    )
+  end
+
+  new_order.save
+  max_orders_items += 3 if days_number % 
+
+end
+
+puts "orders completed!"
 
 10.times do
   new_purchase = Purchase.new(status: true, supplier_id: 3, user_id:1, created_at: fecha, updated_at: fecha)
   new_purchase.save!
   new_list_purchases = ListPurchase.new(
     quantity: 10,
-    product_id: rand(1..50),  
+    product_id: rand(1..50),
     purchase_id: Purchase.last.id,
     created_at: fecha,
     updated_at:fecha,
@@ -81,7 +89,7 @@ fecha = 1.days.ago
   # 2do item
   new_list_purchases2 = ListPurchase.new(
     quantity: 10,
-    product_id: rand(1..50),  
+    product_id: rand(1..50),
     purchase_id: Purchase.last.id,
     created_at: fecha,
     updated_at:fecha,
