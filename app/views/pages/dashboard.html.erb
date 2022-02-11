@@ -110,7 +110,7 @@
               <!-- Card Body -->
               <div class="card-body ">
                 <div class="chart-area">
-                  <%= area_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group_by_day(:created_at).sum("quantity*price"), round:2, loading: "Loading...", empty: "No data", prefix: "S/.", refresh: 10, zeros:true, download:true, dataset: {borderWidth: 2}, colors: ["#013440"] %>
+                  <%= area_chart ListOrder.joins(:product).joins(:order).where(order: {user_id: current_user}).group_by_week(:created_at).sum("quantity*price"), round:2, loading: "Loading...", empty: "No data", prefix: "S/.", refresh: 10, zeros:true, download:true, dataset: {borderWidth: 2}, colors: ["#013440"] %>
                 </div>
               </div>
             </div>

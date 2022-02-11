@@ -85,12 +85,14 @@ class PagesController < ApplicationController
   def charts
     @low_stock_count = policy_scope(Product).where('stock < minimum_required').count
 
-    ventas = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')
+    day_time = Time.now.day
+
+    ventas = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).where(created_at: day_time.days.ago..Time.now).sum('(price - cost) * quantity')
     costos = ListPurchase.joins(:product).joins(:purchase).where(purchase: { user_id: current_user }).sum('cost * quantity')
     total = (ventas - costos)
     @profity = sprintf('%.2f', total)
 
-    result = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')
+    result = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).where(created_at: day_time.days.ago..Time.now).sum('price * quantity')
     @earnings = sprintf('%.2f', result)
 
     tickets = ListOrder.joins(:product).joins(:order).where(order: { user_id: current_user }).sum('price * quantity')

@@ -54,26 +54,25 @@ while days_number != 0
   random_customer = user_customers.sample
   random_supplier = user_suppliers.sample
 
-  if (options.sample == "order")
-    Order.create(
-      status: true,
-      customer: random_customer,
-      user_id: user_id,
+  Order.create(
+    status: true,
+    customer: random_customer,
+    user_id: user_id,
+    created_at: days_number.days.ago,
+    updated_at: days_number.days.ago
+  )
+
+  rand(1..max_orders_items).times do
+    ListOrder.create(
+      quantity: rand(5..6),
+      product: user_products.sample,
+      order: Order.last,
       created_at: days_number.days.ago,
       updated_at: days_number.days.ago
     )
+  end
 
-    rand(1..max_orders_items).times do
-      ListOrder.create(
-        quantity: rand(5..6),
-        product: user_products.sample,
-        order: Order.last,
-        created_at: days_number.days.ago,
-        updated_at: days_number.days.ago
-      )
-    end
-
-  else
+  if (days_number % 7).zero?
     Purchase.create(
       status: true,
       supplier: random_supplier,
