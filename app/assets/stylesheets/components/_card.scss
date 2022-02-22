@@ -278,23 +278,25 @@
   }
 @media (max-width: 1400px) {
   /* For a screen < 1400px, this CSS will be read */
-  // .container {
-  //   width: 700px;
-  // }
 }
 @media (max-width: 1200px) {
   /* For a screen < 1200px, this CSS will be read */
-
 }
 @media (max-width: 992px) {
   /* For a screen < 992px, this CSS will be read */
-
+  .date-collapse {
+    display: none;
+  }
 }
 @media (max-width: 768px) {
   /* For a screen < 768px, this CSS will be read */
-
+  .text-product-price {
+    display: none;
+  }
 }
 @media (max-width: 576px) {
   /* For a screen < 576px, this CSS will be read */
-
+  .unity-class {
+    display: none;
+  }
 }
