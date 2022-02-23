@@ -15,10 +15,10 @@
         </li>
 
         <li class="nav-item px-2">
-          <a class="nav-link nav" href="#"> Soporte</a>
+          <a class="nav-link nav" href="#">Soporte</a>
         </li>
 
-        <li class="nav-item mr-3 px-2">
+        <li class="nav-item px-2">
           <a class="nav-link nav" href="#">Nosotros</a>
         </li>
 
@@ -27,7 +27,11 @@
             <%= link_to "Dashboard", dashboard_path, class:"nav-link nav" %>
           </li>
 
-          <li class="nav-item mx-4 dropdown px-3 cursor-pointer">
+          <li class="nav-item px-2 user-sign-out">
+            <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "nav-link nav" %>
+          </li>
+
+          <li class="nav-item mx-4 dropdown px-3 cursor-pointer user-avatar">
             <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
