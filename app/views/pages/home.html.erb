@@ -1,11 +1,7 @@
 <body>
   <%# BANNER %>
   <div class="home-header">
-    <% if user_signed_in? %>
-    <%= render 'shared/navbar_user_home' %>
-    <% else %>
     <%=  render 'shared/navbar_home' %>
-    <% end %>
     <%# NO LLEVA LA CLASE HOME-HEADER EN EL DIV DE ABAJO %>
     <div class="d-flex">
       <div class="container py-5 banner-c">
