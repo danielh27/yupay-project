@@ -1,64 +1,75 @@
-// Specific CSS for your home-page
-
-// Banner section
-.banner-c {
-  justify-content: center;
-  margin: 5rem auto;
-  height: 100vh;
-}
 #navbar-home-page {
-  // font-weight: 600;
-  font-family: "Be-Vietnam-Bold";
-  font-size: 16px;
   width: 100%;
-  justify-self: end;
-  z-index: 10;
+  z-index: 1;
   position: absolute;
-  top: 0;
-
-  .navbar-nav  {
-    gap: 40PX;
-  }
-
-  .nav {
-    color: white !important;
-    text-align: center;
-  }
 }
+
 .home-header {
   background: linear-gradient(to top, rgba(1,62,64,0.2), rgba(1,62,64,0.8)), linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,0.8)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   height: 100vh;
-  min-height: 800px;
-  width: 100%;
-  position: relative;
-  // object-fit: fill;
+  min-height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  h1{
-    // font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    width: 15ch;
     font-family: "Be-Vietnam-ExtraBold";
     font-size: 4rem;
     color: white;
-  }
-  p{
-    color: white;
+    margin-bottom: 1.2rem;
   }
 }
+
 .btn-lg {
   color: #ffffff;
   background-color: #F20F38;
   border-radius: 5px;
-  font-size: 20px !important;
-  width: 190px;
-  height: 45px;
   font-family: "Be-Vietnam-Bold";
-  padding: 12px 18px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.47rem 1rem;
+  font-size: 1.25rem;
+
   &:hover{
     color: white;
     text-decoration: none;
     cursor: pointer;
-    background-color: rgb(242, 35, 60);
+    background-color: rgb(235, 65, 85);
+  }
+}
+
+.navbar-toggler {
+  background-color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 3.4rem;
+    }
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 2.8rem;
+    }
+
   }
 }
 
