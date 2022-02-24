@@ -79,7 +79,12 @@
   display: grid;
   grid-template-columns: 0.6fr 1fr;
   // grid-gap: 140px;
-  height: 90vh;
+  height: 95vh;
+}
+
+.cards-section-title {
+  font-size: 2.813rem;
+  color: #013440;
 }
 
 #image-home-2 {
@@ -91,9 +96,12 @@
 }
 
 .card-small {
-  // height: 260px;
   // min-width: 300px;
   // max-width: 300px;
+  width: 20vw;
+  height: 320px;
+  max-width: 325px;
+  min-width: 310px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -126,7 +134,7 @@
 }
 
 .icon-home{
-  font-size: 50px;
+  font-size: 4.063rem;
   color: rgb(1, 52, 64);
   margin-bottom: 16px;
   margin-top: 16px;
