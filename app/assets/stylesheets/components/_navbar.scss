@@ -1,3 +1,8 @@
+#navbar-home-page .container-fluid {
+  padding: 0 4rem;
+}
+
+
 .nav-link{
   color: white !important;
 }
@@ -14,11 +19,11 @@
   display: inline-block;
   text-align: center;
   vertical-align: center;
-  background-color: rgba(1, 52, 64, 0.3);
-  width: 120px;
-  border-radius: 5px;
-  color: white !important;
-  transition: background-color 0.3s;
+  background-color: #eeeeeee0;
+  width: 90px;
+  border-radius: 10px;
+  color: black !important;
+  transition: 0.2s;
 }
 
 .navbar-button:hover {

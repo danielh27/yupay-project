@@ -5,19 +5,19 @@
 }
 
 .home-header {
-  background: linear-gradient(to top, rgba(1,62,64,0.2), rgba(1,62,64,0.8)), linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,0.8)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0)), linear-gradient(to right, #013440, rgba(0, 0, 0, 0)), asset-url("homepage-banner.jpg");
   height: 100vh;
   min-height: 100%;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
 
   h1 {
-    width: 15ch;
+    width: 14ch;
     font-family: "Be-Vietnam-ExtraBold";
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: white;
     margin-bottom: 1.2rem;
   }
@@ -26,12 +26,12 @@
 .btn-lg {
   color: #ffffff;
   background-color: #F20F38;
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: "Be-Vietnam-Bold";
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  padding: 0.47rem 1rem;
+  padding: 0.47rem 1.2rem;
   font-size: 1.25rem;
 
   &:hover{
@@ -108,8 +108,8 @@
 // Second section homepage
 .cards-home {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 140px;
+  grid-template-columns: 0.6fr 1fr;
+  // grid-gap: 140px;
   height: 100vh;
 }
 
@@ -122,8 +122,9 @@
 }
 
 .card-small {
-  height: 260px;
-  width: 300px;
+  // height: 260px;
+  // min-width: 300px;
+  // max-width: 300px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -131,6 +132,7 @@
   background-color: #F8F8F8;
   border: 0.1px solid rgb(1, 52, 64);
   border-radius: 15px;
+  margin: 0.4rem;
 
   h3 {
     // font-weight: bold;
@@ -162,7 +164,7 @@
 }
 
 .cards-info{
-  margin-right: 100px;
+  padding: 0 3rem;
 }
 
 
