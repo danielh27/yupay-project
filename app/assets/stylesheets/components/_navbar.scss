@@ -1,22 +1,20 @@
 #navbar-home-page .container-fluid {
   padding: 0 4rem;
-}
 
-
-.nav-link{
-  color: white !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: white;
-  font-family: "Be-Vietnam-Bold";
-  &:hover {
-    color: #F20F38;
+  ul.navbar-nav {
+    gap: 65px;
   }
+}
+
+.navbar-light .navbar-nav a.link-section {
+  color: white !important;
+  font-size: 1.2rem;
+  font-family: "Be-Vietnam-SemiBold";
 }
 
 .navbar-button {
   display: inline-block;
+  font-family: "Be-Vietnam-Bold";
   text-align: center;
   vertical-align: center;
   background-color: #eeeeeee0;
@@ -24,33 +22,10 @@
   border-radius: 10px;
   color: black !important;
   transition: 0.2s;
+  margin-left: 20px;
 }
 
 .navbar-button:hover {
   background-color: #F20F38;
   color: white !important;
-}
-
-
-// Cuando se inicio sesion
-
-.navbar-test {
-  display: flex;
-  justify-content: end;
-  width: 100%;
-  height: 80px;
-  align-items: center;
-  padding: 10px 20px;
-
-  .buttom-user {
-    border: none;
-    background: none;
-    // width: 10px;
-    padding: 0px;
-    display: flex;
-    gap: 7px;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-  }
 }
