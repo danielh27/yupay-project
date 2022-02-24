@@ -46,37 +46,6 @@
   background-color: whitesmoke;
 }
 
-@media (min-width: 992px) {
-  .user-sign-out {
-    display: none;
-  }
-}
-
-@media (max-width: 991px) {
-  #navbar-home-page {
-
-    .navbar-nav {
-      border-radius: 10px;
-      background-color: rgba(17, 43, 44, 0.856);
-
-      .nav-item {
-        text-align: center;
-        padding: 0.7rem 0;
-        border-bottom: 1px solid rgba(180, 180, 180, 0.164);
-      }
-
-      .user-avatar {
-        display: none;
-      }
-
-      .navbar-button:hover {
-        background-color: rgba(1, 52, 64, 0.3);
-      }
-    }
-
-  }
-}
-
 @media (max-width: 768px) {
   .home-header {
     text-align: center;

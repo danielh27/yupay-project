@@ -1,15 +1,15 @@
 #navbar-home-page .container-fluid {
   padding: 0 4rem;
-
-  ul.navbar-nav {
-    gap: 65px;
-  }
 }
 
 .navbar-light .navbar-nav a.link-section {
   color: white !important;
   font-size: 1.2rem;
   font-family: "Be-Vietnam-SemiBold";
+}
+
+.margin-left-link-section {
+  margin-left: 60px;
 }
 
 .navbar-button {
@@ -28,4 +28,55 @@
 .navbar-button:hover {
   background-color: #F20F38;
   color: white !important;
+}
+
+@media (min-width: 992px) {
+  .user-sign-out {
+    display: none;
+  }
+}
+
+@media (max-width: 1090px) {
+
+  #navbar-home-page .container-fluid {
+    padding: 0 2rem;
+
+  .margin-left-link-section {
+    margin-left: 0;
+  }
+
+  }
+}
+
+@media (max-width: 991px) {
+  #navbar-home-page {
+
+    .navbar-nav {
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.80);
+
+      .nav-item {
+        text-align: center;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(180, 180, 180, 0.164);
+      }
+
+      .user-avatar {
+        display: none;
+      }
+
+      .navbar-button {
+        color: white !important;
+        font-size: 1.2rem;
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+      }
+
+      .navbar-button:hover {
+        background-color: rgba(1, 52, 64, 0.3);
+      }
+    }
+
+  }
 }
