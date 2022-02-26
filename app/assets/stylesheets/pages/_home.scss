@@ -1,8 +1,4 @@
-#navbar-home-page {
-  width: 100%;
-  z-index: 1;
-  position: absolute;
-}
+//******************* Header section ***********************
 
 .home-header {
   background: linear-gradient(to bottom, rgba(0, 23, 29, 0.608) 4%, rgba(0, 0, 0, 0.1) 30%), linear-gradient(0.25turn, hsla(188, 97%, 13%, 0.85) 25%, rgba(0, 0, 0, 0.1) 75%), asset-url("homepage-banner.jpg");
@@ -23,7 +19,7 @@
   }
 }
 
-.btn-lg {
+.btn-header {
   color: #ffffff;
   background-color: #F20F38;
   border-radius: 10px;
@@ -42,66 +38,38 @@
   }
 }
 
-.navbar-toggler {
-  background-color: whitesmoke;
-}
 
-@media (max-width: 768px) {
-  .home-header {
-    text-align: center;
+//******************* Cards section ***********************
 
-    h1 {
-      width: 100%;
-      font-size: 3.4rem;
-    }
-  }
-
-  .btn-lg {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .home-header {
-    text-align: center;
-
-    h1 {
-      width: 100%;
-      font-size: 2.8rem;
-    }
-
-  }
-}
-
-
-// Second section homepage
-.cards-home {
+.cards-section-container {
   display: grid;
   grid-template-columns: 0.6fr 1fr;
-  // grid-gap: 140px;
-  height: 95vh;
+  min-height: 95vh;
+}
+
+.cards-info{
+  padding: 2rem 3rem;
 }
 
 .cards-section-title {
   font-size: 2.813rem;
   color: #013440;
+  font-family: "Be-Vietnam-ExtraBold";
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 #image-home-2 {
  background-image: url('https://images.unsplash.com/photo-1598257006408-538c27529235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
- width: 100%;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
 }
 
-.card-small {
-  // min-width: 300px;
-  // max-width: 300px;
-  width: 20vw;
-  height: 320px;
+.small-card {
   max-width: 325px;
   min-width: 310px;
+  height: 320px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -112,37 +80,24 @@
   margin: 0.4rem;
 
   h3 {
-    // font-weight: bold;
     font-family: "Be-Vietnam-SemiBold";
     font-size: 20px;
     color: rgb(1, 52, 64);
   }
+
   p {
     font-size: 14px;
     color: black;
   }
-}
 
-.cards-info .text-center {
-
-  h2 {
-  // font-weight: bold;
-  font-family: "Be-Vietnam-ExtraBold";
-  font-size: 45px;
-  margin-top: 5rem;
+  .card-icon {
+    font-size: 4.063rem;
+    color: rgb(1, 52, 64);
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
 }
 
-.icon-home{
-  font-size: 4.063rem;
-  color: rgb(1, 52, 64);
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
-
-.cards-info{
-  padding: 0 3rem;
-}
 
 
 // Estilos para membership
@@ -258,4 +213,47 @@
 
 .table-mov {
   margin-bottom: 0rem
+}
+
+
+@media (max-width: 1165px) {
+
+  .cards-section-container {
+    grid-template-columns: 1fr;
+    min-height: 78vh;
+  }
+
+  #image-home-2 {
+    display: none;
+  }
+
+}
+
+
+
+@media (max-width: 768px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 3.4rem;
+    }
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 2.8rem;
+    }
+
+  }
 }

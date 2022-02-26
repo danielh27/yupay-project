@@ -1,3 +1,9 @@
+#navbar-home-page {
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+}
+
 #navbar-home-page .container-fluid {
   padding: 0 4rem;
 }
@@ -23,6 +29,10 @@
   color: black !important;
   transition: 0.2s;
   margin-left: 20px;
+}
+
+.navbar-toggler {
+  background-color: whitesmoke;
 }
 
 .navbar-button:hover {
