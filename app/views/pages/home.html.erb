@@ -53,60 +53,64 @@
 
 <%# ********** Membership section ********** %>
 
-<div class="membership" id="membership-section">
-  <div class="text-center py-5">
-    <h1 class="display-4">Membresías</h1>
-  </div>
-  <div class="row">
-    <div class="col text-center mx-4 membership-card">
+<div class="membership-section-container">
+
+  <h1 class="text-center py-5 membership-section-title">Membresías</h1>
+
+  <div class="row justify-content-center">
+
+    <div class="col-4 text-center membership-card">
       <h3>Free</h3>
-        <p class="price">S/.00.00</p>
-        <%= button_to "Inicia Gratis",  new_user_registration_path, method: "get", class:"btn-m" %>
-        <div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>100 Entries</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 User license</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>No Custom field</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>No In-app scanner</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>No Custom notes & tags</p> </div>
-        </div>
+      <span class="membership-price">S/ 0.00</span>
+      <%= button_to "Inicia Gratis",  new_user_registration_path, method: "get", class:"membership-card-btn" %>
+      <div>
+        <div class="d-flex mb-3"> <%= image_tag "check.svg", class: "check" %> <p>100 Entries</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>1 User license</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>No Custom field</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>No In-app scanner</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>No Custom notes & tags</p> </div>
+      </div>
     </div>
-    <div class="col text-center mx-4 membership-card">
+
+    <div class="col-4 text-center membership-card">
       <h3>Advance</h3>
-        <p class="price">S/.29.00</p>
-        <%= button_to "Prueba Gratis",  new_user_registration_path, method: "get", class:"btn-m" %>
-        <div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>2000 Entries</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>5 User Plans</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>5 User licenses</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
-        </div>
+      <span class="membership-price">S/ 29.00</span>
+      <%= button_to "Prueba Gratis",  new_user_registration_path, method: "get", class:"membership-card-btn" %>
+      <div>
+        <div class="d-flex mb-3"> <%= image_tag "check.svg", class: "check" %> <p>2000 Entries</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>5 User Plans</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>5 User licenses</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
+      </div>
     </div>
-    <div class="col text-center mx-4 membership-card">
+
+    <div class="col-4 text-center membership-card">
       <h3>Pro</h3>
-        <p class="price">S/.59.00</p>
-        <%= button_to "Prueba Gratis",  new_user_registration_path, method: "get", class:"btn-m" %>
-        <div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>10,000 Entries</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>10 User licenses</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
-          <div class="d-flex"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
-        </div>
+      <span class="membership-price">S/ 59.00</span>
+      <%= button_to "Prueba Gratis",  new_user_registration_path, method: "get", class:"membership-card-btn" %>
+      <div>
+        <div class="d-flex mb-3"> <%= image_tag "check.svg", class: "check" %> <p>10,000 Entries</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>Single User Plan</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>10 User licenses</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>1 Custom field</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>In-app scanner</p> </div>
+        <div class="d-flex my-3"> <%= image_tag "check.svg", class: "check" %> <p>Custom notes & tags</p> </div>
+      </div>
     </div>
+
   </div>
 </div>
 
 <%# FOOTER %>
-  <footer>
+<footer>
   <div class="d-flex flex-wrap justify-content-between align-items-center py-2 mt-auto border-top">
-    <p class="col-md-3 mb-0 text-muted pl-3"> © 2022 Yupay Corporation</p>
+    <p class="mb-0 text-muted pl-3"> © 2022 Yupay Corporation</p>
     <ul class="nav justify-content-end">
       <li class="nav-item"><a href="#" class="px-2 text-muted fs-1">Inicio</a></li>
-      <li class="nav-item"><a href="#" class="px-2 text-muted">Preguntas frecuentes</a></li>
+      <li class="nav-item"><a href="#" class="px-2 text-muted">FAQ</a></li>
       <li class="nav-item"><a href="#" class="px-2 text-muted">Quiénes Somos</a></li>
       <li class="nav-item"><a href="#" class="px-2 text-muted">Términos y Condiciones</a></li>
     </ul>
