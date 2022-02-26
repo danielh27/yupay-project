@@ -172,14 +172,14 @@
                 <table class="table table-borderless dashboard-table mx-auto" id="dashboard-table">
                   <thead>
                     <tr>
-                      <th scope="col" class="text-muted pl-0">PRODUCTO</th>
-                      <th scope="col" class="text-center text-muted">CATEGORÍA</th>
-                      <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "COSTO" : "PRECIO DE VENTA" %></th>
-                      <th scope="col" class="text-center text-muted">STOCK</th>
-                      <th scope="col" class="text-center text-muted">TALLA</th>
-                      <th scope="col" class="text-center text-muted">CANTIDAD</th>
-                      <th scope="col" class="text-center text-muted"><%= params[:query] == "3" ? "PROVEEDOR" : "CLIENTE" %></th>
-                      <th scope="col" class="text-center text-muted">FECHA</th>
+                      <th scope="col" class="text-muted pl-0 col1">PRODUCTO</th>
+                      <th scope="col" class="text-center text-muted col-hide">CATEGORÍA</th>
+                      <th scope="col" class="text-center text-muted col-hide"><%= params[:query] == "3" ? "COSTO" : "PRECIO DE VENTA" %></th>
+                      <th scope="col" class="text-center text-muted col-hide">STOCK</th>
+                      <th scope="col" class="text-center text-muted col-hide">TALLA</th>
+                      <th scope="col" class="text-center text-muted col-hide">CANTIDAD</th>
+                      <th scope="col" class="text-center text-muted col-hide"><%= params[:query] == "3" ? "PROVEEDOR" : "CLIENTE" %></th>
+                      <th scope="col" class="text-center text-muted col-hide">FECHA</th>
                     </tr>
                   </thead>
                   <tbody>
