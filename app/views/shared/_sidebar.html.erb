@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<ul onclick="closeSidebar()" style="display:none" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu sidebar-block" id="accordionSidebarone">
+<ul style="display:none" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu sidebar-block" id="accordionSidebarone">
 
   <button class="w3-bar-item w3-large">X</button>
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -72,7 +72,7 @@
 
 </ul>
  <span id="menu-line" class="w3-teal">
-  <button onclick="openSidebar()">☰</button>
+  <button id="open-sidebar">☰</button>
 </span>
 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu sidebar-none" id="accordionSidebar">
@@ -145,16 +145,3 @@
   </li>
 
 </ul>
-
-<script>
-  const openSidebar = () => {
-  document.getElementById("accordionSidebarone").style.display = "block";
-  document.querySelector(".w3-teal").classList.toggle("line-none");
-  document.querySelector(".w3-teal").classList.remove("w3-teal");
-}
-  const closeSidebar = () => {
-  document.getElementById("accordionSidebarone").style.display = "none";
-  document.getElementById("menu-line").classList.toggle("line-none");
-  document.getElementById("menu-line").classList.add("w3-teal");
-}
-</script>
