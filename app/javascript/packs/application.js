@@ -8,7 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "chartkick/chart.js"
-
+import {openSidebar} from '../plugins/open_sidebar'
+import {closeSidebar} from '../plugins/close_sidebar'
 
 Rails.start()
 Turbolinks.start()
@@ -31,4 +32,6 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   initSweetalert();
+  openSidebar();
+  closeSidebar();
 });

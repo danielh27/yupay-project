@@ -192,3 +192,32 @@
         }
     }
 }
+.w3-teal{
+  display: none;
+}
+.line-none{
+  display: none;
+}
+
+// RESPONSIVE
+
+@media (min-width: 577px) {
+  /* For a screen < 576px, this CSS will be read */
+  #accordionSidebarone{
+    display: none !important;
+  }
+}
+@media (max-width: 576px) {
+  /* For a screen < 576px, this CSS will be read */
+  .sidebar-none{
+    display:none;
+  }
+  .line-none{
+    display: none;
+    color: white
+  }
+  .w3-teal{
+    display: inline;
+    color: white
+  }
+}
