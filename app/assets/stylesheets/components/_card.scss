@@ -163,19 +163,19 @@
   color: #013440;
 }
 
-  .card-mov {    
-    
+  .card-mov {
+
     .card-header{
       background-color: transparent;
       border-bottom: 0;
     }
-    
+
     .table td {
       border-top: 0;
     }
-    
+
   }
-  
+
   .order-card {
     background-color: #E3E9EA;
     border-radius: 10px;
@@ -195,13 +195,13 @@
         padding: 0px 12px;
       }
     }
-    
+
     p {
       font-size: 14px;
       margin-bottom: 0px;
       font-family: "Be-Vietnam-SemiBold";
     }
-    
+
     .card-body {
       padding-top: 0px;
       font-size: 14px;
@@ -217,17 +217,17 @@
       th {
         padding: 0px;
       }
-      
+
       td {
         padding: 0px;
-      }  
+      }
       .text-product-name{
         font-family: "Be-Vietnam-Bold";
       }
       .text-product-price {
         font-family: "Be-Vietnam-SemiBold";
       }
-    } 
+    }
   }
 
   .purchase-card {
@@ -244,27 +244,27 @@
 
     .card-header {
       .btn {
-        color: #F20F38; 
+        color: #F20F38;
         box-shadow: none;
         padding: 0px 12px;
       }
     }
-    
+
     p {
       font-size: 14px;
       margin-bottom: 0px;
       font-family: "Be-Vietnam-SemiBold";
     }
-    
+
     .card-body {
       padding-top: 0px;
       font-size: 14px;
 
-      
+
       th {
         padding: 0px;
       }
-      
+
       td {
         padding: 0px;
       }
@@ -276,7 +276,27 @@
       }
     }
   }
-  
-
-
-  
+@media (max-width: 1400px) {
+  /* For a screen < 1400px, this CSS will be read */
+}
+@media (max-width: 1200px) {
+  /* For a screen < 1200px, this CSS will be read */
+}
+@media (max-width: 992px) {
+  /* For a screen < 992px, this CSS will be read */
+  .date-collapse {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  /* For a screen < 768px, this CSS will be read */
+  .text-product-price {
+    display: none;
+  }
+}
+@media (max-width: 576px) {
+  /* For a screen < 576px, this CSS will be read */
+  .unity-class {
+    display: none;
+  }
+}

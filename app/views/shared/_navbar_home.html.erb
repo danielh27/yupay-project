@@ -1,40 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-luz pt-3">
+<nav id="navbar-home-page" class="navbar navbar-expand-lg navbar-light pt-3">
+
   <div class="container-fluid">
     <a class="navbar-brand btn-sidebar" href="#"> <%= image_tag "logo.svg" %></a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+    <div class="collapse navbar-collapse" id="navbarText">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end">
         <li class="nav-item px-2">
-          <a class="nav-link nav" aria-current="page" href="#membership-section">Membresías</a>
+          <a class="nav-link nav link-section" aria-current="page" href="#membership-section">Membresías</a>
         </li>
-        <li class="nav-item px-2">
-          <a class="nav-link nav" href="#"> Soporte</a>
+
+        <li class="nav-item px-2 margin-left-link-section">
+          <a class="nav-link nav link-section" href="#">Soporte</a>
         </li>
-        <li class="nav-item mr-3 px-2">
-          <a class="nav-link nav" href="#">Nosotros</a>
+
+        <li class="nav-item px-2 margin-left-link-section">
+          <a class="nav-link nav link-section" href="#">Nosotros</a>
         </li>
-          <li>  <%= link_to "Sign Up", new_user_registration_path, class: "nav-link registration" %> </li>
-        <%# No es necesario el boton Sign Up, el boton Login tiene logica automatica para redirigir al Sign Up si el usuario no esta creado aun %>
-        <%# <li class="nav-item">
-          <a class="nav-link" href="#">Sign Up</a>
-        </li> %>
 
         <% if user_signed_in? %>
-          <li class="nav-item mx-4 dropdown px-3 cursor-pointer">
-            <%= image_tag "https://www.pikpng.com/pngl/m/66-666510_contacts-svg-png-icon-free-download-onlinewebfonts-contacts.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <li class="nav-item px-2 margin-left-link-section">
+            <%= link_to "Dashboard", dashboard_path, class:"nav-link nav link-section" %>
+          </li>
+
+          <li class="nav-item px-2 user-sign-out">
+            <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "nav-link nav link-section" %>
+          </li>
+
+          <li class="nav-item mx-4 dropdown px-3 cursor-pointer user-avatar">
+            <%= image_tag "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%# <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
-      <% else %>
-        <li class="nav-item mx-4">
-          <%= link_to "Login", new_user_session_path, class: "nav-link login" %>
-        </li>
-      <% end %>
+
+        <% else %>
+          <li class="nav-item px-2 margin-left-link-section">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link navbar-button" %>
+          </li>
+
+          <li class="nav-item px-2">
+            <%= link_to "Login", new_user_session_path, class: "nav-link navbar-button" %>
+          </li>
+
+        <% end %>
       </ul>
     </div>
   </div>

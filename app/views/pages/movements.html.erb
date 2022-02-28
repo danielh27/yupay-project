@@ -27,7 +27,7 @@
                               <p style="padding-left:30px"> <strong> Se registró  <%= item.list_orders.count %></strong>  ventas al cliente <%= item.customer.name %> </p>
                             </div>
 
-                            <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
+                            <p class="date-collapse">Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M")%></p>
                           </div>
 
                         </button>
@@ -36,7 +36,7 @@
                     <%=  %>
                     <div id= <%= "order#{item.id}"  %>  class="collapse" aria-labelledby=<%= "heading-order#{item.id}"  %> data-parent="#accordionExample">
                       <div class="card-body">
-                        <table class="table table-mov">
+                        <table class="table mb-0">
                            <%# <tr>
                               <th>Cantidad</th>
                               <th>Producto</th>
@@ -44,7 +44,7 @@
                             </tr> %>
                           <% item.list_orders.each do |order_item| %>
                             <tr class="d-flex">
-                              <td class="text-right pr-3"><%= order_item.quantity %> un</td>
+                              <td class="text-right pr-3"><%= order_item.quantity %> <span class="unity-class">un</span></td>
                               <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
                               <td class="text-right text-product-price ml-3"> S/. <%= order_item.product.price %></td>
                             </tr>
@@ -66,7 +66,7 @@
                             <p style="padding-left:30px">Se registro <%= item.list_purchases.count %> compras al proveedor  <%= item.supplier.name %></p>
                           </div>
 
-                            <p>Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
+                            <p class="date-collapse">Fecha: <%= item.updated_at.strftime("%d/%m/%y: %H:%M") %></p>
                           </div>
                         </button>
                       </h2>
@@ -82,7 +82,7 @@
                             </tr>%>
                           <% item.list_purchases.each do |order_item| %>
                             <tr class="d-flex">
-                              <td class="text-right pr-3"><%= order_item.quantity %> un</td>
+                              <td class="text-right pr-3"><%= order_item.quantity %> <span class="unity-class">un</span></td>
                               <td class="text-left text-product-name pl-3 flex-grow-1"> <%= order_item.product.name %></td>
                               <%# ojo aca va el costo %>
                               <td class="text-right text-product-price ml-3">S/. <%= order_item.product.cost %></td>

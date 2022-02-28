@@ -1,86 +1,75 @@
-// Specific CSS for your home-page
+//******************* Header section ***********************
 
-// Banner section
-.banner-c {
-  justify-content: center;
-  margin: 5rem auto;
-  height: 100vh;
-}
-#navbar-home-page {
-  // font-weight: 600;
-  font-family: "Be-Vietnam-Bold";
-  font-size: 16px;
-  width: 100%;
-  justify-self: end;
-  z-index: 10;
-  position: absolute;
-  top: 0;
-
-  .navbar-nav  {
-    gap: 40PX;
-  }
-
-  .nav {
-    color: white !important;
-    text-align: center;
-  }
-}
 .home-header {
-  background: linear-gradient(to top, rgba(1,62,64,0.2), rgba(1,62,64,0.8)), linear-gradient(to left, rgba(1,62,64,0), rgba(1,62,64,0.8)), url("https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background: linear-gradient(to bottom, rgba(0, 23, 29, 0.608) 4%, rgba(0, 0, 0, 0.1) 30%), linear-gradient(0.25turn, hsla(188, 97%, 13%, 0.85) 25%, rgba(0, 0, 0, 0.1) 75%), asset-url("homepage-banner.jpg");
   height: 100vh;
-  min-height: 800px;
-  width: 100%;
-  position: relative;
-  // object-fit: fill;
-  background-position: center;
+  min-height: 100%;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  h1{
-    // font-weight: bold;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    width: 14ch;
     font-family: "Be-Vietnam-ExtraBold";
-    font-size: 4rem;
+    font-size: 4.5rem;
     color: white;
-  }
-  p{
-    color: white;
+    margin-bottom: 1.2rem;
   }
 }
-.btn-lg {
+
+.btn-header {
   color: #ffffff;
   background-color: #F20F38;
-  border-radius: 5px;
-  font-size: 20px !important;
-  width: 190px;
-  height: 45px;
+  border-radius: 10px;
   font-family: "Be-Vietnam-Bold";
-  padding: 12px 18px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.47rem 1.2rem;
+  font-size: 1.25rem;
+
   &:hover{
     color: white;
     text-decoration: none;
     cursor: pointer;
-    background-color: rgb(242, 35, 60);
+    background-color: rgb(235, 65, 85);
   }
 }
 
-// Second section homepage
-.cards-home {
+
+//******************* Cards section ***********************
+
+.cards-section-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 140px;
-  height: 100vh;
+  grid-template-columns: 0.6fr 1fr;
+  min-height: 95vh;
+}
+
+.cards-info{
+  padding: 2rem 3rem;
+}
+
+.cards-section-title {
+  font-size: 2.813rem;
+  color: #013440;
+  font-family: "Be-Vietnam-ExtraBold";
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 #image-home-2 {
  background-image: url('https://images.unsplash.com/photo-1598257006408-538c27529235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80');
- width: 100%;
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
 }
 
-.card-small {
-  height: 260px;
-  width: 300px;
+.small-card {
+  max-width: 325px;
+  min-width: 310px;
+  height: 320px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -88,135 +77,111 @@
   background-color: #F8F8F8;
   border: 0.1px solid rgb(1, 52, 64);
   border-radius: 15px;
+  margin: 0.4rem;
 
   h3 {
-    // font-weight: bold;
     font-family: "Be-Vietnam-SemiBold";
     font-size: 20px;
     color: rgb(1, 52, 64);
   }
+
   p {
     font-size: 14px;
     color: black;
   }
-}
 
-.cards-info .text-center {
-
-  h2 {
-  // font-weight: bold;
-  font-family: "Be-Vietnam-ExtraBold";
-  font-size: 45px;
-  margin-top: 5rem;
+  .card-icon {
+    font-size: 4.063rem;
+    color: rgb(1, 52, 64);
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
 }
 
-.icon-home{
-  font-size: 50px;
-  color: rgb(1, 52, 64);
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
-
-.cards-info{
-  margin-right: 100px;
-}
 
 
-// Estilos para membership
+//******************* Membership section ***********************
 
-.membership {
-  padding: 70px 100px;
+.membership-section-container {
+  padding: 50px 25px;
   background-color: white;
-  // width: 80%;
-  // margin: 0 auto;
-  .membership-card {
-    max-width: 350px;
-    transition: transform 0.4s ease-in-out;
+}
 
-    &:hover {
-      transform: translateY(-5px) translateX(5px) scale(1.05);
-      box-shadow: -5px 5px 10px 2px rgba(0, 0, 0, 0.00);
-    }
+.membership-section-title {
+  font-size: 2.813rem;
+  font-family: "Be-Vietnam-ExtraBold";
+  margin: 0;
+  color: #013440;
+}
+
+.membership-card {
+  border: 1px solid  #241e1f;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 60px 70px;
+  max-width: 350px;
+  min-width: 335px;
+  transition: transform 0.4s ease-in-out;
+  margin: 1rem;
+
+  .d-flex {
+    gap: 15px;
   }
 
-  .row {
-    padding-bottom: 15PX;
-    text-align: center;
-    justify-content: center;
+  .check {
+    filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
   }
-  .display-4 {
-    font-size: 45px;
-    // font-weight: bold;
-    font-family: "Be-Vietnam-ExtraBold";
-    margin: 0px;
+
+  p {
     color: #013440;
+    font-size: 14px;
+    margin-bottom: 5px;
   }
 
-  .col {
-    border: 1px solid  #241e1f;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-    padding: 60px 70px;
-    .price {
-      font-size: 42px;
-      // font-weight: bold;
-      font-family: "Be-Vietnam-Bold";
-      color: #013440;
-      margin-bottom: 8px;
-    }
-    .btn-m {
-      border-radius: 28px;
-      font-size: 18px;
-      font-family: "Be-Vietnam-Bold";
-      border-color:  #F20F38;
-      color: #013440;
-      height: 50px;
-      width: 180px;
-      // border: none;
-      margin-bottom: 25px;
-      &:hover {
-        background-color: #F20F38;
-        color: white;
-      }
+  h3 {
+    color: #013440;
+    font-size: 22px;
+    font-family: "Be-Vietnam-Bold";
+    margin-bottom: 5px;
+  }
+
+  &:hover {
+    transform: translateY(-5px) translateX(5px) scale(1.05);
+    box-shadow: -5px 5px 10px 2px rgba(0, 0, 0, 0.00);
+    background-color: #013440;
+
+    h3, p, .membership-price {
+      color: white;
     }
 
-    h3 {
-      color: #013440;
-      font-size: 22px;
-      // font-weight: medium;
-      font-family: "Be-Vietnam-Bold";
-      margin-bottom: 5px;
+    .check {
+      filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(25deg) brightness(111%) contrast(101%);
     }
-    p {
-      color: #013440;
-      // margin-bottom: 10px;
-      font-weight: normal;
-      font-size: 14px;
-    }
-    .d-flex {
-      gap: 15px;
-      .check {
-        filter: invert(15%) sepia(59%) saturate(949%) hue-rotate(150deg) brightness(90%) contrast(99%);
-      }
-      // https://codepen.io/sosuke/pen/Pjoqqp
-    }
+  }
+}
 
-    &:hover {
-      background-color: #013440;
-      .price {
-        color: white;
-      }
-      p {
-        color: white;
-      }
-      h3 {
-        color: white;
-      }
-      .check {
-        filter: invert(100%) sepia(0%) saturate(7495%) hue-rotate(25deg) brightness(111%) contrast(101%);
-      }
-    }
+.membership-price {
+  display: block;
+  font-size: 42px;
+  font-family: "Be-Vietnam-Bold";
+  color: #013440;
+  margin-bottom: 0.8rem;
+}
+
+.membership-card-btn {
+  border-radius: 28px;
+  font-size: 18px;
+  font-family: "Be-Vietnam-Bold";
+  border-color:  #F20F38;
+  color: #013440;
+  height: 50px;
+  width: 180px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #F20F38;
+    color: white;
   }
 }
 
@@ -224,16 +189,47 @@
   cursor: pointer;
 }
 
-// en page movements:
-.container-wo-sidebar {
-  margin-left: 15%;
-  width: 80%;
-  float: left;
-  min-height: 100%;
-  position: relative;
-  z-index: 2;
+
+//******************* Responsive ***********************
+
+@media (max-width: 1165px) {
+
+  .cards-section-container {
+    grid-template-columns: 1fr;
+    min-height: 78vh;
+  }
+
+  #image-home-2 {
+    display: none;
+  }
 }
 
-.table-mov {
-  margin-bottom: 0rem
+@media (max-width: 768px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 3.4rem;
+    }
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .home-header {
+    text-align: center;
+
+    h1 {
+      width: 100%;
+      font-size: 2.8rem;
+    }
+  }
 }
