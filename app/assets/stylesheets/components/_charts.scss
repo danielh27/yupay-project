@@ -1,11 +1,11 @@
 // Area Chart
 .chart-area {
   position: relative;
-  height: 10rem;
+  // height: 10rem;
   width: 100%;
-  @include media-breakpoint-up(md) {
-    height: 20rem;
-  }
+  // @include media-breakpoint-up(md) {
+  //   height: 20rem;
+  // }
 }
 
 // Bar Chart
