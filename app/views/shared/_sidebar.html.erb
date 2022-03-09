@@ -1,5 +1,81 @@
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu" id="accordionSidebar">
+<ul style="display:none" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu sidebar-block" id="accordionSidebarone">
+
+  <button class="w3-bar-item w3-large">X</button>
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+      <div class="sidebar-brand-icon nav-logo rotate-n-15">
+          <%= image_tag "logo.svg", class: "btn-sidebar-logo" %>
+      </div>
+  </a>
+
+  <li class="nav-item <%= "active" if current_page?(dashboard_path) %>">
+    <%= link_to dashboard_path, class: "nav-link" do %>
+      <%= image_tag "Dashboard.svg", class: "btn-sidebar" %>
+      <p class="name-sidebar"> Dashboard </p>
+    <% end %>
+  </li>
+
+  <li class="nav-item <%= "active" if current_page?(movements_path) %>">
+    <%= link_to movements_path, class: "nav-link" do %>
+      <%= image_tag "Actividad.svg", class: "dashboard" %>
+      <p class="name-sidebar"> Movimientos </p>
+    <% end %>
+  </li>
+
+  <li class="nav-item <%= "active" if current_page?(products_path) %>">
+    <%= link_to products_path, class: "nav-link" do %>
+      <%= image_tag "Product.svg" %>
+      <p class="name-sidebar"> Productos </p>
+    <% end %>
+  </li>
+
+  <% if params[:purchase_id].present? %>
+    <% purchase_id = params[:purchase_id] %>
+  <% else %>
+    <% purchase_id = 1 %>
+  <% end %>
+
+  <li class="nav-item <%= "active" if current_page?(new_purchase_path) || current_page?(purchase_list_purchases_path(purchase_id)) %>">
+    <%= link_to  new_purchase_path, class: "nav-link" do  %>
+      <%= image_tag "Registro.svg", class: "btn-sidebar" %>
+      <p class="name-sidebar"> Entradas </p>
+    <% end %>
+  </li>
+
+  <% if params[:order_id].present? %>
+    <% order_id = params[:order_id] %>
+  <% else %>
+    <% order_id = 1 %>
+  <% end %>
+
+  <li class="nav-item <%= "active" if current_page?(new_order_path) || current_page?(order_list_orders_path(order_id)) %>">
+    <%= link_to new_order_path, class: "nav-link" do %>
+      <%= image_tag "Salida.svg", class: "btn-sidebar" %>
+      <p class="name-sidebar"> Ventas </p>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <%= image_tag "Dudas.svg", class: "btn-sidebar" %>
+      <p class="name-sidebar"> Dudas </p>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="#">
+      <%= image_tag "Ajustes.svg", class: "btn-sidebar" %>
+      <p class="name-sidebar"> Ajustes </p>
+    </a>
+  </li>
+
+
+</ul>
+ <span id="menu-line" class="w3-teal">
+  <button id="open-sidebar">☰</button>
+</span>
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion sidebarMenu sidebar-none" id="accordionSidebar">
 
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
       <div class="sidebar-brand-icon nav-logo rotate-n-15">
